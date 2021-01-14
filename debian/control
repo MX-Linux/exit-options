@@ -1,0 +1,12 @@
+Source: exit-options
+Section: admin
+Priority: optional
+Maintainer: Adrian <adrian@mxlinux.org>
+Build-Depends: debhelper (>=9.2), qtbase5-dev, qttools5-dev-tools
+Standards-Version: 3.9.8
+
+Package: exit-options
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: exit-options
+ Pop-up with exit options for MX Fluxbox

@@ -1,0 +1,49 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 14 Jan 2021 09:28:08 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 21.1
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (21.1) mx; urgency=medium
+ .
+   * initial release
+Checksums-Sha1:
+ 9c297c147daf861a36b3258c1ddb887a024965d0 1118 exit-options_21.1.dsc
+ 743a68238db7e07d9f7536c9feb6d9eabb217829 2892 exit-options_21.1.tar.xz
+ f6abb8203135cd131d1fa09b8fa0ae3394f05e8c 366732 exit-options-dbgsym_21.1_amd64.deb
+ 92293ce910b6b921727ca2057bde0e3499978711 10691 exit-options_21.1_amd64.buildinfo
+ 1c2c8bf1c35e7e659729372c7ad62637f19da50e 9266 exit-options_21.1_amd64.deb
+Checksums-Sha256:
+ bdad37fa615dcd46b33b659532dc4fb9c8742fc3e91c5edc052466bd737e4301 1118 exit-options_21.1.dsc
+ a271bbb249d2f62d6f3850c78ab6ed4d65f51091e8cf070267c9c2cf18ed3200 2892 exit-options_21.1.tar.xz
+ b8e82e47ac9e1f6f434a6efc33271dd6fbbc79ba72979baab78e92b2dcd08c97 366732 exit-options-dbgsym_21.1_amd64.deb
+ 9e197fc89ab8c590a37e295949fd4eb546ffd0770759e8a9f5514185160d021d 10691 exit-options_21.1_amd64.buildinfo
+ 0ff50ed60cb1063236ff14144c190797c172265f2224a04db331d4cc7aa8bea6 9266 exit-options_21.1_amd64.deb
+Files:
+ 15938237b3b44fe5421f2ab0ce6b3dd5 1118 admin optional exit-options_21.1.dsc
+ a4e0fa82f7f53e22724fbaa4882212e2 2892 admin optional exit-options_21.1.tar.xz
+ 764a65b6499f528e87fdbe4799a74d9c 366732 debug extra exit-options-dbgsym_21.1_amd64.deb
+ fdc6741994eadc462504b6a92b3c7661 10691 admin optional exit-options_21.1_amd64.buildinfo
+ 9a46539bcb33c50826959ee521905be1 9266 admin optional exit-options_21.1_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmAAaH0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBhvB/97HUYfOaEtiqHw7Iew2DoijXhWB3Ah
+7fsBe2wNvvHlVSPPL2Oz/UQV3+EqPTssbJqTX2BebFCwdmbSEtm/Dw574NXQlmEK
+60UZktdaP8+kqqp9dSzO5WKamffmtpj1x220a30pAGysM2e3OIuTd0pf/Z7+O6ZL
+knUhxWQgAqXtUAEOA2EtGEpRic8cocFUkND9LGgE1AAysz7c5ecdTo6YXBMyJQ6f
+3hMO6qVmtYu10Rs9c1/Ht0cDgcSp4r7HccktjuURXv33WlukhClFFllHkIGefnP6
+hd0lFQwSP+MFIpa6WcfvYcqhqfnKMbfr4LZnGzxpvsndMOEutMLtGUQT
+=//I+
+-----END PGP SIGNATURE-----
