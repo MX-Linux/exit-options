@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint );
+    setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint );
     connect(qApp, &QApplication::aboutToQuit, [this] { saveSettings(); });
 
     QSettings settings("MX-Linux", qApp->applicationName());
