@@ -12,20 +12,20 @@ Build-Depends: debhelper (>= 9.2), qtbase5-dev, qttools5-dev-tools
 Package-List:
  exit-options deb admin optional arch=any
 Checksums-Sha1:
- 743a68238db7e07d9f7536c9feb6d9eabb217829 2892 exit-options_21.1.tar.xz
+ 489459084a790fa2d3867dc9670986851457e5af 14092 exit-options_21.1.tar.xz
 Checksums-Sha256:
- a271bbb249d2f62d6f3850c78ab6ed4d65f51091e8cf070267c9c2cf18ed3200 2892 exit-options_21.1.tar.xz
+ 8f68fb58ea25f28fbbae288dbb3d23f2399c9c475e0215fbdbbad3197f893345 14092 exit-options_21.1.tar.xz
 Files:
- a4e0fa82f7f53e22724fbaa4882212e2 2892 exit-options_21.1.tar.xz
+ 212ebc594e83edbf8e9b6194d32e6070 14092 exit-options_21.1.tar.xz
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmAAaFATHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBauB/9yp+bhItZAcx6SJBaAKeuUhWOnLpjo
-s93TzqVCQKBcNOSnpvW17Qk0HKxEjFNW/wGzsciCC2YryN9NmHGMypcwTwexFSrC
-A0T0ykUUA10zXNhOhlgROHR14EZ0K6BbgE2sbwGt1WQKUwKhRIzDbWtqdbWM9Yvu
-dNnEd702mscLaODvdaf9Fqkm3ptdV++tJMvPSg5oMpRin4yiW+IqN66Sok7L3zRB
-Ztm5Sg2S5Ou4GSbk0fBvDga7c3d2JX/CXpG8EiHxah8Mea18c6spOyUvlPqpG2Bs
-Vpe29FURVTBzKej/hpZgtUNPn/BZ8YHgRun6Cd+eFBBHK6EpTGAS7Q6V
-=Lr/C
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmABrG8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumNQfCACAeDq3J7uXtfex08q6564ouMXh8Lgc
+iK5dna58QjWs/Jh5ji4zgLFD83QcGsIcgDXZnvuy9YKAWlm12bbehCHtCzAkAfdf
+YZpn056p+p56ri4x3OiEZ2Iu/roE+NO+x9fEpzwdA+hdzSe8c9ml0bzUW+WaD7ds
+iW8Uuc2Z1IWZ4vGJYIYfch2rcJuiC9rEoTX+83QX6UWGaItr3fUENZvsIQop1ctp
+f5D7xTjWN+fS4W6nbBtCwPc0fnL2yMaakMBKKQ4uAyyjhQo1L7+OnkOYDtRJg+5s
+OZtajOE7S069HFYwWnq4KkHpB/XlawQLyM608za0gPXOr/bVBf/wejiN
+=Jv3W
 -----END PGP SIGNATURE-----
