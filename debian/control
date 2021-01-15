@@ -8,5 +8,7 @@ Standards-Version: 3.9.8
 Package: exit-options
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Conflicts: mx-fluxbox-data (<< 20.12.01), mx-fluxbox (<< 20.12.01)
+Replaces: mx-fluxbox-data (<< 20.12.01), mx-fluxbox (<< 20.12.01)
 Description: exit-options
  Pop-up with exit options for MX Fluxbox
