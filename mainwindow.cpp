@@ -51,7 +51,7 @@ void MainWindow::on_buttonRestart_clicked()
 
 void MainWindow::on_buttonShutdown_clicked()
 {
-    system("sudo shutdown &");
+    system("sudo /sbin/halt &");
 }
 
 bool MainWindow::isRaspberryPi()

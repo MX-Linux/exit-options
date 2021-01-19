@@ -1,3 +1,9 @@
+exit-options (21.1.01) mx; urgency=medium
+
+  * changed shutdown command 
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 19 Jan 2021 16:37:15 -0500
+
 exit-options (21.1) mx; urgency=medium
 
   * initial release 
