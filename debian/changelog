@@ -1,3 +1,10 @@
+exit-options (21.1.02) mx; urgency=medium
+
+  * add -v/--vertical and -h/--horizontal options
+  * layout=horizontal in .conf file also works
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 31 Jan 2021 18:20:40 -0500
+
 exit-options (21.1.01) mx; urgency=medium
 
   * changed shutdown command 
