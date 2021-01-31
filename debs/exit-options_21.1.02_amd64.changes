@@ -1,0 +1,50 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 31 Jan 2021 18:20:40 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 21.1.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (21.1.02) mx; urgency=medium
+ .
+   * add -v/--vertical and -h/--horizontal options
+   * layout=horizontal in .conf file also works
+Checksums-Sha1:
+ 1aca1a2746fc4095cd8509cd435f0450d4d9dc17 1133 exit-options_21.1.02.dsc
+ 1ad16636f4ea2fe8ba4d04034f6035f5521c3b2d 14188 exit-options_21.1.02.tar.xz
+ fe3a95c54272f85739840be4aae62d680d692948 378432 exit-options-dbgsym_21.1.02_amd64.deb
+ 5b06e10121d5d1745813c0f79ada0d276463cca0 10727 exit-options_21.1.02_amd64.buildinfo
+ 6cd3248845d59c1c2cada6e6b926077a78eaf364 11622 exit-options_21.1.02_amd64.deb
+Checksums-Sha256:
+ a11e3d734308244fe88940bdca37dc71b4c10a608e94168f8e02739c6b42a5b7 1133 exit-options_21.1.02.dsc
+ f7f4a5c88360eb8377b355b682b3f4ba4e7fa5918d9f13900b830c79f889da20 14188 exit-options_21.1.02.tar.xz
+ a0979592a47bef5c05f642f517362cd1d22df2e8787a0f136d8bd78ef4878f06 378432 exit-options-dbgsym_21.1.02_amd64.deb
+ 88ae8bba7788fe0862cb18301a381f937e49152d229cb3cd4ee4cab65d1351a6 10727 exit-options_21.1.02_amd64.buildinfo
+ 6e5d67f5f708b68d2fad9ad16ed3d94c6994425818f11390f9c778ad90a87141 11622 exit-options_21.1.02_amd64.deb
+Files:
+ 9fcbf4cd3aff628ae855fbc147281fb7 1133 admin optional exit-options_21.1.02.dsc
+ 1767bb439590cf403e3da68fefab8f61 14188 admin optional exit-options_21.1.02.tar.xz
+ f260aba6bc0d7b722c0bba0e51781d7e 378432 debug extra exit-options-dbgsym_21.1.02_amd64.deb
+ 52e93d1dfd1d88147ad724c18bdf76d1 10727 admin optional exit-options_21.1.02_amd64.buildinfo
+ 8c84e709c58292ed9f9d549be81293cb 11622 admin optional exit-options_21.1.02_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmAXPIsTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumOu0B/0SsB54Xy+rNldf6DKdo/ffbdwcn5sy
+WfbREPf5mqk0CgCNBwItnlnuP6Zizl35o6MmVehN79ZJYyNl/i247JZDbx2XAwcA
+Ro69tyYR4hMnTIJ1uzllrFT7vocRz/ikeO/F1wYI54TNHi8vHVOF4s9EYJu8iM0N
+8wi29htnKVuKI2/UziCtJWIqC9XqdX3ev0fxKTEGi+WNYNa1ZFu3SpORwUKcCZdi
+/XM45xca0AgfkWGPzs6NDtGsTuI5OX+bA2m9qVayLbDIQO1nKth8y1SrlFWWSDlw
+glMGM8FTJkqTMtRJp65+aqQyjnmhIbHR9EB/SXSVfhDKNYifAwiQoxzd
+=9dJu
+-----END PGP SIGNATURE-----
