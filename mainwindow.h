@@ -1,31 +1,30 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QCommandLineParser>
 #include <QDialog>
-
-namespace Ui {
-class MainWindow;
-}
 
 class MainWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(const QCommandLineParser &arg_parser, QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void on_buttonExit_clicked();
-    void on_buttonLock_clicked();
-    void on_buttonRestart_clicked();
-    void on_buttonShutdown_clicked();
-    void on_buttonSleep_clicked();
+    void on_buttonExit();
+    void on_buttonLock();
+    void on_buttonRestart();
+    void on_buttonShutdown();
+    void on_buttonSleep();
     void saveSettings();
 
 private:
-    Ui::MainWindow *ui;
+    bool horizontal;
+
     bool isRaspberryPi();
+
 };
 
 #endif // MAINWINDOW_H
