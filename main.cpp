@@ -7,6 +7,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    a.setOrganizationName("MX-Linux");
 
     QCommandLineParser parser;
     parser.setApplicationDescription("Pop-up with exit options for MX Fluxbox");
