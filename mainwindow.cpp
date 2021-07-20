@@ -8,7 +8,7 @@
 MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
     QDialog(parent)
 {
-    QSettings settings("MX-Linux", qApp->applicationName());
+    QSettings settings(qApp->organizationName(), qApp->applicationName());
 
     QPushButton *buttonLock = new QPushButton(QIcon("/usr/local/share/icons/system-lock-mxfb.png"), QString());
     QPushButton *buttonExit = new QPushButton(QIcon("/usr/local/share/icons/system-log-out.png"), QString());
@@ -61,11 +61,11 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
 }
 
 MainWindow::~MainWindow()
-{    
+{
 }
 
 void MainWindow::on_buttonLock()
-{   
+{
     system("dm-tool switch-to-greeter &");
 }
 
@@ -81,7 +81,7 @@ void MainWindow::on_buttonSleep()
 
 void MainWindow::saveSettings()
 {
-    QSettings settings("MX-Linux", qApp->applicationName());
+    QSettings settings(qApp->organizationName(), qApp->applicationName());
     settings.setValue("geometry", saveGeometry());
     if (horizontal)
         settings.setValue("layout", "horizontal");
