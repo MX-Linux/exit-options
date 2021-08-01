@@ -1,15 +1,12 @@
 #include <QApplication>
 #include <QLayout>
 #include <QPushButton>
-#include <QSettings>
 
 #include "mainwindow.h"
 
 MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
     QDialog(parent)
 {
-    QSettings settings(qApp->organizationName(), qApp->applicationName());
-
     QPushButton *buttonLock = new QPushButton(QIcon("/usr/local/share/icons/system-lock-mxfb.png"), QString());
     QPushButton *buttonExit = new QPushButton(QIcon("/usr/local/share/icons/system-log-out.png"), QString());
     QPushButton *buttonSleep = new QPushButton(QIcon("/usr/local/share/icons/system-sleep.png"), QString());
@@ -24,8 +21,9 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
     QList<QPushButton *> btnList {buttonLock, buttonExit, buttonSleep, buttonRestart, buttonShutdown};
 
     QBoxLayout *layout;
-    if ((settings.value("layout").toString() == "horizontal" or arg_parser.isSet("horizontal"))
-            and not arg_parser.isSet("vertical")) {
+    if ((settings.value("layout").toString() == "horizontal"
+         || arg_parser.isSet("horizontal"))
+            && !arg_parser.isSet("vertical")) {
         horizontal = true;
         layout = new QHBoxLayout(this);
     } else {
@@ -35,7 +33,8 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
 
     layout->addWidget(buttonLock);
     layout->addWidget(buttonExit);
-    if (not isRaspberryPi()) layout->addWidget(buttonSleep);
+    if (!isRaspberryPi())
+        layout->addWidget(buttonSleep);
     layout->addWidget(buttonRestart);
     layout->addWidget(buttonShutdown);
     setLayout(layout);
@@ -54,8 +53,8 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
        QByteArray geometry = saveGeometry();
        restoreGeometry(settings.value("geometry").toByteArray());
        // if too wide/tall reset geometry
-       if ((horizontal && size().height() >= size().width() ) ||
-               (!horizontal && size().height() <= size().width()))
+       if ((horizontal && size().height() >= size().width() )
+               || (!horizontal && size().height() <= size().width()))
                    restoreGeometry(geometry);
     }
 }
@@ -81,7 +80,6 @@ void MainWindow::on_buttonSleep()
 
 void MainWindow::saveSettings()
 {
-    QSettings settings(qApp->organizationName(), qApp->applicationName());
     settings.setValue("geometry", saveGeometry());
     if (horizontal)
         settings.setValue("layout", "horizontal");

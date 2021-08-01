@@ -3,6 +3,7 @@
 
 #include <QCommandLineParser>
 #include <QDialog>
+#include <QSettings>
 
 class MainWindow : public QDialog
 {
@@ -22,6 +23,7 @@ private slots:
 
 private:
     bool horizontal;
+    QSettings settings;
 
     bool isRaspberryPi();
 
