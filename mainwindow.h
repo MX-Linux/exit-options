@@ -14,11 +14,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_buttonExit();
-    void on_buttonLock();
-    void on_buttonRestart();
-    void on_buttonShutdown();
-    void on_buttonSleep();
+    void on_pushExit();
+    void on_pushLock();
+    void on_pushRestart();
+    void on_pushShutdown();
+    void on_pushSleep();
     void saveSettings();
 
 private:
