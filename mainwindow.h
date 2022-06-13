@@ -11,21 +11,21 @@ class MainWindow : public QDialog
 
 public:
     explicit MainWindow(const QCommandLineParser &arg_parser, QWidget *parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() = default;
 
 private slots:
-    void on_pushExit();
-    void on_pushLock();
-    void on_pushRestart();
-    void on_pushShutdown();
-    void on_pushSleep();
+    static void on_pushExit();
+    static void on_pushLock();
+    static void on_pushRestart();
+    static void on_pushShutdown();
+    static void on_pushSleep();
     void saveSettings();
 
 private:
     bool horizontal;
     QSettings settings;
 
-    bool isRaspberryPi();
+    static bool isRaspberryPi();
 
 };
 

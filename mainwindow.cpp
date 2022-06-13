@@ -7,11 +7,11 @@
 MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
     QDialog(parent)
 {
-    auto pushLock = new QPushButton(QIcon("/usr/local/share/icons/system-lock-mxfb.png"), QString());
-    auto pushExit = new QPushButton(QIcon("/usr/local/share/icons/system-log-out.png"), QString());
-    auto pushSleep = new QPushButton(QIcon("/usr/local/share/icons/system-sleep.png"), QString());
-    auto pushRestart = new QPushButton(QIcon("/usr/local/share/icons/system-restart.png"), QString());
-    auto pushShutdown = new QPushButton(QIcon("/usr/local/share/icons/system-shutdown.png"), QString());
+    auto *pushLock = new QPushButton(QIcon("/usr/local/share/icons/system-lock-mxfb.png"), QString());
+    auto *pushExit = new QPushButton(QIcon("/usr/local/share/icons/system-log-out.png"), QString());
+    auto *pushSleep = new QPushButton(QIcon("/usr/local/share/icons/system-sleep.png"), QString());
+    auto *pushRestart = new QPushButton(QIcon("/usr/local/share/icons/system-restart.png"), QString());
+    auto *pushShutdown = new QPushButton(QIcon("/usr/local/share/icons/system-shutdown.png"), QString());
 
     connect(pushLock, &QPushButton::clicked, this, &MainWindow::on_pushLock);
     connect(pushExit, &QPushButton::clicked, this, &MainWindow::on_pushExit);
@@ -20,9 +20,9 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
     connect(pushShutdown, &QPushButton::clicked, this, &MainWindow::on_pushShutdown);
     QList<QPushButton*> btnList {pushLock, pushExit, pushSleep, pushRestart, pushShutdown};
 
-    QBoxLayout *layout;
-    if ((settings.value("layout").toString() == "horizontal" || arg_parser.isSet("horizontal"))
-            && !arg_parser.isSet("vertical")) {
+    QBoxLayout *layout {nullptr};
+    if ((settings.value(QStringLiteral("layout")).toString() == QLatin1String("horizontal") || arg_parser.isSet(QStringLiteral("horizontal")))
+            && !arg_parser.isSet(QStringLiteral("vertical"))) {
         horizontal = true;
         layout = new QHBoxLayout(this);
     } else {
@@ -38,7 +38,7 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
     layout->addWidget(pushShutdown);
     setLayout(layout);
 
-    for (auto btn : btnList) {
+    for (auto *btn : btnList) {
         btn->setAutoDefault(false);
         btn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         btn->setIconSize(QSize(50, 50));
@@ -48,17 +48,13 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent) :
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint );
     connect(qApp, &QApplication::aboutToQuit, [this] { saveSettings(); });
 
-    if (settings.contains("geometry")) {
+    if (settings.contains(QStringLiteral("geometry"))) {
        QByteArray geometry = saveGeometry();
-       restoreGeometry(settings.value("geometry").toByteArray());
+       restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
        // if too wide/tall reset geometry
        if ((horizontal && size().height() >= size().width()) || (!horizontal && size().height() <= size().width()))
            restoreGeometry(geometry);
     }
-}
-
-MainWindow::~MainWindow()
-{
 }
 
 void MainWindow::on_pushLock()
@@ -78,8 +74,8 @@ void MainWindow::on_pushSleep()
 
 void MainWindow::saveSettings()
 {
-    settings.setValue("geometry", saveGeometry());
-    settings.setValue("layout", horizontal ? "horizontal" : "vertical");
+    settings.setValue(QStringLiteral("geometry"), saveGeometry());
+    settings.setValue(QStringLiteral("layout"), horizontal ? "horizontal" : "vertical");
 }
 
 void MainWindow::on_pushRestart()
