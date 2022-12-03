@@ -1,3 +1,10 @@
+exit-options (22.12) mx; urgency=medium
+
+  * Add icons to resource file
+  * Check for XFCE, Fluxbox, KDE, i3 and systemd to provide various logout options
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 02 Dec 2022 20:29:13 -0500
+
 exit-options (21.1.02) mx; urgency=medium
 
   * add -v/--vertical and -h/--horizontal options
