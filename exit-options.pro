@@ -30,3 +30,6 @@ HEADERS += \
 
 FORMS +=
 
+RESOURCES += \
+    exit-options.qrc
+

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/system-lock-mxfb.png</file>
+        <file>icons/system-log-out.png</file>
+        <file>icons/system-restart.png</file>
+        <file>icons/system-shutdown.png</file>
+        <file>icons/system-sleep.png</file>
+    </qresource>
+</RCC>
