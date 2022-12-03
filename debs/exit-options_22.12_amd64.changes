@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Fri, 02 Dec 2022 20:29:13 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 22.12
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (22.12) mx; urgency=medium
+ .
+   * Add icons to resource file
+   * Check for XFCE, Fluxbox, KDE, i3 and systemd to provide various logout options
+Checksums-Sha1:
+ f8fa026f95e98d0c7f5104dc6ccc98fbb89510a4 1124 exit-options_22.12.dsc
+ e14f1f1aa309d3550ee62114c6098b6ffa49aa50 28588 exit-options_22.12.tar.xz
+ 0df9efd15370ffa4d78605ec03eb38ad1236375e 10745 exit-options_22.12_amd64.buildinfo
+ 0196daa5288458234032eff79e386f468eb6c6d5 29424 exit-options_22.12_amd64.deb
+Checksums-Sha256:
+ be41e987526f66c376eba34674b49409918e1263a36d57f7aacb27b528433463 1124 exit-options_22.12.dsc
+ 6f657f522ce6db5f73256a7d2246092905907b9b9d545f6b476ef1df49d37421 28588 exit-options_22.12.tar.xz
+ 5d512465d2e23f34d913bb10b3beaf7692376f1fec9fa3a5d07b1d323f4aa5a0 10745 exit-options_22.12_amd64.buildinfo
+ da5d49764e7273753eb4d4b7dd9fc808b0a86467bf944645bed9ea688032d04b 29424 exit-options_22.12_amd64.deb
+Files:
+ 292100583de36b0f114e283497d4f8f0 1124 admin optional exit-options_22.12.dsc
+ 84eaed40a6cbec31c1f686e846947fa5 28588 admin optional exit-options_22.12.tar.xz
+ cb16f28a18a8ad7d486c23fbc004846d 10745 admin optional exit-options_22.12_amd64.buildinfo
+ c73b867055d5d19e5e617db658427f96 29424 admin optional exit-options_22.12_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOKpr8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumPZFCACtKT+xICLjtXj0xMtB3eN1HbjnpicS
+H9tSV+naWIBI959cB0oytS6/tAFRRgtkvzNs8Oc1j5ANuntLNR++B098QGWhih2q
+RuNCylRfnpKxpUmFhoDpE8lQcdABHazxe715Ic7UOxsJVHatnLt0I2x2r4+zIr4p
+7YVBz015QkTGkPsd7H8+qu1Zx8iMgo2ZpcHD0CaIiqr9d1xe2zjmOvD/NwJq6wtS
+i1DU9bhe0zOM8p+OotUC0VVhjmyrN1h+Sm7b70i8SUjrFEqQPDOphOtqiWMYVbQl
+/qGqyya70DBHOMyk5wagvLVSf7sssV39cdM24NIv9U6h7x2M63iClT04
+=N1Mw
+-----END PGP SIGNATURE-----

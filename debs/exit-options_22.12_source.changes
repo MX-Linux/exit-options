@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Fri, 02 Dec 2022 20:29:13 -0500
+Source: exit-options
+Architecture: source
+Version: 22.12
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ exit-options (22.12) mx; urgency=medium
+ .
+   * Add icons to resource file
+   * Check for XFCE, Fluxbox, KDE, i3 and systemd to provide various logout options
+Checksums-Sha1:
+ f8fa026f95e98d0c7f5104dc6ccc98fbb89510a4 1124 exit-options_22.12.dsc
+ e14f1f1aa309d3550ee62114c6098b6ffa49aa50 28588 exit-options_22.12.tar.xz
+ 0df9efd15370ffa4d78605ec03eb38ad1236375e 10745 exit-options_22.12_amd64.buildinfo
+Checksums-Sha256:
+ be41e987526f66c376eba34674b49409918e1263a36d57f7aacb27b528433463 1124 exit-options_22.12.dsc
+ 6f657f522ce6db5f73256a7d2246092905907b9b9d545f6b476ef1df49d37421 28588 exit-options_22.12.tar.xz
+ 5d512465d2e23f34d913bb10b3beaf7692376f1fec9fa3a5d07b1d323f4aa5a0 10745 exit-options_22.12_amd64.buildinfo
+Files:
+ 292100583de36b0f114e283497d4f8f0 1124 admin optional exit-options_22.12.dsc
+ 84eaed40a6cbec31c1f686e846947fa5 28588 admin optional exit-options_22.12.tar.xz
+ cb16f28a18a8ad7d486c23fbc004846d 10745 admin optional exit-options_22.12_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOKpr8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumMP3CADQcHhbt4ZZivXX7nojNtN+F2y3h5RG
+69wpd1xhtt6LTekdF3vcD8M5KXYFZ2Y3DOSPFO/i+MKXHrBqZZ5xp9+teNaMHNaw
+ike/xx1NATREVJLs6WqYvfM1nPJQCDhYjrSRsLFQ9qtogLXaj4+BdQodPTAOtOBB
+L4aQc/hyphmQGOV5u+1QOqm1tV6fjL+ygRDQ3ZSSFnpPSbH4A41UL930ou9nG3CK
+oo74pxFOvN+pIKLqKs0UWnJymoMZDmqGDfRIWW0eZZZI2F5SaqjuYOb+L1pr2BeD
+QofvJOiyLCsIDUVWf0jsxzKhbAyW3OUCQo30ekD5qOjZbF5/DjiwULE5
+=C6z3
+-----END PGP SIGNATURE-----
