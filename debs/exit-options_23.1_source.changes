@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 07 Jan 2023 14:55:07 -0500
+Source: exit-options
+Architecture: source
+Version: 23.1
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ exit-options (23.1) mx; urgency=medium
+ .
+   * Fix exit option for Fluxbox
+Checksums-Sha1:
+ e874e7457db21f25b21e0294bd7d68a719211227 1120 exit-options_23.1.dsc
+ 87ed4733a48ec9534714b182457b33472254b853 28616 exit-options_23.1.tar.xz
+ 9df2c4822de0a46a459d648adc3c649bb2254450 10737 exit-options_23.1_amd64.buildinfo
+Checksums-Sha256:
+ fbe7ddda70221c5524558f2732e4cd1c4979abad32d33137a400a7df3f685082 1120 exit-options_23.1.dsc
+ 1f547b167a6655f042acb1944fe3c3cb64d4cfb853f660d3ebd7318b4179bd6d 28616 exit-options_23.1.tar.xz
+ 8c0662c684f8fbaaeb079e4d4caa0e737b81eb178cb5c9a4bfdc8585142d8359 10737 exit-options_23.1_amd64.buildinfo
+Files:
+ ab4d46376d90cc15edb51d069f38d630 1120 admin optional exit-options_23.1.dsc
+ ed64956ea6683f8220fedae1d60515c2 28616 admin optional exit-options_23.1.tar.xz
+ 19dc7578f2b19b1be50b2823272d87d5 10737 admin optional exit-options_23.1_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmO5zmoTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumA7LB/4lAz4bw+1Ig8+h4r9gNGTtcVvYTzai
+dVpnsXCFhLaidtrPTwoHy3kGar33tF4RqsWiSyIb2Dom2xsg3TJLdXS6aWplOTw9
+lvpcABTpV0Wgh/KCgc0NJeecaD6IgFjh657YjhdZVlStNTz2CZ54emy5x/L6wqE7
+nMxLDgky3P3iM/1lbQrK+LBDdHqInrSf1hK3a97gNKUWWlbZW4zILHwu+Gelotpn
+1yfR5laLEwAQ4IUnAGAojnTCJKNCeV4UvPCC+rLTGXyo9RcX/G+F1nFneBqU9Z0t
+SARlfu9I2qCs6GmdaS9aJ2e+tqOBp+Mebgosoj/dW5yi8q4YIlZPb/Rj
+=nrzt
+-----END PGP SIGNATURE-----

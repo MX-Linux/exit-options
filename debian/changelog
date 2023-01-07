@@ -1,3 +1,9 @@
+exit-options (23.1) mx; urgency=medium
+
+  * Fix exit option for Fluxbox 
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 07 Jan 2023 14:55:07 -0500
+
 exit-options (22.12) mx; urgency=medium
 
   * Add icons to resource file
