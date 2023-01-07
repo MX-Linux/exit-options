@@ -32,8 +32,9 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     }
 
     layout->addWidget(pushLock);
-    if (QStringList {"fluxbox", "xfce", "KDE", "i3"}.contains(qgetenv("XDG_SESSION_DESKTOP"))
-        || QProcess::execute("systemctl", {"is-active", "--quiet", "service"}) == 0)
+    if (QStringList {"xfce", "KDE", "i3", "fluxbox"}.contains(qgetenv("XDG_SESSION_DESKTOP"))
+        || QProcess::execute("systemctl", {"is-active", "--quiet", "service"}) == 0
+        || QProcess::execute("pgrep", {"fluxbox"}) == 0)
         layout->addWidget(pushExit);
     if (!isRaspberryPi())
         layout->addWidget(pushSleep);
@@ -65,7 +66,7 @@ void MainWindow::on_pushLock() { QProcess::startDetached("dm-tool", {"switch-to-
 
 void MainWindow::on_pushExit()
 {
-    if (qgetenv("XDG_SESSION_DESKTOP") == "fluxbox") {
+    if (QProcess::execute("pgrep", {"fluxbox"}) == 0) {
         QProcess::execute("fluxbox-remote", {"exit"});
         QProcess::startDetached("killall", {"fluxbox"}); // make sure it exits even if remote actions are not enabled
     } else if (qgetenv("XDG_SESSION_DESKTOP") == "xfce") {
