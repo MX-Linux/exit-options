@@ -15,26 +15,26 @@ Changes:
  .
    * Fix exit option for Fluxbox
 Checksums-Sha1:
- e874e7457db21f25b21e0294bd7d68a719211227 1120 exit-options_23.1.dsc
- 87ed4733a48ec9534714b182457b33472254b853 28616 exit-options_23.1.tar.xz
- 9df2c4822de0a46a459d648adc3c649bb2254450 10737 exit-options_23.1_amd64.buildinfo
+ 5e359b6e3febe690c6cacc65e859d86193d10396 1120 exit-options_23.1.dsc
+ 4d7b9196facc4076b0af7fcfa1ffc55cb7fa6df3 28616 exit-options_23.1.tar.xz
+ e33a5346fb579023ff43e576ad8bff8ffb9323bb 10737 exit-options_23.1_amd64.buildinfo
 Checksums-Sha256:
- fbe7ddda70221c5524558f2732e4cd1c4979abad32d33137a400a7df3f685082 1120 exit-options_23.1.dsc
- 1f547b167a6655f042acb1944fe3c3cb64d4cfb853f660d3ebd7318b4179bd6d 28616 exit-options_23.1.tar.xz
- 8c0662c684f8fbaaeb079e4d4caa0e737b81eb178cb5c9a4bfdc8585142d8359 10737 exit-options_23.1_amd64.buildinfo
+ e475f40e2f934ffb94e93c3df96deb57923d5f5d55f6bd9078322d8cb8caa7ba 1120 exit-options_23.1.dsc
+ eee2d52a00027126808ecbb067ffeee00be66f599fcd9072159ab87ba0ef4bf8 28616 exit-options_23.1.tar.xz
+ ad0f022eba8d705ce7582049ad094463ef83f0dbaf86a0440475bf8a11fdca0d 10737 exit-options_23.1_amd64.buildinfo
 Files:
- ab4d46376d90cc15edb51d069f38d630 1120 admin optional exit-options_23.1.dsc
- ed64956ea6683f8220fedae1d60515c2 28616 admin optional exit-options_23.1.tar.xz
- 19dc7578f2b19b1be50b2823272d87d5 10737 admin optional exit-options_23.1_amd64.buildinfo
+ f2fe2944fed8e92be9a8dc9427b79e70 1120 admin optional exit-options_23.1.dsc
+ 5d74f89288b2233f51d6fb8a8e6b0557 28616 admin optional exit-options_23.1.tar.xz
+ 5b09bb77e0e0ca3fd6aae0a68ca6478d 10737 admin optional exit-options_23.1_amd64.buildinfo
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmO5zmoTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumA7LB/4lAz4bw+1Ig8+h4r9gNGTtcVvYTzai
-dVpnsXCFhLaidtrPTwoHy3kGar33tF4RqsWiSyIb2Dom2xsg3TJLdXS6aWplOTw9
-lvpcABTpV0Wgh/KCgc0NJeecaD6IgFjh657YjhdZVlStNTz2CZ54emy5x/L6wqE7
-nMxLDgky3P3iM/1lbQrK+LBDdHqInrSf1hK3a97gNKUWWlbZW4zILHwu+Gelotpn
-1yfR5laLEwAQ4IUnAGAojnTCJKNCeV4UvPCC+rLTGXyo9RcX/G+F1nFneBqU9Z0t
-SARlfu9I2qCs6GmdaS9aJ2e+tqOBp+Mebgosoj/dW5yi8q4YIlZPb/Rj
-=nrzt
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmO52C0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumDGcCACUTeCSQV/B6zlBIbT4ZmuBl4c92C52
+3tw0SU+0CyjSYechSUXJ1ohl4m23iqvwSyIzOD6kDgYeErwAdDAUghbJhXi2cA7U
+p+dGAqjCSIlafMLxqu6CNx4KMsKQb8hiolcL3tvMQHwQ56B2NoS3O0zan6fKncOc
+aecCdW3quDdTY05aJN9gqnVRCRhY9mTBCiwDNc26hCxKb3upPytfHYYxnDI4WwPm
+rO5jAOT7oxO5zPXX1TZdO+S/2sXH/qHX/KQQXxKnoqrpED4V6+lOZC5nA0sSpuh/
+R7gIUcceao1TE9BQQhHYHO1fAu/CrUE4C/K/FRXZqZ3tsra8LOY70U5R
+=ft5s
 -----END PGP SIGNATURE-----

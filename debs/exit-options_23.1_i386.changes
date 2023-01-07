@@ -15,11 +15,11 @@ Changes:
  .
    * Fix exit option for Fluxbox
 Checksums-Sha1:
- 33ac42ad86f30b497ec8f6ce2c00039f527a39ea 10068 exit-options_23.1_i386.buildinfo
- 1c2c6f8e5ec165640bb4be54a0b0d75e3c5d017d 31116 exit-options_23.1_i386.deb
+ 48af883de8ac3958f90c51d0e2b61f9695cb1c6c 10068 exit-options_23.1_i386.buildinfo
+ 1e2606d9527773e988bf4122a087d6a9c998eed1 31200 exit-options_23.1_i386.deb
 Checksums-Sha256:
- dfe8e6f10f17d1630ce0b7abb90bdb21ece43a707755cad84eeb45a7316d9753 10068 exit-options_23.1_i386.buildinfo
- 4d72ce59d644c037322b89cbc283f071ed2c513171623273fb8121a1c402ed46 31116 exit-options_23.1_i386.deb
+ 7d254ffd12dabe29e2c7fac6080650cf3d1de26d93861f2805a7258c1762f5bc 10068 exit-options_23.1_i386.buildinfo
+ d42b41badd84cf5736e009c6aec9053a94d1f030bf4870b87f612f883490c93a 31200 exit-options_23.1_i386.deb
 Files:
- 8d0cb04e4d1a562683346d0d5b129f5e 10068 admin optional exit-options_23.1_i386.buildinfo
- 1522c19f8464eacabe976319328e2489 31116 admin optional exit-options_23.1_i386.deb
+ 1c092489f909bfbd896eeb41036a54b3 10068 admin optional exit-options_23.1_i386.buildinfo
+ 71c76d1a83ae546beb7ca8bd8bbf6b9c 31200 admin optional exit-options_23.1_i386.deb

@@ -18,29 +18,29 @@ Changes:
  .
    * Fix exit option for Fluxbox
 Checksums-Sha1:
- e874e7457db21f25b21e0294bd7d68a719211227 1120 exit-options_23.1.dsc
- 87ed4733a48ec9534714b182457b33472254b853 28616 exit-options_23.1.tar.xz
- 9df2c4822de0a46a459d648adc3c649bb2254450 10737 exit-options_23.1_amd64.buildinfo
- f8f484861c35f002c4714983dc4665db2a09bd5f 29928 exit-options_23.1_amd64.deb
+ 5e359b6e3febe690c6cacc65e859d86193d10396 1120 exit-options_23.1.dsc
+ 4d7b9196facc4076b0af7fcfa1ffc55cb7fa6df3 28616 exit-options_23.1.tar.xz
+ e33a5346fb579023ff43e576ad8bff8ffb9323bb 10737 exit-options_23.1_amd64.buildinfo
+ 39690ba3c6c686aff06e410cc9754b623c6adae8 29952 exit-options_23.1_amd64.deb
 Checksums-Sha256:
- fbe7ddda70221c5524558f2732e4cd1c4979abad32d33137a400a7df3f685082 1120 exit-options_23.1.dsc
- 1f547b167a6655f042acb1944fe3c3cb64d4cfb853f660d3ebd7318b4179bd6d 28616 exit-options_23.1.tar.xz
- 8c0662c684f8fbaaeb079e4d4caa0e737b81eb178cb5c9a4bfdc8585142d8359 10737 exit-options_23.1_amd64.buildinfo
- c05dce2013e5c141918cb14bd89491981504b99d60619c56f66f7bf76aa51a1c 29928 exit-options_23.1_amd64.deb
+ e475f40e2f934ffb94e93c3df96deb57923d5f5d55f6bd9078322d8cb8caa7ba 1120 exit-options_23.1.dsc
+ eee2d52a00027126808ecbb067ffeee00be66f599fcd9072159ab87ba0ef4bf8 28616 exit-options_23.1.tar.xz
+ ad0f022eba8d705ce7582049ad094463ef83f0dbaf86a0440475bf8a11fdca0d 10737 exit-options_23.1_amd64.buildinfo
+ 8349185cbec0ba94f10661b257cfaa4a4d944806f5b4bca001c1bdbcb7d99cb0 29952 exit-options_23.1_amd64.deb
 Files:
- ab4d46376d90cc15edb51d069f38d630 1120 admin optional exit-options_23.1.dsc
- ed64956ea6683f8220fedae1d60515c2 28616 admin optional exit-options_23.1.tar.xz
- 19dc7578f2b19b1be50b2823272d87d5 10737 admin optional exit-options_23.1_amd64.buildinfo
- 59ca04064a3f3f3416775e3face00276 29928 admin optional exit-options_23.1_amd64.deb
+ f2fe2944fed8e92be9a8dc9427b79e70 1120 admin optional exit-options_23.1.dsc
+ 5d74f89288b2233f51d6fb8a8e6b0557 28616 admin optional exit-options_23.1.tar.xz
+ 5b09bb77e0e0ca3fd6aae0a68ca6478d 10737 admin optional exit-options_23.1_amd64.buildinfo
+ 6e37e19ef659d9024554169f2fa9f19b 29952 admin optional exit-options_23.1_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmO5zmoTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumCHEB/96GW9XqYm9/EkR00/7LQxwVI5Nfp64
-eH0sF9Q/VyS2EOOlPfXX9aL7nmCkHpQ2mlMw1F7gCZEiKqLaoxQj+6s8LWKd2Oc2
-G/Db8ttKcNSvK/7XGdPa39CM4umrCzl82io1qQytNEHoMes/O5S9uyscWgdb5fmJ
-rga9UPu7bFsVCipN7/q2Yr3QK6dkuINSHV7svaU6IAqJdV6GItzweVpOM+wAN1H9
-SfLRA9wonNXt/46N1tt6xXXzEEgmxXoEq6A5//aDuC1hfQqgkAs7EqizJYLQHH4V
-CsFjCKM9w1ajuALEaHEWwUEjuM8EGQAVM/PjU8hFfpMD65wUvaTE3rjT
-=NMnW
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmO52C0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKdSCADOSkxs0+6IGZcmk2bAt2KOui92XRz+
+f2DO8uYpfF4EiXCU/U+AVv/1+Nl0IOnZZzL3RMrDn/QK3xcp+iCOw5XMQ1JMuTY7
+MV590zAH8nHPmSWf69WLXoTFpz+3+2h4XnvJil1nXQBEcYdoCfIn8lX6bTIPbjov
++XASFxkZWJO/zrrALKDO/Nul++gRqtUCrIt8aIKzWWzWauOeECxyx6AxdkPLk3o2
+mC5TlkZiw0Qd7Bgsb3x/ApyrN9wYrQ6X+YRJC5HtNCpR7c78LG3+lFR7eOJOxw8P
+n1tCGEJglBLGLVgKXpFyt8AOJuVzlMZhfzkCKUQAx7dmnG2c0W0xdWN2
+=y5Sq
 -----END PGP SIGNATURE-----
