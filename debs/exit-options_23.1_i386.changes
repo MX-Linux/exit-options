@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 07 Jan 2023 14:55:07 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.1
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.1) mx; urgency=medium
+ .
+   * Fix exit option for Fluxbox
+Checksums-Sha1:
+ 33ac42ad86f30b497ec8f6ce2c00039f527a39ea 10068 exit-options_23.1_i386.buildinfo
+ 1c2c6f8e5ec165640bb4be54a0b0d75e3c5d017d 31116 exit-options_23.1_i386.deb
+Checksums-Sha256:
+ dfe8e6f10f17d1630ce0b7abb90bdb21ece43a707755cad84eeb45a7316d9753 10068 exit-options_23.1_i386.buildinfo
+ 4d72ce59d644c037322b89cbc283f071ed2c513171623273fb8121a1c402ed46 31116 exit-options_23.1_i386.deb
+Files:
+ 8d0cb04e4d1a562683346d0d5b129f5e 10068 admin optional exit-options_23.1_i386.buildinfo
+ 1522c19f8464eacabe976319328e2489 31116 admin optional exit-options_23.1_i386.deb
