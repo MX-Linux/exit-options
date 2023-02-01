@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.cpp" line="16"/>
-        <source>Switch User</source>
+        <source>Lock Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20,12 +20,12 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
-        <source>Restart</source>
+        <source>Reboot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>
-        <source>Shut Down</source>
+        <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
