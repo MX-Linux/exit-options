@@ -1,7 +1,10 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QDebug>
+#include <QLibraryInfo>
+#include <QLocale>
 #include <QTimer>
+#include <QTranslator>
 
 #include "mainwindow.h"
 #include <chrono>
@@ -12,6 +15,19 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setOrganizationName("MX-Linux");
+
+    QTranslator qtTran;
+    if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+        QApplication::installTranslator(&qtTran);
+
+    QTranslator qtBaseTran;
+    if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+        QApplication::installTranslator(&qtBaseTran);
+
+    QTranslator appTran;
+    if (appTran.load(QApplication::applicationName() + "_" + QLocale().name(),
+                     "/usr/share/" + QApplication::applicationName() + "/locale"))
+        QApplication::installTranslator(&appTran);
 
     QCommandLineParser parser;
     parser.setApplicationDescription("Pop-up with exit options for MX Fluxbox");
