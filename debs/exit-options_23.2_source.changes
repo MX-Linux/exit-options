@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 01 Feb 2023 12:41:15 -0500
+Source: exit-options
+Architecture: source
+Version: 23.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ exit-options (23.2) mx; urgency=medium
+ .
+   * Add a timeout option
+   * Add tooltip for buttons
+Checksums-Sha1:
+ 8e10174e4f525f9f24034e5ba0bc7a6931f8d303 1120 exit-options_23.2.dsc
+ 7757d81d77b215390df468e18fb36b37df4aef4f 28796 exit-options_23.2.tar.xz
+ 3bb3518e87a434e706322cd9659714eefe9d33fd 10817 exit-options_23.2_amd64.buildinfo
+Checksums-Sha256:
+ d01e27a5719b6db9cc81427542950b3e5bc4b03f8d171e30e13953ad9533cb81 1120 exit-options_23.2.dsc
+ d3285f48f8925f08a4c32f7169f3a74c7805075f3d6d45ae6f24f517c0f57b34 28796 exit-options_23.2.tar.xz
+ fc15b82f5bfcf084437093503891136d616347ac6323b1e23bccfed703018c6b 10817 exit-options_23.2_amd64.buildinfo
+Files:
+ 38fdbc292fc19aa7c54e88bb8079e95e 1120 admin optional exit-options_23.2.dsc
+ 7028c1bfa1a7a6cd2102c65dedb00ef1 28796 admin optional exit-options_23.2.tar.xz
+ b7acd6a20c90f8aa9f814e7129b954b9 10817 admin optional exit-options_23.2_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPap+kTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBdtCACqrC7pD4/j+MWsWkmiIHgaTuIENnFY
+ko0pdQesFDQIQr8u7CmLOkP5PfGeqwc3BaJ7BM9IhG0iqYORRnxkPh4ILMVrBUC6
+3i23RAThXSUj4dwFWdm+C8QQxd3c1j26ZrcdEgzXnxGmaR6KtAUqcE4SgoWxwQLD
+vjtmY4Dt4IRzY7+Lu+60cSWLdZUoMenDF4/3yAlDSuXhwHY+R1EXai4Mu5CR158E
+GCJ2QZ0OvXw/cHAE39aul9TdF2UQsoT1QO2rfl4myLYqzQILxCRKI4+arEysFbQ0
+QTCzDaH+XBd0ukqK6mhMD2wBbZdWZEKSe0Pyeqc5335BsvtJLyZEaFJr
+=RPKL
+-----END PGP SIGNATURE-----

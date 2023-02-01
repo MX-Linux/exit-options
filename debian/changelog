@@ -1,3 +1,10 @@
+exit-options (23.2) mx; urgency=medium
+
+  * Add a timeout option
+  * Add tooltip for buttons
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 01 Feb 2023 12:41:15 -0500
+
 exit-options (23.1) mx; urgency=medium
 
   * Fix exit option for Fluxbox 

@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
         qDebug() << "  -h, --horizontal\t Option to display buttons horizontally";
         qDebug() << "  -v, --vertical\t Option to display buttons vertically";
         qDebug() << "  -t, --timeout <sec>\t Timeout duration in seconds\n";
-        qDebug() << "The last option used will be remembered and used the next time you start the app";
+        qDebug() << "The display orientation option used will be remembered and used the next time you start the app";
         qDebug() << "Alternativelly, set the option 'layout=horizontal' or 'layout=vertical' in "
                     "~/.config/MX-Linux/exit-options.conf";
         exit(EXIT_SUCCESS);

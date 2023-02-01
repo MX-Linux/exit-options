@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Wed, 01 Feb 2023 12:41:15 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.2) mx; urgency=medium
+ .
+   * Add a timeout option
+   * Add tooltip for buttons
+Checksums-Sha1:
+ 9739309f134aec86bf2671b67b1f9e3a791c87d2 9972 exit-options_23.2_i386.buildinfo
+ 1111996b8fa2dac6002e3531dd606a0c2b5fd6d4 31804 exit-options_23.2_i386.deb
+Checksums-Sha256:
+ 66ca329e6623d12be9038c9a8d8279986d3c6c9efa3ad5747e6837528697e586 9972 exit-options_23.2_i386.buildinfo
+ f568fe30affbec69fee99390799661e2d372027816c02b2c60e31b3eaa45bad4 31804 exit-options_23.2_i386.deb
+Files:
+ 36afa615074a57a586498ca1a6c383f5 9972 admin optional exit-options_23.2_i386.buildinfo
+ 5c5d1e108508d11a1ce5e6376d96576c 31804 admin optional exit-options_23.2_i386.deb
