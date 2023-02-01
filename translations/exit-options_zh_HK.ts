@@ -21,7 +21,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Reboot</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>

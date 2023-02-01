@@ -16,11 +16,11 @@ Changes:
    * Add a timeout option
    * Add tooltip for buttons
 Checksums-Sha1:
- 9739309f134aec86bf2671b67b1f9e3a791c87d2 9972 exit-options_23.2_i386.buildinfo
- 1111996b8fa2dac6002e3531dd606a0c2b5fd6d4 31804 exit-options_23.2_i386.deb
+ d10294167682bcebc895567129e2662d9ceab39b 9972 exit-options_23.2_i386.buildinfo
+ 137ecce58d13e3653caef5c34bb719cb224a8c2c 32936 exit-options_23.2_i386.deb
 Checksums-Sha256:
- 66ca329e6623d12be9038c9a8d8279986d3c6c9efa3ad5747e6837528697e586 9972 exit-options_23.2_i386.buildinfo
- f568fe30affbec69fee99390799661e2d372027816c02b2c60e31b3eaa45bad4 31804 exit-options_23.2_i386.deb
+ 7e49c0722f1693a0b36d51fbec0aeb702c6640a975e152552907be8b405b3ec6 9972 exit-options_23.2_i386.buildinfo
+ 9171a8f4a26751e1d69b21c76b01cc4c064021afdfaa67166519d1171abd4ce6 32936 exit-options_23.2_i386.deb
 Files:
- 36afa615074a57a586498ca1a6c383f5 9972 admin optional exit-options_23.2_i386.buildinfo
- 5c5d1e108508d11a1ce5e6376d96576c 31804 admin optional exit-options_23.2_i386.deb
+ 7a533bc71445f355ed930d6bc51c00b9 9972 admin optional exit-options_23.2_i386.buildinfo
+ d5d756c067c1b98b29699b8d6f6f75d4 32936 admin optional exit-options_23.2_i386.deb
