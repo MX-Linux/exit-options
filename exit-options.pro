@@ -28,8 +28,10 @@ SOURCES += \
 HEADERS += \
         mainwindow.h
 
-TRANSLATIONS += translations/exit-options_am.ts \
+TRANSLATIONS += translations/exit-options_af.ts \
+                translations/exit-options_am.ts \
                 translations/exit-options_ar.ts \
+                translations/exit-options_be.ts \
                 translations/exit-options_bg.ts \
                 translations/exit-options_bn.ts \
                 translations/exit-options_ca.ts \
@@ -37,16 +39,23 @@ TRANSLATIONS += translations/exit-options_am.ts \
                 translations/exit-options_da.ts \
                 translations/exit-options_de.ts \
                 translations/exit-options_el.ts \
+                translations/exit-options_en_GB.ts \
                 translations/exit-options_en.ts \
+                translations/exit-options_eo.ts \
+                translations/exit-options_es_ES.ts \
                 translations/exit-options_es.ts \
                 translations/exit-options_et.ts \
                 translations/exit-options_eu.ts \
                 translations/exit-options_fa.ts \
                 translations/exit-options_fi.ts \
                 translations/exit-options_fil_PH.ts \
-                translations/exit-options_fr.ts \
                 translations/exit-options_fr_BE.ts \
+                translations/exit-options_fr_FR.ts \
+                translations/exit-options_fr.ts \
+                translations/exit-options_gl_ES.ts \
+                translations/exit-options_gu.ts \
                 translations/exit-options_he_IL.ts \
+                translations/exit-options_he.ts \
                 translations/exit-options_hi.ts \
                 translations/exit-options_hr.ts \
                 translations/exit-options_hu.ts \
@@ -56,25 +65,33 @@ TRANSLATIONS += translations/exit-options_am.ts \
                 translations/exit-options_ja.ts \
                 translations/exit-options_kk.ts \
                 translations/exit-options_ko.ts \
+                translations/exit-options_ku.ts \
                 translations/exit-options_lt.ts \
                 translations/exit-options_mk.ts \
                 translations/exit-options_mr.ts \
+                translations/exit-options_nb_NO.ts \
                 translations/exit-options_nb.ts \
+                translations/exit-options_nl_BE.ts \
                 translations/exit-options_nl.ts \
+                translations/exit-options_or.ts \
                 translations/exit-options_pl.ts \
-                translations/exit-options_pt.ts \
                 translations/exit-options_pt_BR.ts \
+                translations/exit-options_pt.ts \
                 translations/exit-options_ro.ts \
                 translations/exit-options_ru.ts \
+                translations/exit-options_rue.ts \
                 translations/exit-options_sk.ts \
                 translations/exit-options_sl.ts \
+                translations/exit-options_so.ts \
                 translations/exit-options_sq.ts \
                 translations/exit-options_sr.ts \
                 translations/exit-options_sv.ts \
+                translations/exit-options_th.ts \
                 translations/exit-options_tr.ts \
                 translations/exit-options_uk.ts \
                 translations/exit-options_vi.ts \
                 translations/exit-options_zh_CN.ts \
+                translations/exit-options_zh_HK.ts \
                 translations/exit-options_zh_TW.ts
 
 RESOURCES += \
