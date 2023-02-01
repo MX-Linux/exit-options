@@ -6,27 +6,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="16"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Trangkahan ang Screen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="17"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Lumabas</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="18"/>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Suspindihin</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Masimula muli</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Patayin</translation>
     </message>
 </context>
 </TS>

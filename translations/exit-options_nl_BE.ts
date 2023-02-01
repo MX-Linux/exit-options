@@ -6,7 +6,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="16"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Scherm Vergrendelen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="17"/>
@@ -21,16 +21,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Herstarten</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation type="vanished">Herstart</translation>
+        <translation>Afsluiten</translation>
     </message>
 </context>
 </TS>

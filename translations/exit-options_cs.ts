@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="cs_CZ">
+<TS version="2.1" language="cs">
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.cpp" line="16"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknout obrazovku</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="17"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Odhlásit se</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="18"/>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Suspendovat</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Restartovat</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Vypnout</translation>
     </message>
 </context>
 </TS>

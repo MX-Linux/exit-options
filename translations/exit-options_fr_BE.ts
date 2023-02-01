@@ -6,27 +6,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="16"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Verrouiller l&apos;écran</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="17"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer la Session</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="18"/>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Mettre en Veille</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Redémarrer</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêter</translation>
     </message>
 </context>
 </TS>

@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="kk_KZ">
+<TS version="2.1" language="kk">
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.cpp" line="16"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Экранды құлыптау</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="17"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Жүйеден шығу</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="18"/>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Ұйықтату</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>Қайта қосу</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Сөндіру</translation>
     </message>
 </context>
 </TS>

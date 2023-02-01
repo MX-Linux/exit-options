@@ -6,27 +6,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="16"/>
         <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>锁定屏幕</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="17"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>注销</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="18"/>
         <source>Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>挂起</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="19"/>
         <source>Reboot</source>
-        <translation type="unfinished"></translation>
+        <translation>重启</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="20"/>
         <source>Shutdown</source>
-        <translation type="unfinished"></translation>
+        <translation>关机</translation>
     </message>
 </context>
 </TS>
