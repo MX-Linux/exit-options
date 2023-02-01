@@ -13,6 +13,11 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     auto *pushSleep = new QPushButton(QIcon(":/icons/system-sleep.png"), QString());
     auto *pushRestart = new QPushButton(QIcon(":/icons/system-restart.png"), QString());
     auto *pushShutdown = new QPushButton(QIcon(":/icons/system-shutdown.png"), QString());
+    pushLock->setToolTip(tr("Switch User"));
+    pushExit->setToolTip(tr("Log Out"));
+    pushSleep->setToolTip(tr("Suspend"));
+    pushRestart->setToolTip(tr("Restart"));
+    pushShutdown->setToolTip(tr("Shut Down"));
 
     connect(pushLock, &QPushButton::clicked, this, &MainWindow::on_pushLock);
     connect(pushExit, &QPushButton::clicked, this, &MainWindow::on_pushExit);

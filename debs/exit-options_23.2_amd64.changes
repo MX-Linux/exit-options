@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 01 Feb 2023 12:41:15 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.2) mx; urgency=medium
+ .
+   * Add a timeout option
+   * Add tooltip for buttons
+Checksums-Sha1:
+ 8e10174e4f525f9f24034e5ba0bc7a6931f8d303 1120 exit-options_23.2.dsc
+ 7757d81d77b215390df468e18fb36b37df4aef4f 28796 exit-options_23.2.tar.xz
+ 3bb3518e87a434e706322cd9659714eefe9d33fd 10817 exit-options_23.2_amd64.buildinfo
+ b8fb9c50b6a417a524b05fca79bf7e4ea753782f 30556 exit-options_23.2_amd64.deb
+Checksums-Sha256:
+ d01e27a5719b6db9cc81427542950b3e5bc4b03f8d171e30e13953ad9533cb81 1120 exit-options_23.2.dsc
+ d3285f48f8925f08a4c32f7169f3a74c7805075f3d6d45ae6f24f517c0f57b34 28796 exit-options_23.2.tar.xz
+ fc15b82f5bfcf084437093503891136d616347ac6323b1e23bccfed703018c6b 10817 exit-options_23.2_amd64.buildinfo
+ 494f908f3c4b4e27dc5fbdb5c69d6b5f36eccf7ce71a446fd36461a92d6c28f3 30556 exit-options_23.2_amd64.deb
+Files:
+ 38fdbc292fc19aa7c54e88bb8079e95e 1120 admin optional exit-options_23.2.dsc
+ 7028c1bfa1a7a6cd2102c65dedb00ef1 28796 admin optional exit-options_23.2.tar.xz
+ b7acd6a20c90f8aa9f814e7129b954b9 10817 admin optional exit-options_23.2_amd64.buildinfo
+ ffaf7499022829cdd26295f9a5a8b4fc 30556 admin optional exit-options_23.2_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPap+kTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumOUtB/sErrN5Co2fktOKNL3XN/OywACQm9yX
+s57Jbmibd8q6McdXBU/tJvtKWVBEJ0V/Gtv39xcLwRsyuPLv8l6AAgoMcrjzRZrV
+L7KWPAdEjTUpm78IxjT7QfMMkTSRvJaTqkKsFKfw5eqD2/fPw0mxXJ+p+9BElHW+
+PjTodbh/ksV+1KpiSNwOw6ZFmYLJmkZKPTicOAvZuN2GaI06IUFaVzAjMVMATA7r
+05QuVKy3mrwWURLawI+YVG/P2UHbgVlM2BgYmemcydHEnS2baszWs3YogeQcO8pr
+t0UBZK1QF9PEY6TyrAu9VyogVkMMz7STZS+kvCBcRiaquDkwET+Zfp8K
+=st/v
+-----END PGP SIGNATURE-----
