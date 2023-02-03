@@ -38,16 +38,21 @@ int main(int argc, char *argv[])
                                           "-h, --horizontal to display buttons horizontally.")});
     parser.process(a);
     if (parser.isSet("help")) {
-        qDebug() << QObject::tr("Pop-up with exit options for MX Fluxbox");
-        qDebug() << QObject::tr("Usage: exit-options [options]\n");
-        qDebug() << QObject::tr("Options:");
-        qDebug() << QObject::tr("  -h, --horizontal\t Option to display buttons horizontally");
-        qDebug() << QObject::tr("  -v, --vertical\t Option to display buttons vertically");
-        qDebug() << QObject::tr("  -t, --timeout <sec>\t Timeout duration in seconds\n");
-        qDebug() << QObject::tr(
+        qDebug().noquote() << QObject::tr("Pop-up with exit options for MX Fluxbox");
+        qDebug().noquote() << QObject::tr("Usage: exit-options [options]\n");
+        qDebug().noquote() << QObject::tr("Options:");
+        qDebug().noquote() << QObject::tr("  -h, --horizontal\t Option to display buttons horizontally");
+        qDebug().noquote() << QObject::tr("  -v, --vertical\t Option to display buttons vertically");
+        qDebug().noquote() << QObject::tr("  -t, --timeout <sec>\t Timeout duration in seconds\n");
+        qDebug().noquote() << QObject::tr(
             "The display orientation option used will be remembered and used the next time you start the app");
-        qDebug() << QObject::tr("Alternativelly, set the option 'layout=horizontal' or 'layout=vertical' in "
-                                "~/.config/MX-Linux/exit-options.conf");
+        qDebug().noquote() << QObject::tr("Alternativelly, set the option 'layout=horizontal' or 'layout=vertical' in "
+                                          "~/.config/MX-Linux/exit-options.conf")
+                                  + "\n";
+        qDebug().noquote()
+            << QObject::tr("You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf "
+                           "file. The names of the icons that you remap: %1")
+                   .arg("LockIcon, LogoutIcon, SuspendIcon, RebootIcon, ShutdownIcon.");
         exit(EXIT_SUCCESS);
     }
 
