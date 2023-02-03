@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QFileInfo>
 #include <QLayout>
 #include <QProcess>
 #include <QPushButton>
@@ -8,11 +9,24 @@
 MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     : QDialog(parent)
 {
-    auto *pushLock = new QPushButton(QIcon(":/icons/system-lock-mxfb.png"), QString());
-    auto *pushExit = new QPushButton(QIcon(":/icons/system-log-out.png"), QString());
-    auto *pushSleep = new QPushButton(QIcon(":/icons/system-sleep.png"), QString());
-    auto *pushRestart = new QPushButton(QIcon(":/icons/system-restart.png"), QString());
-    auto *pushShutdown = new QPushButton(QIcon(":/icons/system-shutdown.png"), QString());
+    // Default icons
+    QHash<QString, QString> icons {{"LockIcon", ":/icons/system-lock-mxfb.png"},
+                                   {"LogoutIcon", ":/icons/system-log-out.png"},
+                                   {"SuspendIcon", ":/icons/system-sleep.png"},
+                                   {"RebootIcon", ":/icons/system-restart.png"},
+                                   {"ShutdownIcon", ":/icons/system-shutdown.png"}};
+    // Load icons from settings
+    for (auto it = icons.begin(); it != icons.end(); ++it) {
+        QString icon = settings.value(it.key()).toString();
+        if (QFileInfo::exists(icon))
+            it.value() = icon;
+    }
+    auto *pushLock = new QPushButton(QIcon(icons.value("LockIcon")), QString());
+    auto *pushExit = new QPushButton(QIcon(icons.value("LogoutIcon")), QString());
+    auto *pushSleep = new QPushButton(QIcon(icons.value("SuspendIcon")), QString());
+    auto *pushRestart = new QPushButton(QIcon(icons.value("RebootIcon")), QString());
+    auto *pushShutdown = new QPushButton(QIcon(icons.value("ShutdownIcon")), QString());
+
     pushLock->setToolTip(tr("Lock Screen"));
     pushExit->setToolTip(tr("Log Out"));
     pushSleep->setToolTip(tr("Suspend"));
@@ -24,7 +38,6 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     connect(pushSleep, &QPushButton::clicked, this, &MainWindow::on_pushSleep);
     connect(pushRestart, &QPushButton::clicked, this, &MainWindow::on_pushRestart);
     connect(pushShutdown, &QPushButton::clicked, this, &MainWindow::on_pushShutdown);
-    QList<QPushButton *> btnList {pushLock, pushExit, pushSleep, pushRestart, pushShutdown};
 
     QBoxLayout *layout {nullptr};
     if ((settings.value("layout").toString() == QLatin1String("horizontal") || arg_parser.isSet("horizontal"))
@@ -35,7 +48,6 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
         horizontal = false;
         layout = new QVBoxLayout(this);
     }
-
     layout->addWidget(pushLock);
     if (QStringList {"xfce", "KDE", "i3", "fluxbox"}.contains(qgetenv("XDG_SESSION_DESKTOP"))
         || QProcess::execute("pidof", {"-q", "fluxbox"}) == 0
@@ -48,6 +60,7 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     setLayout(layout);
 
     const int iconSize = 50;
+    QList<QPushButton *> btnList {pushLock, pushExit, pushSleep, pushRestart, pushShutdown};
     for (auto *btn : btnList) {
         btn->setAutoDefault(false);
         btn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -58,12 +71,15 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     connect(QApplication::instance(), &QApplication::aboutToQuit, [this] { saveSettings(); });
 
+    this->show();
     if (settings.contains("geometry")) {
-        QByteArray geometry = saveGeometry();
+        const QByteArray geometry = saveGeometry();
         restoreGeometry(settings.value("geometry").toByteArray());
         // if too wide/tall reset geometry
-        if ((horizontal && size().height() >= size().width()) || (!horizontal && size().height() <= size().width()))
+        if ((horizontal && size().height() >= size().width() * 2 / 3)
+            || (!horizontal && size().width() >= size().height() * 2 / 3)) {
             restoreGeometry(geometry);
+        }
     }
 }
 
