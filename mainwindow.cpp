@@ -10,11 +10,11 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     : QDialog(parent)
 {
     // Default icons
-    QHash<QString, QString> icons {{"LockIcon", ":/icons/system-lock-mxfb.png"},
-                                   {"LogoutIcon", ":/icons/system-log-out.png"},
-                                   {"SuspendIcon", ":/icons/system-sleep.png"},
-                                   {"RebootIcon", ":/icons/system-restart.png"},
-                                   {"ShutdownIcon", ":/icons/system-shutdown.png"}};
+    QMap<QString, QString> icons {{"LockIcon", ":/icons/system-lock-mxfb.png"},
+                                  {"LogoutIcon", ":/icons/system-log-out.png"},
+                                  {"SuspendIcon", ":/icons/system-sleep.png"},
+                                  {"RebootIcon", ":/icons/system-restart.png"},
+                                  {"ShutdownIcon", ":/icons/system-shutdown.png"}};
     // Load icons from settings
     for (auto it = icons.begin(); it != icons.end(); ++it) {
         QString icon = settings.value(it.key()).toString();
@@ -76,8 +76,8 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
         const QByteArray geometry = saveGeometry();
         restoreGeometry(settings.value("geometry").toByteArray());
         // if too wide/tall reset geometry
-        if ((horizontal && size().height() >= size().width() * 2 / 3)
-            || (!horizontal && size().width() >= size().height() * 2 / 3)) {
+        if ((horizontal && size().height() >= size().width() * 0.6)
+            || (!horizontal && size().width() >= size().height() * 0.6)) {
             restoreGeometry(geometry);
         }
     }
