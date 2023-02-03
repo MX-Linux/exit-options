@@ -4,27 +4,27 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="16"/>
+        <location filename="../mainwindow.cpp" line="30"/>
         <source>Lock Screen</source>
         <translation>Užrakinti ekraną</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="17"/>
+        <location filename="../mainwindow.cpp" line="31"/>
         <source>Log Out</source>
         <translation>Atsijungti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="18"/>
+        <location filename="../mainwindow.cpp" line="32"/>
         <source>Suspend</source>
         <translation>Pristabdyti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="19"/>
+        <location filename="../mainwindow.cpp" line="33"/>
         <source>Reboot</source>
         <translation>Paleisti iš naujo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="20"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Shutdown</source>
         <translation>Išjungti</translation>
     </message>
@@ -40,12 +40,12 @@
     <message>
         <location filename="../main.cpp" line="34"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti mygtukus vertikaliame lange</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="35"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti mygtukus horizontaliame lange</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="36"/>
@@ -67,7 +67,7 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="43"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parametrai:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
@@ -93,6 +93,11 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="49"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="53"/>
+        <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
