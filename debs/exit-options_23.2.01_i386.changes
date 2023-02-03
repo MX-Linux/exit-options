@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Thu, 02 Feb 2023 20:39:04 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.2.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.2.01) mx; urgency=medium
+ .
+   * Change detection of wrong layout to reset geometry
+   * Allow users to define custom icons in exit-options.conf (see --help)
+Checksums-Sha1:
+ 1f0c74c31b6869c46b87bd286a2e4c1e7b816495 10083 exit-options_23.2.01_i386.buildinfo
+ d185780c6aeb8bd129e6086fe74b97ea9c118f53 35292 exit-options_23.2.01_i386.deb
+Checksums-Sha256:
+ e57aed217d2b7269711b7193a856a2ca457635dc5ab24c45939b273b54b49de5 10083 exit-options_23.2.01_i386.buildinfo
+ cbc520cc97a545c9c1261ef838d49d7181ca57631f066a7aa5f4ada093382a87 35292 exit-options_23.2.01_i386.deb
+Files:
+ 445d63f3790f7ffea128cab4fac9a183 10083 admin optional exit-options_23.2.01_i386.buildinfo
+ 2d0600c18a57fd5f1ccbf54a3881130e 35292 admin optional exit-options_23.2.01_i386.deb

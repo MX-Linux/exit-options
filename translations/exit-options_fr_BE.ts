@@ -4,27 +4,27 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="16"/>
+        <location filename="../mainwindow.cpp" line="30"/>
         <source>Lock Screen</source>
         <translation>Verrouiller l&apos;écran</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="17"/>
+        <location filename="../mainwindow.cpp" line="31"/>
         <source>Log Out</source>
         <translation>Fermer la Session</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="18"/>
+        <location filename="../mainwindow.cpp" line="32"/>
         <source>Suspend</source>
         <translation>Mettre en Veille</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="19"/>
+        <location filename="../mainwindow.cpp" line="33"/>
         <source>Reboot</source>
         <translation>Redémarrer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="20"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Shutdown</source>
         <translation>Arrêter</translation>
     </message>
@@ -35,64 +35,72 @@
         <location filename="../main.cpp" line="33"/>
         <location filename="../main.cpp" line="41"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Pop-up avec options de sortie pour MX Fluxbox</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="34"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les boutons dans une fenêtre verticale</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="35"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les boutons dans une fenêtre horizontale</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="36"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Délai d&apos;attente en secondes</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="37"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation type="unfinished"></translation>
+        <translation>utiliser -v, --vertical pour afficher les boutons verticalement
+utiliser -h, --horizontal pour afficher les boutons horizontalement.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="42"/>
         <source>Usage: exit-options [options]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisation: exit-options [options]
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="43"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Options:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
         <source>  -h, --horizontal	 Option to display buttons horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>  -h, --horizontal	 Option pour afficher les boutons horizontalement</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>  -v, --vertical	 Option to display buttons vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>  -v, --vertical	 Option pour afficher les boutons verticalement</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
         <source>  -t, --timeout &lt;sec&gt;	 Timeout duration in seconds
 </source>
-        <translation type="unfinished"></translation>
+        <translation>  -t, --temps d&apos;attente &lt;sec&gt;	 Durée du délai d&apos;attente en secondes
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="47"/>
         <source>The display orientation option used will be remembered and used the next time you start the app</source>
-        <translation type="unfinished"></translation>
+        <translation>L&apos;option d&apos;orientation d&apos;affichage utilisée sera mémorisée et utilisée la prochaine fois que vous démarrerez l&apos;application</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="49"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
+        <translation>Vous pouvez également définir l&apos;option « layout=horizontal » ou « layout=vertical » dans ~/.config/MX-Linux/exit-options.conf</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="53"/>
+        <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

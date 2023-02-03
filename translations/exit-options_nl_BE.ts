@@ -4,27 +4,27 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="16"/>
+        <location filename="../mainwindow.cpp" line="30"/>
         <source>Lock Screen</source>
         <translation>Scherm Vergrendelen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="17"/>
+        <location filename="../mainwindow.cpp" line="31"/>
         <source>Log Out</source>
         <translation>Afmelden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="18"/>
+        <location filename="../mainwindow.cpp" line="32"/>
         <source>Suspend</source>
         <translation>Opschorten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="19"/>
+        <location filename="../mainwindow.cpp" line="33"/>
         <source>Reboot</source>
         <translation>Herstarten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="20"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Shutdown</source>
         <translation>Afsluiten</translation>
     </message>
@@ -35,17 +35,17 @@
         <location filename="../main.cpp" line="33"/>
         <location filename="../main.cpp" line="41"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Pop-up met exit-opties voor MX Fluxbox</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="34"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef knoppen weer in een vertikaal venster</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="35"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef knoppen weer in een horizontaal venster</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="36"/>
@@ -62,22 +62,23 @@ use -h, --horizontal to display buttons horizontally.</source>
         <location filename="../main.cpp" line="42"/>
         <source>Usage: exit-options [options]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik: exit-opties [opties]
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="43"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Opties:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
         <source>  -h, --horizontal	 Option to display buttons horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>-h, --horizontal	 Optie om knoppen horizontaal weer te geven</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>  -v, --vertical	 Option to display buttons vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>-v, --verticaal	 Optie om knoppen horizontaal weer te geven</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
@@ -88,11 +89,16 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="47"/>
         <source>The display orientation option used will be remembered and used the next time you start the app</source>
-        <translation type="unfinished"></translation>
+        <translation>De gebruikte weergave-oriëntatie-optie wordt onthouden en gebruikt de volgende keer dat u de app start</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="49"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="53"/>
+        <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

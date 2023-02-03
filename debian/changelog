@@ -1,7 +1,7 @@
 exit-options (23.2.01) mx; urgency=medium
 
   * Change detection of wrong layout to reset geometry
-  * Allow users to define icons in exit-options.conf (see --help)
+  * Allow users to define custom icons in exit-options.conf (see --help)
 
  -- Adrian <adrian@mxlinux.org>  Thu, 02 Feb 2023 20:39:04 -0500
 
