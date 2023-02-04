@@ -1,3 +1,9 @@
+exit-options (23.2.02) mx; urgency=medium
+
+  * Kill itself if already running: this will provide a toggle functionality for launcher
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 04 Feb 2023 09:31:54 -0500
+
 exit-options (23.2.01) mx; urgency=medium
 
   * Change detection of wrong layout to reset geometry
