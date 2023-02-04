@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QLibraryInfo>
 #include <QLocale>
+#include <QProcess>
 #include <QTimer>
 #include <QTranslator>
 
@@ -15,6 +16,14 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QApplication::setOrganizationName("MX-Linux");
+
+    QProcess proc;
+    proc.start("pgrep", {"--count", "--exact", QApplication::applicationName()});
+    proc.waitForFinished();
+    if (proc.exitCode() == 0 && proc.readAllStandardOutput().trimmed().toInt() > 1) {
+        QProcess::startDetached("pkill", {"--oldest", QApplication::applicationName()});
+        return EXIT_SUCCESS;
+    }
 
     QTranslator qtTran;
     if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
