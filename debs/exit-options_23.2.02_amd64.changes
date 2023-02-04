@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 04 Feb 2023 09:31:54 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.2.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.2.02) mx; urgency=medium
+ .
+   * Kill itself if already running: this will provide a toggle functionality for launcher
+Checksums-Sha1:
+ 35cc1fc53ce92ea4512ebbc2143bd94b6fecff08 1132 exit-options_23.2.02.dsc
+ e5f613c70f188525a954dbd3fb458d9e54c481b9 38252 exit-options_23.2.02.tar.xz
+ 3a31f0f6dd29689418e78988f341336fc49bf94a 10761 exit-options_23.2.02_amd64.buildinfo
+ c8037c7f0a5849aa1633382e6a607817d6cea066 38148 exit-options_23.2.02_amd64.deb
+Checksums-Sha256:
+ 1fc4b2222497bd6b410cda38274384a42f1afdf8d558b47da0130c988cafaa07 1132 exit-options_23.2.02.dsc
+ 419054bd9b202dc7127cf6dd283bd12929aec7dcfd6759bd916426fa9b835303 38252 exit-options_23.2.02.tar.xz
+ 9e45e16e3ed762074988ee6b6aaed6e64bf37a0286d69c9ac5a40dcbdb823672 10761 exit-options_23.2.02_amd64.buildinfo
+ 526fcb16c000772935caa2dfa8f9e21aef717d842999d2c4995fbcdab5ac5f89 38148 exit-options_23.2.02_amd64.deb
+Files:
+ 462d98b1560586b902f55b0157c047ad 1132 admin optional exit-options_23.2.02.dsc
+ 3c95733bf468f48e8143ce8a8145d026 38252 admin optional exit-options_23.2.02.tar.xz
+ 6d330b7ad706cafb31a4a324bb3c3d64 10761 admin optional exit-options_23.2.02_amd64.buildinfo
+ 6058a4102b1dd45ecd7597e0c11f7da6 38148 admin optional exit-options_23.2.02_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPebM8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumD1aCACGPC71gNmUUHPtPJ5udUXun1EmfKb6
+py4JxGYWwK6T8BeejW8mldKzG3w+PtiLa9g+mkAFP02dTLZbpYHhs78Eb+3zvtfe
+AGpcIRtLbRu9mhxK+0KgjpnZlVk9RwWfw6VMJgkCpX156bDia0RPAzal2NCnvEkg
+KZqwaUqKxi3bcmEX3an+yMa+b3jQ365pfHjXbhROyyyogByfKpeN22AeSDzKBRQf
+pvOl1sgKnypzOML1qqlDpPQRxZYyeF61IFlRRB0lSbM0O/xYWoD0Vmfixs9+PV/L
+zsz8m4qfALePgNqcRJI8pik3SLTE44sC5aluXw3F0rC9Q7iTtm/bTKxc
+=kO5V
+-----END PGP SIGNATURE-----

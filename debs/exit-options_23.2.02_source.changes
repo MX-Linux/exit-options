@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 04 Feb 2023 09:31:54 -0500
+Source: exit-options
+Architecture: source
+Version: 23.2.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ exit-options (23.2.02) mx; urgency=medium
+ .
+   * Kill itself if already running: this will provide a toggle functionality for launcher
+Checksums-Sha1:
+ 35cc1fc53ce92ea4512ebbc2143bd94b6fecff08 1132 exit-options_23.2.02.dsc
+ e5f613c70f188525a954dbd3fb458d9e54c481b9 38252 exit-options_23.2.02.tar.xz
+ 3a31f0f6dd29689418e78988f341336fc49bf94a 10761 exit-options_23.2.02_amd64.buildinfo
+Checksums-Sha256:
+ 1fc4b2222497bd6b410cda38274384a42f1afdf8d558b47da0130c988cafaa07 1132 exit-options_23.2.02.dsc
+ 419054bd9b202dc7127cf6dd283bd12929aec7dcfd6759bd916426fa9b835303 38252 exit-options_23.2.02.tar.xz
+ 9e45e16e3ed762074988ee6b6aaed6e64bf37a0286d69c9ac5a40dcbdb823672 10761 exit-options_23.2.02_amd64.buildinfo
+Files:
+ 462d98b1560586b902f55b0157c047ad 1132 admin optional exit-options_23.2.02.dsc
+ 3c95733bf468f48e8143ce8a8145d026 38252 admin optional exit-options_23.2.02.tar.xz
+ 6d330b7ad706cafb31a4a324bb3c3d64 10761 admin optional exit-options_23.2.02_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPebM8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumF6aCACbxwQOTGiXCE49YwA1RwlatoA6FnA2
+EDCb+kNqj2KS8eaJM/xnRRdmeZXZqL7dMJIJ3BXge9CvtWf/AfRiE09PXG/aWkp/
+0qJRLwUwWB/8CkQa8nONkP9MzJ5mjsVWhiVNXIXCMOVuX0qeIMnFi0nCK0XT9f+M
+Ya0F7op4RuFj2LEkg44Hsr7yhfD03OhN8AiOuo0ctsJIdDmilY649q2HIgEg1wmM
+zGNY1vNsq2K6MMcrx7oNjohf2bsFQ4kEAdkAe1U4uXxXApKTlJWtfbqfebrfkX6v
++vSn2yCvRtrKgngEOajiRQqgNxBNMIcnMWa9kE+J9BEKDQ63IawV3/lr
+=g+Ee
+-----END PGP SIGNATURE-----
