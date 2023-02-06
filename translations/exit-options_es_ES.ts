@@ -103,5 +103,10 @@ utilice -h, --horizontal, para mostrar los botones horizontalmente.</translation
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
         <translation>Puede definir iconos personalizados añadiendo IconName=/path/iconame.ext en el archivo exit-options.conf. Los nombres de los iconos que se reasignan: %1</translation>
     </message>
+    <message>
+        <location filename="../main.cpp" line="66"/>
+        <source>Other options that can be set in the exit-options.conf file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

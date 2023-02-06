@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 06 Feb 2023 14:18:01 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.2.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.2.03) mx; urgency=medium
+ .
+   * Make buttons flat
+   * Add IconSize, Margin, and Spacinf option in exit-options.conf
+Checksums-Sha1:
+ 4003445f5d63835a2c5728463a3eb2c927b5f298 1132 exit-options_23.2.03.dsc
+ 3c3956b95ba0f2c5f54653426033308b087aadf2 39092 exit-options_23.2.03.tar.xz
+ d49ea8d2baaf05f950d6f97bd6b9ccac8a957e00 10841 exit-options_23.2.03_amd64.buildinfo
+ 42a0bbf5dbe9e683da045efc511f81d3adfab2b0 38584 exit-options_23.2.03_amd64.deb
+Checksums-Sha256:
+ ee05c32f0d8f66dba38bd44cc6dce714bb18c171560eaf621d99559c11ae99ff 1132 exit-options_23.2.03.dsc
+ a6d4c5b7a1e14cb6e01c0cdc37d1caa859d4b40c8e62713f8406955264eba5ac 39092 exit-options_23.2.03.tar.xz
+ b0fa7b1063b24306d29d08935f52ec45ea843b2e150a077daa2b544227f68450 10841 exit-options_23.2.03_amd64.buildinfo
+ 3161f918b54c92a638ba1e98cf3292ec44507b35ae370fe28eb5e6920221b1bf 38584 exit-options_23.2.03_amd64.deb
+Files:
+ dacafe379e51047c9f95997931ab9b6b 1132 admin optional exit-options_23.2.03.dsc
+ b27935cb404bb12803cc340c2653f7a1 39092 admin optional exit-options_23.2.03.tar.xz
+ 0916ca59d5d1ff7e9666c6edc418bb75 10841 admin optional exit-options_23.2.03_amd64.buildinfo
+ bbb603bdf5b558981ad7afd00c216e62 38584 admin optional exit-options_23.2.03_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPhUvETHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumFKjCAC/lu7Pbl0KHmyXmyta/XLgkjsdrMwT
+G4kfV2E6K6SDXFgfRE88UDDgqVvAbKhswJd2brv4CNIyg061i+0n/9mJjY6oK5xj
+3Q8sMT7y9nC5mOmkyG2HsMD3LG+Ha/O71x6ZzzWRwwcZELdNB2pe7SdiUwBOvBa5
+LRVZecGDkQ5DRuNeBNOQwka98SEbi+sxv2PmzTizCG/iV1qYKVZCIOoSP+758W5+
+u50AqpvkjztpyVaDc7fhV+d0Jud9kecJsaH2tMzy3o1aYUNzhA2WoDO8N1NLuByZ
+IiE9jwfmovsG5BquOvZ09B+LxeIBjQrTXNnPkqQmKIouxXFB+pMTDufK
+=Xy0q
+-----END PGP SIGNATURE-----

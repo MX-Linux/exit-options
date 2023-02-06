@@ -101,7 +101,12 @@ Utilize ‘-h’ ou ‘--horizontal’ para exibir os botões na posição horiz
     <message>
         <location filename="../main.cpp" line="62"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
-        <translation>Você pode definir os ícones personalizados adicionando o parâmetro &apos;IconName=/path/iconame.ext&apos; no arquivo &apos;options.conf&apos;. Os nomes dos ícones que você remapear: %1</translation>
+        <translation>Você pode definir os ícones personalizados adicionando o parâmetro &apos;IconName=/path/iconame.ext&apos; no arquivo de configurações &apos;options.conf&apos;. Os nomes dos ícones que você pode remapear são: %1</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="66"/>
+        <source>Other options that can be set in the exit-options.conf file: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
