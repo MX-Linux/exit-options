@@ -103,5 +103,10 @@ përdorni -h, --horizontal për t’i shfaqur horizontalisht butonat.</translati
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
         <translation>Mund të shtoni ikona vetjake duke shtuar IconName=/shteg/emër_ikone.ext te kartela exit-options.conf. Emrat e ikonave që ripërshoqëroni: %1</translation>
     </message>
+    <message>
+        <location filename="../main.cpp" line="66"/>
+        <source>Other options that can be set in the exit-options.conf file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -103,5 +103,10 @@ använd -h, --horizontal för att visa knappar horisontellt.</translation>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
         <translation>Du kan definiera anpassade ikoner genom att lägga till IconName=/path/iconame.ext i exit-options.conf filen. Namnen på ikonerna du ändrar: %1</translation>
     </message>
+    <message>
+        <location filename="../main.cpp" line="66"/>
+        <source>Other options that can be set in the exit-options.conf file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -1,3 +1,10 @@
+exit-options (23.2.03) mx; urgency=medium
+
+  * Make buttons flat
+  * Add IconSize, Margin, and Spacinf option in exit-options.conf
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 06 Feb 2023 14:18:01 -0500
+
 exit-options (23.2.02) mx; urgency=medium
 
   * Kill itself if already running: this will provide a toggle functionality for launcher

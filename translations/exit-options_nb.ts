@@ -11,7 +11,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="31"/>
         <source>Log Out</source>
-        <translation type="unfinished"></translation>
+        <translation>Logg ut</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="32"/>
@@ -35,69 +35,77 @@
         <location filename="../main.cpp" line="42"/>
         <location filename="../main.cpp" line="50"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprettoppvindu med avslutningsalternativer for MX Fluxbox</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="43"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis knapper i et loddrett vindu</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis knapper i et vannrett vindu</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Tidsavbrudd i sekunder</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation type="unfinished"></translation>
+        <translation>bruk -v eller --vertical for å vise knapper loddrett
+bruk -h eller --horizontal for å vise knapper vannrett.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="51"/>
         <source>Usage: exit-options [options]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Bruk: exit-options [alternativer]
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
         <source>Options:</source>
-        <translation>Valg:</translation>
+        <translation>Alternativer:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="53"/>
         <source>  -h, --horizontal	 Option to display buttons horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>-h, --horizontal	 Vis knapper vannrett</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>  -v, --vertical	 Option to display buttons vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>-v, --vertical	 Vis knapper loddrett</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>  -t, --timeout &lt;sec&gt;	 Timeout duration in seconds
 </source>
-        <translation type="unfinished"></translation>
+        <translation>-t, --timeout &lt;sec&gt;	Tidsavbrudd i sekunder
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="56"/>
         <source>The display orientation option used will be remembered and used the next time you start the app</source>
-        <translation type="unfinished"></translation>
+        <translation>Visningsretningen vil huskes og brukes neste gang programmet startes</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="58"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>Dette kan også angis som &apos;layout=horizontal&apos; eller &apos;layout=vertical&apos; i ~/.config/MX-Linux/exit-options.conf</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="62"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
+        <translation>Definer selvvalgte ikoner ved å legge til IconName=/sti/ikonnavn.utv i fila exit-options.conf. Hvilke ikoner som overstyres: %1</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="66"/>
+        <source>Other options that can be set in the exit-options.conf file: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

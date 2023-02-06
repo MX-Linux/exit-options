@@ -102,5 +102,10 @@ düğmeleri yatay olarak kullanmak için -h veya --horizontal&apos;ı kullanın<
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../main.cpp" line="66"/>
+        <source>Other options that can be set in the exit-options.conf file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

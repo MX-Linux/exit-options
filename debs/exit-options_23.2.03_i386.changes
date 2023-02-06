@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Mon, 06 Feb 2023 14:18:01 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.2.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.2.03) mx; urgency=medium
+ .
+   * Make buttons flat
+   * Add IconSize, Margin, and Spacinf option in exit-options.conf
+Checksums-Sha1:
+ 2471f4bcc02d410de9773abeada0a3bf49bed942 9987 exit-options_23.2.03_i386.buildinfo
+ 69cd64bd4041702b625aa4713d20f36d0d13fad1 41452 exit-options_23.2.03_i386.deb
+Checksums-Sha256:
+ 1d8823683f0022129947f0dfae2c4cc5ee983e1b148362232f670764611fc0ec 9987 exit-options_23.2.03_i386.buildinfo
+ 560cc4a355be177f5aa369b5930e0f4be2cf48282cf5cdea8ed3d5885394ef75 41452 exit-options_23.2.03_i386.deb
+Files:
+ d4a932fbb310ad0f950371a885876c30 9987 admin optional exit-options_23.2.03_i386.buildinfo
+ 0aa86d32efe6edfe8b21c9d1aded5bc9 41452 admin optional exit-options_23.2.03_i386.deb
