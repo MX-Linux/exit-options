@@ -57,9 +57,11 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
         layout->addWidget(pushSleep);
     layout->addWidget(pushRestart);
     layout->addWidget(pushShutdown);
+    layout->setMargin(settings.value("Margin", 3).toUInt());
+    layout->setSpacing(settings.value("Spacing", 3).toUInt());
     setLayout(layout);
 
-    const int iconSize = 50;
+    const uint iconSize = settings.value("IconSize", 50).toUInt();
     QList<QPushButton *> btnList {pushLock, pushExit, pushSleep, pushRestart, pushShutdown};
     for (auto *btn : btnList) {
         btn->setAutoDefault(false);
