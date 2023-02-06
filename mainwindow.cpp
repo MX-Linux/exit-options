@@ -64,7 +64,9 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     const uint iconSize = settings.value("IconSize", 50).toUInt();
     QList<QPushButton *> btnList {pushLock, pushExit, pushSleep, pushRestart, pushShutdown};
     for (auto *btn : btnList) {
+        btn->setFlat(true);
         btn->setAutoDefault(false);
+        btn->setDefault(false);
         btn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         btn->setIconSize(QSize(iconSize, iconSize));
     }
