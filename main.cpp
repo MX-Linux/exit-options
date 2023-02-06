@@ -61,7 +61,10 @@ int main(int argc, char *argv[])
         qDebug().noquote()
             << QObject::tr("You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf "
                            "file. The names of the icons that you remap: %1")
-                   .arg("LockIcon, LogoutIcon, SuspendIcon, RebootIcon, ShutdownIcon.");
+                       .arg("LockIcon, LogoutIcon, SuspendIcon, RebootIcon, ShutdownIcon.")
+                   + "\n";
+        qDebug().noquote() << QObject::tr("Other options that can be set in the exit-options.conf file: %1")
+                                  .arg("IconSize=, Margin=, Spacing=");
         exit(EXIT_SUCCESS);
     }
 
