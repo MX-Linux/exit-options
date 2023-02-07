@@ -9,36 +9,39 @@
 MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     : QDialog(parent)
 {
-    // Default icons
-    QMap<QString, QString> icons {{"LockIcon", ":/icons/system-lock-mxfb.png"},
-                                  {"LogoutIcon", ":/icons/system-log-out.png"},
-                                  {"SuspendIcon", ":/icons/system-sleep.png"},
-                                  {"RebootIcon", ":/icons/system-restart.png"},
-                                  {"ShutdownIcon", ":/icons/system-shutdown.png"}};
+    QPushButton *pushLock {};
+    QPushButton *pushExit {};
+    QPushButton *pushSleep {};
+    QPushButton *pushRestart {};
+    QPushButton *pushShutdown {};
+
+    // Build ordered list iconsNames, toolTips, IconFile, btnList
+    QList<QPushButton **> btnList {&pushLock, &pushExit, &pushSleep, &pushRestart, &pushShutdown};
+    QStringList iconName {"LockIcon", "LogoutIcon", "SuspendIcon", "RebootIcon", "ShutdownIcon"};
+    QStringList iconLocation {":/icons/system-lock-mxfb.png", ":/icons/system-log-out.png", ":/icons/system-sleep.png",
+                              ":/icons/system-restart.png", ":/icons/system-shutdown.png"};
+    QStringList toolTips {tr("Lock Screen"), tr("Log Out"), tr("Suspend"), tr("Reboot"), tr("Shutdown")};
+    QList<QFunctionPointer> action = {MainWindow::on_pushLock, MainWindow::on_pushExit, MainWindow::on_pushSleep,
+                                      MainWindow::on_pushRestart, MainWindow::on_pushShutdown};
     // Load icons from settings
-    for (auto it = icons.begin(); it != icons.end(); ++it) {
-        QString icon = settings.value(it.key()).toString();
+    for (auto i = 0; i < iconName.size(); ++i) {
+        QString icon = settings.value(iconName.at(i)).toString();
         if (QFileInfo::exists(icon))
-            it.value() = icon;
+            iconLocation[i] = icon;
     }
-    auto *pushLock = new QPushButton(QIcon(icons.value("LockIcon")), QString());
-    auto *pushExit = new QPushButton(QIcon(icons.value("LogoutIcon")), QString());
-    auto *pushSleep = new QPushButton(QIcon(icons.value("SuspendIcon")), QString());
-    auto *pushRestart = new QPushButton(QIcon(icons.value("RebootIcon")), QString());
-    auto *pushShutdown = new QPushButton(QIcon(icons.value("ShutdownIcon")), QString());
 
-    pushLock->setToolTip(tr("Lock Screen"));
-    pushExit->setToolTip(tr("Log Out"));
-    pushSleep->setToolTip(tr("Suspend"));
-    pushRestart->setToolTip(tr("Reboot"));
-    pushShutdown->setToolTip(tr("Shutdown"));
+    // Set buttons
+    const uint iconSize = settings.value("IconSize", 50).toUInt();
+    for (auto i = 0; i < btnList.size(); ++i) {
+        *btnList[i] = new QPushButton(QIcon(iconLocation.at(i)), QString());
+        (*btnList[i])->setToolTip(toolTips.at(i));
+        (*btnList[i])->setFlat(true);
+        (*btnList[i])->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        (*btnList[i])->setIconSize(QSize(iconSize, iconSize));
+        connect(*btnList.at(i), &QPushButton::clicked, this, action.at(i));
+    }
 
-    connect(pushLock, &QPushButton::clicked, this, &MainWindow::on_pushLock);
-    connect(pushExit, &QPushButton::clicked, this, &MainWindow::on_pushExit);
-    connect(pushSleep, &QPushButton::clicked, this, &MainWindow::on_pushSleep);
-    connect(pushRestart, &QPushButton::clicked, this, &MainWindow::on_pushRestart);
-    connect(pushShutdown, &QPushButton::clicked, this, &MainWindow::on_pushShutdown);
-
+    // Set layout
     QBoxLayout *layout {nullptr};
     if ((settings.value("layout").toString() == QLatin1String("horizontal") || arg_parser.isSet("horizontal"))
         && !arg_parser.isSet("vertical")) {
@@ -49,39 +52,39 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
         layout = new QVBoxLayout(this);
     }
     layout->addWidget(pushLock);
+    // Add pushExit?
     if (QStringList {"xfce", "KDE", "i3", "fluxbox"}.contains(qgetenv("XDG_SESSION_DESKTOP"))
         || QProcess::execute("pidof", {"-q", "fluxbox"}) == 0
         || QProcess::execute("systemctl", {"is-active", "--quiet", "service"}) == 0)
         layout->addWidget(pushExit);
+    // Add pushSleep?
     if (!isRaspberryPi())
         layout->addWidget(pushSleep);
     layout->addWidget(pushRestart);
     layout->addWidget(pushShutdown);
-    layout->setMargin(settings.value("Margin", 3).toUInt());
-    layout->setSpacing(settings.value("Spacing", 3).toUInt());
+
+    // Spacing
+    const auto default_spacing = 3;
+    layout->setMargin(settings.value("Margin", default_spacing).toUInt());
+    layout->setSpacing(settings.value("Spacing", default_spacing).toUInt());
     setLayout(layout);
 
-    const uint iconSize = settings.value("IconSize", 50).toUInt();
-    QList<QPushButton *> btnList {pushLock, pushExit, pushSleep, pushRestart, pushShutdown};
-    for (auto *btn : btnList) {
-        btn->setFlat(true);
-        btn->setAutoDefault(false);
-        btn->setDefault(false);
-        btn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        btn->setIconSize(QSize(iconSize, iconSize));
-    }
-
+    // Set window features
     this->setSizeGripEnabled(true);
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+
+    // Save settings connection
     connect(QApplication::instance(), &QApplication::aboutToQuit, [this] { saveSettings(); });
 
-    this->show();
+    // Restore or reset geometry
+    this->show(); // can't save geometry if not shown
     if (settings.contains("geometry")) {
         const QByteArray geometry = saveGeometry();
         restoreGeometry(settings.value("geometry").toByteArray());
         // if too wide/tall reset geometry
-        if ((horizontal && size().height() >= size().width() * 0.6)
-            || (!horizontal && size().width() >= size().height() * 0.6)) {
+        const auto factor = 0.6;
+        if ((horizontal && size().height() >= size().width() * factor)
+            || (!horizontal && size().width() >= size().height() * factor)) {
             restoreGeometry(geometry);
         }
     }
