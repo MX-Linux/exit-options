@@ -113,6 +113,8 @@ void MainWindow::saveSettings()
     settings.setValue("layout", horizontal ? "horizontal" : "vertical");
 }
 
+void MainWindow::reject() { QApplication::quit(); }
+
 void MainWindow::on_pushRestart() { QProcess::startDetached("sudo", {"-n", "reboot"}); }
 
 void MainWindow::on_pushShutdown() { QProcess::startDetached("sudo", {"-n", "/sbin/halt"}); }

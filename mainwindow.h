@@ -26,6 +26,7 @@ private:
     QSettings settings;
 
     static bool isRaspberryPi();
+    void reject() override;
 };
 
 #endif // MAINWINDOW_H
