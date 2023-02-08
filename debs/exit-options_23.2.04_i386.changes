@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Wed, 08 Feb 2023 11:45:10 -0500
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.2.04
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.2.04) mx; urgency=medium
+ .
+   * Fix: make sure app exits when pressing Esc
+   * New translations
+Checksums-Sha1:
+ 41562e5f0654f6dd291b8fe1077a6c41d669b04b 9987 exit-options_23.2.04_i386.buildinfo
+ 89e88b18de311ffce016ce3219623708703bbd03 34580 exit-options_23.2.04_i386.deb
+Checksums-Sha256:
+ 00c3352f222b55877039007c0a62fb30c281e8ed36514b2a98e7f6913ce9de20 9987 exit-options_23.2.04_i386.buildinfo
+ 42d1988e29814fa41aa556d3d9e1ce98211cccb6e8f55b9f237e40ed0268eb89 34580 exit-options_23.2.04_i386.deb
+Files:
+ f3468bd77129d7ad2e8314fa5dcf586e 9987 admin optional exit-options_23.2.04_i386.buildinfo
+ 1381b4ca2e042886ad92dcda0ce6e2cc 34580 admin optional exit-options_23.2.04_i386.deb

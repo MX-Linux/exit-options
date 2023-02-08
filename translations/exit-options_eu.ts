@@ -4,27 +4,27 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Lock Screen</source>
         <translation>Pantaila blokeatu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="31"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Log Out</source>
         <translation>Saioa amaitu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="32"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Suspend</source>
         <translation>Suspenditu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="33"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Reboot</source>
         <translation>Berrabiarazi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Shutdown</source>
         <translation>Itzali</translation>
     </message>

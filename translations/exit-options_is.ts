@@ -4,27 +4,27 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Lock Screen</source>
         <translation>Læsa skjá</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="31"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Log Out</source>
         <translation>Skrá út</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="32"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Suspend</source>
         <translation>Setja í bið</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="33"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Reboot</source>
         <translation>Endurræsa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="23"/>
         <source>Shutdown</source>
         <translation>Slökkva</translation>
     </message>
