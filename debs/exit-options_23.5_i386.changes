@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Thu, 06 Apr 2023 15:31:22 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.5
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.5) mx; urgency=medium
+ .
+   * Add poweroff parameter to halt command
+Checksums-Sha1:
+ c24f4bd94326d67f8519d4f88876f62cd2d3d795 9972 exit-options_23.5_i386.buildinfo
+ ead3d3d6a93049f7137a71ef027311b91d021370 34580 exit-options_23.5_i386.deb
+Checksums-Sha256:
+ 23b014ceed9a0493a96cc7b9056d3a07d6ed7b08d3aa854c18464cf21845b30f 9972 exit-options_23.5_i386.buildinfo
+ 33f99433d73270183aa089d44c522d57a168d2414fd624f1e92851400bd24b41 34580 exit-options_23.5_i386.deb
+Files:
+ 46ba23f562aa8a1acef1cc65afc22361 9972 admin optional exit-options_23.5_i386.buildinfo
+ 9d0a8bde638630e1c6f4f1120d3fd7f0 34580 admin optional exit-options_23.5_i386.deb

@@ -35,22 +35,22 @@
         <location filename="../main.cpp" line="42"/>
         <location filename="../main.cpp" line="50"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Всплывающее окно с параметрами выхода для MX Fluxbox</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="43"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>Отображать кнопки в вертикальном окне</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>Отображать кнопки в горизонтальном окне</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Длительность таймаут в секундах:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
@@ -62,7 +62,8 @@ use -h, --horizontal to display buttons horizontally.</source>
         <location filename="../main.cpp" line="51"/>
         <source>Usage: exit-options [options]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Использование: exit-options [параметры]
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
@@ -103,7 +104,7 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Другие параметры, которые могут быть заданы в файле exit-options.conf: %1</translation>
     </message>
 </context>
 </TS>

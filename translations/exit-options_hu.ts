@@ -35,75 +35,78 @@
         <location filename="../main.cpp" line="42"/>
         <location filename="../main.cpp" line="50"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Ablak az MX Fluxbox kilépési lehetőségeinek megjelenítéséhez</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="43"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>Gombok megjelenítése függőleges ablakban</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>Gombok megjelenítése vízszintes ablakban</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Időtúllépés másodpercekben</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation type="unfinished"></translation>
+        <translation>a -v, --vertical használatával a gombok vízszintesen jelennek meg
+a -h, --horizontal használatával a gombok függőlegesen jelennek meg</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="51"/>
         <source>Usage: exit-options [options]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Használata: exit-options [opciók]
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
         <source>Options:</source>
-        <translation>Beállítások:</translation>
+        <translation>Opciók:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="53"/>
         <source>  -h, --horizontal	 Option to display buttons horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>-h, --horizontal	Gombok megjelenítése vízszintesen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>  -v, --vertical	 Option to display buttons vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>  -v, --vertical	 Gombok megjelenítése függőlegesen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>  -t, --timeout &lt;sec&gt;	 Timeout duration in seconds
 </source>
-        <translation type="unfinished"></translation>
+        <translation>  -t, --timeout &lt;sec&gt;	 Időtúllépés másodpercekben
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="56"/>
         <source>The display orientation option used will be remembered and used the next time you start the app</source>
-        <translation type="unfinished"></translation>
+        <translation>A kiválasztott megjelenítési irányt a program megjegyzi és a későbbiekben is érvényben lesz</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="58"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>Más lehetőségéknt, megadhatja a &apos;layout=horizontal&apos; vagy &apos;layout=vertical&apos; értéket a ~/.config/MX-Linux/exit-options.conf fájlban</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="62"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Egyéni ikonokat megadhat IconName=/path/iconame.ext formában az exit-options.conf fájlban. A felülbírált ikonok neve: %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>További lehetőségek, amelyet megadhat az exit-options.conf fájlban: %1</translation>
     </message>
 </context>
 </TS>

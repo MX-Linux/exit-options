@@ -35,34 +35,36 @@
         <location filename="../main.cpp" line="42"/>
         <location filename="../main.cpp" line="50"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>带有 MX Fluxbox 退出选项的弹出窗口</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="43"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>在垂直窗口中显示按钮</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>在水平窗口中显示按钮</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>超时持续时间（以秒为单位）</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation type="unfinished"></translation>
+        <translation>使用 -v, --vertical 垂直显示按钮
+使用 -h, --horizo​​ntal 水平显示按钮。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="51"/>
         <source>Usage: exit-options [options]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>用法：exit-options [选项]
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
@@ -72,38 +74,39 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="53"/>
         <source>  -h, --horizontal	 Option to display buttons horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>-h, --horizo​​ntal	 水平显示按钮的选项</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>  -v, --vertical	 Option to display buttons vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>  -v, --vertical	 垂直显示按钮的选项</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>  -t, --timeout &lt;sec&gt;	 Timeout duration in seconds
 </source>
-        <translation type="unfinished"></translation>
+        <translation>  -t, --timeout &lt;sec&gt;	 超时持续时间（以秒为单位）
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="56"/>
         <source>The display orientation option used will be remembered and used the next time you start the app</source>
-        <translation type="unfinished"></translation>
+        <translation>本次使用的显示方向选项将被记住并在您下次启动应用程序时使用</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="58"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>或者，在 ~/.config/MX-Linux/exit-options.conf 中设置选项 &apos;layout=horizo​​ntal&apos; 或 &apos;layout=vertical&apos;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="62"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>您可以通过在 exit-options.conf 文件中添加 IconName=/path/iconame.ext 来定义自定义图标。您重新映射的图标的名称：%1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>可以在 exit-options.conf 文件中设置的其他选项：%1</translation>
     </message>
 </context>
 </TS>

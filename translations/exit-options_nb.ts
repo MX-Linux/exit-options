@@ -106,7 +106,7 @@ bruk -h eller --horizontal for å vise knapper vannrett.</translation>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Andre alternativer som kan angis i fila «exit-options.conf»: %1</translation>
     </message>
 </context>
 </TS>

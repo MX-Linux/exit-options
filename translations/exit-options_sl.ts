@@ -104,7 +104,7 @@ uporabite -h, -horizontal za vodoravni prikaz gumbov</translation>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Druge možnosti, ki jih je možno določiti v datoteki exit-options.conf: %1</translation>
     </message>
 </context>
 </TS>
