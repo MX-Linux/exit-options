@@ -120,6 +120,6 @@ void MainWindow::reject() { QApplication::quit(); }
 
 void MainWindow::on_pushRestart() { QProcess::startDetached("sudo", {"-n", "reboot"}); }
 
-void MainWindow::on_pushShutdown() { QProcess::startDetached("sudo", {"-n", "/sbin/halt --poweroff"}); }
+void MainWindow::on_pushShutdown() { QProcess::startDetached("sudo", {"-n", "/sbin/halt -p"}); }
 
 bool MainWindow::isRaspberryPi() { return QProcess::execute("test", {"-f", "/etc/rpi-issue"}) == 0; }
