@@ -6,7 +6,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="23"/>
         <source>Lock Screen</source>
-        <translation>Bloquear Pantalla</translation>
+        <translation>Bloquear la pantalla</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="23"/>

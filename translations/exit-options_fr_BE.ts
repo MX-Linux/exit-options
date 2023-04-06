@@ -6,7 +6,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="23"/>
         <source>Lock Screen</source>
-        <translation>Verrouiller l&apos;écran</translation>
+        <translation>Verrouiller l’écran</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="23"/>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>Timeout duration in seconds</source>
-        <translation>Délai d&apos;attente en secondes</translation>
+        <translation>Délai d’attente en secondes</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
@@ -85,18 +85,18 @@ utiliser -h, --horizontal pour afficher les boutons horizontalement.</translatio
         <location filename="../main.cpp" line="55"/>
         <source>  -t, --timeout &lt;sec&gt;	 Timeout duration in seconds
 </source>
-        <translation>  -t, --temps d&apos;attente &lt;sec&gt;	 Durée du délai d&apos;attente en secondes
+        <translation>  -t, --temps d’attente &lt;sec&gt;	 Durée du délai d’attente en secondes
 </translation>
     </message>
     <message>
         <location filename="../main.cpp" line="56"/>
         <source>The display orientation option used will be remembered and used the next time you start the app</source>
-        <translation>L&apos;option d&apos;orientation d&apos;affichage utilisée sera mémorisée et utilisée la prochaine fois que vous démarrerez l&apos;application</translation>
+        <translation>L’option d’orientation d’affichage utilisée sera mémorisée et utilisée la prochaine fois que vous démarrerez l’application</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="58"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
-        <translation>Vous pouvez également définir l&apos;option « layout=horizontal » ou « layout=vertical » dans ~/.config/MX-Linux/exit-options.conf</translation>
+        <translation>Vous pouvez également définir l’option « layout=horizontal » ou « layout=vertical » dans ~/.config/MX-Linux/exit-options.conf</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="62"/>
@@ -106,7 +106,7 @@ utiliser -h, --horizontal pour afficher les boutons horizontalement.</translatio
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation>D&apos;autres options peuvent être définies dans le fichier exit-options.conf: %1</translation>
+        <translation>D’autres options peuvent être définies dans le fichier exit-options.conf: %1</translation>
     </message>
 </context>
 </TS>

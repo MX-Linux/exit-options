@@ -1,3 +1,9 @@
+exit-options (23.5) mx; urgency=medium
+
+  * Add poweroff parameter to halt command 
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 06 Apr 2023 15:31:22 -0400
+
 exit-options (23.2.04) mx; urgency=medium
 
   * Fix: make sure app exits when pressing Esc
