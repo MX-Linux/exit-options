@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 06 Apr 2023 15:31:22 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.4
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.4) mx; urgency=medium
+ .
+   * Add poweroff parameter to halt command
+Checksums-Sha1:
+ 3445ed7dc868b66cd4c54187d56e0af6db32d8a1 1120 exit-options_23.4.dsc
+ a7be048a736294d0ff03a303bfbca351a194697d 42228 exit-options_23.4.tar.xz
+ ab1e4f584b0189e148b522cf8f95a0a158b1377e 10817 exit-options_23.4_amd64.buildinfo
+ cd1f33db85231cf43333679540f469d5b282f467 33204 exit-options_23.4_amd64.deb
+Checksums-Sha256:
+ 09538312febda378f6bec53066e701a9eaec48e5e23af609f11b3b5afc9ad2d0 1120 exit-options_23.4.dsc
+ e785347d1c60341bbda1cfce057f34cdf960c6ceabdaddaad85b937815f08afb 42228 exit-options_23.4.tar.xz
+ e75572069306fbdbbac4fa16376d37e8765c3595caae21d0381721e183b35cd0 10817 exit-options_23.4_amd64.buildinfo
+ 2c656d88dfa4d57f6e7e7276a6febee6501ec9a1f491d9e18b68b67cc588c170 33204 exit-options_23.4_amd64.deb
+Files:
+ 2e2083307b5a4209b5ae2c3209196510 1120 admin optional exit-options_23.4.dsc
+ 474f39e1564f2c6629b44fcb12a2b776 42228 admin optional exit-options_23.4.tar.xz
+ e85c34778210c10e84e446df2faa8b18 10817 admin optional exit-options_23.4_amd64.buildinfo
+ e0630c2b16824043301c865b08ac1b42 33204 admin optional exit-options_23.4_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmQvJZ0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumC92B/9gCGr8dReGvhl19WKpoOKmvexfsyyv
+h0+B6r1J9OmEAV8nAGON2o62DeM+e3TjoHkC6TcQHr9+JBHApq7SN6hG6JhrVJM2
+QLJA2Q+DdmLoBIhi2RnXJ2HX3OA6npRJ8+Zx/5UnE3jP9L9YuOt6FcY27T34QMk4
+W0eg64yXmJCd4paOjJVUe8omaDuGHUZqO1dTS83JNsXDoXEFuFMZHrfUlTGBnUR4
+dnt6pYwyZ0EB+fjkQiwNT7cLzrC53mE1bP7PcyzcESPV/kIsumtxRdqgbKT+jdUx
+qMigD6PZcvX/6hzxXh2h2Xmg4JIaJ2ce69q0FZVliByJNxn2rAlDxbU9
+=zR8R
+-----END PGP SIGNATURE-----
