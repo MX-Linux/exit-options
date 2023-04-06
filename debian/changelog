@@ -1,4 +1,4 @@
-exit-options (23.5) mx; urgency=medium
+exit-options (23.4) mx; urgency=medium
 
   * Add poweroff parameter to halt command 
 
