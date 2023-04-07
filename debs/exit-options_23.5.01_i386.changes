@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Fri, 07 Apr 2023 09:57:35 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.5.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.5.01) mx; urgency=medium
+ .
+   * Fix shutdown command
+Checksums-Sha1:
+ f28e24768d36bb1ee92181d0d559efb1e1310476 9987 exit-options_23.5.01_i386.buildinfo
+ 642cad3e46d1abe180e85d21042cd7824d3abb71 34736 exit-options_23.5.01_i386.deb
+Checksums-Sha256:
+ e3613cc4c3a8beae85423888f7731018352e7ca0d48b78f371dddfeae4050a61 9987 exit-options_23.5.01_i386.buildinfo
+ 948b6cb36f5633d62a301e321025a52a358e50f20db785dee4b4342868a4ec12 34736 exit-options_23.5.01_i386.deb
+Files:
+ 81be80bcfd740c3679cdf6544ec534db 9987 admin optional exit-options_23.5.01_i386.buildinfo
+ 265cc7188b3834fbd08b00dca6501b2c 34736 admin optional exit-options_23.5.01_i386.deb
