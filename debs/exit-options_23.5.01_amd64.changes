@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Fri, 07 Apr 2023 09:57:35 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.5.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.5.01) mx; urgency=medium
+ .
+   * Fix shutdown command
+Checksums-Sha1:
+ da25900507d7f231252e8d9bde688a20a4b764a1 1132 exit-options_23.5.01.dsc
+ 3d051d57d43bb22170989af0d85a1439b7b46101 42280 exit-options_23.5.01.tar.xz
+ 4657cfc307807017317a95742d93f9ac4a62625f 10841 exit-options_23.5.01_amd64.buildinfo
+ 354e5d28c8b83dfb292c7567ff7da3c986ac8d7b 33296 exit-options_23.5.01_amd64.deb
+Checksums-Sha256:
+ 9781002e59dbf886e2471e0451a2df8d1d464be789b94b1d3ee19fea421fd2ee 1132 exit-options_23.5.01.dsc
+ 85176090b5fd0b89805cc04aec2e322ed9916c7dbe421a60c531065fcebc03cc 42280 exit-options_23.5.01.tar.xz
+ fe28459d665c69a0eaec0421caae7960956db271c38b795daa8efada88f05132 10841 exit-options_23.5.01_amd64.buildinfo
+ 3e5be3543588e332feedb52b3460e1e0a0ce6341138f861c444509651a1d2ef5 33296 exit-options_23.5.01_amd64.deb
+Files:
+ 7c75f029b943731f4af6a328109acbc8 1132 admin optional exit-options_23.5.01.dsc
+ 658e953617fe9f58db03071563f21cbf 42280 admin optional exit-options_23.5.01.tar.xz
+ 3d88e34537511ea27ed7c0d6a01a572a 10841 admin optional exit-options_23.5.01_amd64.buildinfo
+ 7d3dd2b78e3308d02ebcf8d53ae3832a 33296 admin optional exit-options_23.5.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmQwXLQTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumNeRB/95TRl7CMSzqil3mD+DDT2CiK1opRqm
+mcX7JBv5joBaRus+Qsfo/XStPoBmp3wAYsQg08FW3M7pkJKpqdU+aG2NwkM1Qokx
+JMMJa+rzm6656N+QO768qdubv/OgDLKvzjKZ6eAetN6RGMxJXRYTR0ZIw7sWOvT2
+xk1lxc3cgzLH8JxwzJgcy8HF0v0f/wYktmQTGpA12zR+0XzOWO6hIA9yVij9m7j9
+K7mM6ijb5QU6OC/s4jucIc4+xnJuSV40ukuZsaHVdLaP6SySdPvftbyL02MPZvIN
+g2du7AwTJVqellVIrG4E1222qJdx1EvNZGiZlo/3p5w6TEtnwPBpvlxU
+=nJCU
+-----END PGP SIGNATURE-----
