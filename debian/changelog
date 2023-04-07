@@ -1,3 +1,9 @@
+exit-options (23.4.01) mx; urgency=medium
+
+  * Fix shutdown command
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 07 Apr 2023 09:57:35 -0400
+
 exit-options (23.4) mx; urgency=medium
 
   * Add poweroff parameter to halt command 
