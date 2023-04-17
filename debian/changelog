@@ -1,3 +1,9 @@
+exit-options (23.5.02) mx; urgency=medium
+
+  * Add timeout=X (where X is number of seconds) option to exit-options.conf settings
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 16 Apr 2023 21:11:36 -0400
+
 exit-options (23.5.01) mx; urgency=medium
 
   * Fix shutdown command

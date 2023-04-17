@@ -4,6 +4,7 @@
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QProcess>
+#include <QSettings>
 #include <QTimer>
 #include <QTranslator>
 
@@ -59,6 +60,9 @@ int main(int argc, char *argv[])
                                           "~/.config/MX-Linux/exit-options.conf")
                                   + "\n";
         qDebug().noquote()
+            << QObject::tr("To set the timeout in exit-options.conf use 'timeout=X' where X is the timeout in seconds.")
+                   + "\n";
+        qDebug().noquote()
             << QObject::tr("You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf "
                            "file. The names of the icons that you remap: %1")
                        .arg("LockIcon, LogoutIcon, SuspendIcon, RebootIcon, ShutdownIcon.")
@@ -71,7 +75,22 @@ int main(int argc, char *argv[])
     MainWindow w(parser);
     w.show();
 
-    std::chrono::seconds timeout(parser.value("timeout").toUInt());
-    QTimer::singleShot(timeout, &a, &QApplication::quit);
+    QSettings settings;
+    QString timeout;
+
+    if (parser.isSet("timeout")) {
+        timeout = parser.value("timeout");
+    } else {
+        timeout = settings.value("timeout").toString();
+        if (timeout.isEmpty())
+            timeout = settings.value("Timeout").toString();
+    }
+
+    if (timeout != "off") {
+        bool ok {false};
+        std::chrono::seconds timeout_s(timeout.toUInt(&ok));
+        if (ok)
+            QTimer::singleShot(timeout_s, &a, &QApplication::quit);
+    }
     return QApplication::exec();
 }
