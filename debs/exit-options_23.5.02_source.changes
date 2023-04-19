@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 16 Apr 2023 21:11:36 -0400
+Source: exit-options
+Architecture: source
+Version: 23.5.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ exit-options (23.5.02) mx; urgency=medium
+ .
+   * Add timeout=X (where X is number of seconds) option to exit-options.conf settings
+   * Add a button to restart Fluxbox (shows up only in Fluxbox)
+Checksums-Sha1:
+ 6023c8281870056eb99bd2c7e2e94780ead1de1d 1132 exit-options_23.5.02.dsc
+ 3bb7161e88e51e522563d9fadb510e4e77e2d7f5 64392 exit-options_23.5.02.tar.xz
+ 13f3e02e9287ebd599cc8ac6a80e1bd76a0a5425 10761 exit-options_23.5.02_amd64.buildinfo
+Checksums-Sha256:
+ 2960c5884edcd1e69214f37e84cd2706dcf088c909565c5ce33185b30be79c95 1132 exit-options_23.5.02.dsc
+ b7a5d18d4edc1d1361a1c613d20c1d0eb60423ee4493802efbad009b634c5b95 64392 exit-options_23.5.02.tar.xz
+ 04eb320b63627ec3a3c7804ec6d4047a96f5e55a8a35af8a1dacc204b768412f 10761 exit-options_23.5.02_amd64.buildinfo
+Files:
+ 0525ad9ea7522f44ada9c13cfcf67d1b 1132 admin optional exit-options_23.5.02.dsc
+ 869fe95f5733ccdaa67576755a9f3421 64392 admin optional exit-options_23.5.02.tar.xz
+ d1f43b3b63d9b84b517d0341b46330e8 10761 admin optional exit-options_23.5.02_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmQ/PAoTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHnYB/43sSBuLfpsOoTzUmTB7mkJtS8Xkua6
+SxFGeB8AkmP1XDoiKf9hsGlw8fyRWkOC1QUdlJnru0EJnu9VJjOiFOnZcOBJnyTD
+u8ZQAXc8inYDn9ns5jEK3683SDN5m3cKk7D9K7bIb0c1QZI/g4a1Sn4Yz6D9hkE2
+IQaBt3En3/riSk1ECk6d7VZWjM1WMidzoFRMC24WCeCYbs3ILGHtIoZRqOcLpOGk
+fuE4vFWx+sUEUc/Vf3aIp7vSvft1LIHUIkhzlb8eRkNoU+vO4QIzjD7vsWFfsGGc
+jRIU31v9ogElXnGTb++kXmhljmLJSKfjKcC64PbtpOLIxvYzr1AWPWVd
+=PDDb
+-----END PGP SIGNATURE-----
