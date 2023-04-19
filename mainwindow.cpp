@@ -9,20 +9,24 @@
 MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     : QDialog(parent)
 {
-    QPushButton *pushLock {};
     QPushButton *pushExit {};
-    QPushButton *pushSleep {};
+    QPushButton *pushLock {};
     QPushButton *pushRestart {};
+    QPushButton *pushRestartFluxbox {};
     QPushButton *pushShutdown {};
+    QPushButton *pushSleep {};
 
     // Build ordered list iconsNames, toolTips, IconFile, btnList
-    QList<QPushButton **> btnList {&pushLock, &pushExit, &pushSleep, &pushRestart, &pushShutdown};
-    QStringList iconName {"LockIcon", "LogoutIcon", "SuspendIcon", "RebootIcon", "ShutdownIcon"};
-    QStringList iconLocation {":/icons/system-lock-mxfb.png", ":/icons/system-log-out.png", ":/icons/system-sleep.png",
-                              ":/icons/system-restart.png", ":/icons/system-shutdown.png"};
-    QStringList toolTips {tr("Lock Screen"), tr("Log Out"), tr("Suspend"), tr("Reboot"), tr("Shutdown")};
-    QList<QFunctionPointer> action = {MainWindow::on_pushLock, MainWindow::on_pushExit, MainWindow::on_pushSleep,
-                                      MainWindow::on_pushRestart, MainWindow::on_pushShutdown};
+    QList<QPushButton **> btnList {&pushRestartFluxbox, &pushLock, &pushExit, &pushSleep, &pushRestart, &pushShutdown};
+    QStringList iconName {"RestartFluxbox", "LockIcon", "LogoutIcon", "SuspendIcon", "RebootIcon", "ShutdownIcon"};
+    QStringList iconLocation {":/icons/mxflux_red4_600.png", ":/icons/system-lock-mxfb.png",
+                              ":/icons/system-log-out.png",  ":/icons/system-sleep.png",
+                              ":/icons/system-restart.png",  ":/icons/system-shutdown.png"};
+    QStringList toolTips {tr("Restart Fluxbox"), tr("Lock Screen"), tr("Log Out"),
+                          tr("Suspend"),         tr("Reboot"),      tr("Shutdown")};
+    QList<QFunctionPointer> action
+        = {MainWindow::on_pushRestartFluxbox, MainWindow::on_pushLock,    MainWindow::on_pushExit,
+           MainWindow::on_pushSleep,          MainWindow::on_pushRestart, MainWindow::on_pushShutdown};
     // Load icons from settings
     for (auto i = 0; i < iconName.size(); ++i) {
         QString icon = settings.value(iconName.at(i)).toString();
@@ -51,9 +55,13 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
         horizontal = false;
         layout = new QVBoxLayout(this);
     }
+    // Add pushRestartFluxbox?
+    auto xdg_session_desktop = qgetenv("XDG_SESSION_DESKTOP");
+    if (xdg_session_desktop == "fluxbox")
+        layout->addWidget(pushRestartFluxbox);
     layout->addWidget(pushLock);
     // Add pushExit?
-    if (QStringList {"xfce", "KDE", "i3", "fluxbox"}.contains(qgetenv("XDG_SESSION_DESKTOP"))
+    if (QStringList {"xfce", "KDE", "i3", "fluxbox"}.contains(xdg_session_desktop)
         || QProcess::execute("pidof", {"-q", "fluxbox"}) == 0
         || QProcess::execute("systemctl", {"is-active", "--quiet", "service"}) == 0)
         layout->addWidget(pushExit);
@@ -119,6 +127,12 @@ void MainWindow::saveSettings()
 void MainWindow::reject() { QApplication::quit(); }
 
 void MainWindow::on_pushRestart() { QProcess::startDetached("sudo", {"-n", "reboot"}); }
+
+void MainWindow::on_pushRestartFluxbox()
+{
+    QProcess::startDetached("fluxbox-remote", {"restart"});
+    QProcess::startDetached("idesktoggle", {"idesk", "refresh"});
+}
 
 void MainWindow::on_pushShutdown() { QProcess::startDetached("sudo", {"-n", "/sbin/halt", "-p"}); }
 
