@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
     MainWindow w(parser);
     w.show();
 
-    QSettings userSettings(QSettings::UserScope);
+    QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
     QString timeout;
     if (parser.isSet("timeout")) {

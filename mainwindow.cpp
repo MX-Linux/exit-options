@@ -28,7 +28,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
         = {MainWindow::on_pushRestartFluxbox, MainWindow::on_pushLock,    MainWindow::on_pushExit,
            MainWindow::on_pushSleep,          MainWindow::on_pushRestart, MainWindow::on_pushShutdown};
     // Load icons from settings
-    QSettings userSettings(QSettings::UserScope);
+    QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
     for (auto i = 0; i < iconName.size(); ++i) {
         QString icon = userSettings.value(iconName.at(i), systemSettings.value(iconName.at(i)).toString()).toString();
@@ -51,12 +51,8 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     // Set layout
     QBoxLayout *layout {nullptr};
     horizontal = parser.isSet("horizontal");
-    if (!horizontal && !parser.isSet("vertical")) {
-        horizontal = userSettings.value("Layout", systemSettings.value("Layout").toString()).toString() == "horizontal";
-        if (!horizontal)
-            horizontal
-                = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
-    }
+    if (!horizontal && !parser.isSet("vertical"))
+        horizontal = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
     layout = horizontal ? static_cast<QBoxLayout *>(new QHBoxLayout(this))
                         : static_cast<QBoxLayout *>(new QVBoxLayout(this));
 
@@ -127,9 +123,9 @@ void MainWindow::on_pushSleep() { QProcess::startDetached("sudo", {"-n", "pm-sus
 
 void MainWindow::saveSettings()
 {
-    QSettings userSettings(QSettings::UserScope);
-    userSettings.setValue("Geometry", saveGeometry());
-    userSettings.setValue("Layout", horizontal ? "horizontal" : "vertical");
+    QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
+    userSettings.setValue("geometry", saveGeometry());
+    userSettings.setValue("layout", horizontal ? "horizontal" : "vertical");
 }
 
 void MainWindow::reject() { QApplication::quit(); }
