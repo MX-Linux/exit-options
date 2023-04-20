@@ -6,7 +6,7 @@
 
 #include "mainwindow.h"
 
-MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
+MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     : QDialog(parent)
 {
     QPushButton *pushExit {};
@@ -28,14 +28,17 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
         = {MainWindow::on_pushRestartFluxbox, MainWindow::on_pushLock,    MainWindow::on_pushExit,
            MainWindow::on_pushSleep,          MainWindow::on_pushRestart, MainWindow::on_pushShutdown};
     // Load icons from settings
+    QSettings userSettings(QSettings::UserScope);
+    QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
     for (auto i = 0; i < iconName.size(); ++i) {
-        QString icon = settings.value(iconName.at(i)).toString();
+        QString icon = userSettings.value(iconName.at(i), systemSettings.value(iconName.at(i)).toString()).toString();
         if (QFileInfo::exists(icon))
             iconLocation[i] = icon;
     }
 
     // Set buttons
-    const uint iconSize = settings.value("IconSize", 50).toUInt();
+    uint iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", 50).toUInt()).toUInt();
+
     for (auto i = 0; i < btnList.size(); ++i) {
         *btnList[i] = new QPushButton(QIcon(iconLocation.at(i)), QString());
         (*btnList[i])->setToolTip(toolTips.at(i));
@@ -47,14 +50,16 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
 
     // Set layout
     QBoxLayout *layout {nullptr};
-    if ((settings.value("layout").toString() == QLatin1String("horizontal") || arg_parser.isSet("horizontal"))
-        && !arg_parser.isSet("vertical")) {
-        horizontal = true;
-        layout = new QHBoxLayout(this);
-    } else {
-        horizontal = false;
-        layout = new QVBoxLayout(this);
+    horizontal = parser.isSet("horizontal");
+    if (!horizontal && !parser.isSet("vertical")) {
+        horizontal = userSettings.value("Layout", systemSettings.value("Layout").toString()).toString() == "horizontal";
+        if (!horizontal)
+            horizontal
+                = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
     }
+    layout = horizontal ? static_cast<QBoxLayout *>(new QHBoxLayout(this))
+                        : static_cast<QBoxLayout *>(new QVBoxLayout(this));
+
     // Add pushRestartFluxbox?
     auto xdg_session_desktop = qgetenv("XDG_SESSION_DESKTOP");
     if (xdg_session_desktop == "fluxbox")
@@ -73,8 +78,10 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
 
     // Spacing
     const auto default_spacing = 3;
-    layout->setMargin(settings.value("Margin", default_spacing).toUInt());
-    layout->setSpacing(settings.value("Spacing", default_spacing).toUInt());
+    layout->setMargin(userSettings.value("Margin", systemSettings.value("Margin", default_spacing).toUInt()).toUInt());
+    layout->setSpacing(
+        userSettings.value("Spacing", systemSettings.value("Spacing", default_spacing).toUInt()).toUInt());
+
     setLayout(layout);
 
     // Set window features
@@ -86,9 +93,9 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
 
     // Restore or reset geometry
     this->show(); // can't save geometry if not shown
-    if (settings.contains("geometry")) {
+    if (userSettings.contains("Geometry") || userSettings.contains("geometry")) {
         const QByteArray geometry = saveGeometry();
-        restoreGeometry(settings.value("geometry").toByteArray());
+        restoreGeometry(userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray());
         // if too wide/tall reset geometry
         const auto factor = 0.6;
         if ((horizontal && size().height() >= size().width() * factor)
@@ -120,8 +127,9 @@ void MainWindow::on_pushSleep() { QProcess::startDetached("sudo", {"-n", "pm-sus
 
 void MainWindow::saveSettings()
 {
-    settings.setValue("geometry", saveGeometry());
-    settings.setValue("layout", horizontal ? "horizontal" : "vertical");
+    QSettings userSettings(QSettings::UserScope);
+    userSettings.setValue("Geometry", saveGeometry());
+    userSettings.setValue("Layout", horizontal ? "horizontal" : "vertical");
 }
 
 void MainWindow::reject() { QApplication::quit(); }

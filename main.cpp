@@ -75,15 +75,15 @@ int main(int argc, char *argv[])
     MainWindow w(parser);
     w.show();
 
-    QSettings settings;
+    QSettings userSettings(QSettings::UserScope);
+    QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
     QString timeout;
-
     if (parser.isSet("timeout")) {
         timeout = parser.value("timeout");
     } else {
-        timeout = settings.value("timeout").toString();
+        timeout = userSettings.value("Timeout", userSettings.value("timeout").toString()).toString();
         if (timeout.isEmpty())
-            timeout = settings.value("Timeout").toString();
+            timeout = systemSettings.value("Timeout", systemSettings.value("timeout").toString()).toString();
     }
 
     if (timeout != "off") {
