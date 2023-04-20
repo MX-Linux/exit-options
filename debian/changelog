@@ -1,7 +1,13 @@
+exit-options (23.5.03) mx; urgency=medium
+
+  * Add a systemwide .conf file in /etc/exit-options.conf
+  * Add a button to restart Fluxbox (shows up only in Fluxbox)
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 20 Apr 2023 01:07:20 -0400
+
 exit-options (23.5.02) mx; urgency=medium
 
   * Add timeout=X (where X is number of seconds) option to exit-options.conf settings
-  * Add a button to restart Fluxbox (shows up only in Fluxbox)
 
  -- Adrian <adrian@mxlinux.org>  Sun, 16 Apr 2023 21:11:36 -0400
 
