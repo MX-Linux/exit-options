@@ -1,1 +1,2 @@
-exit-options	usr/bin
+exit-options	    usr/bin
+exit-options.conf   etc
