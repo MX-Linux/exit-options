@@ -1,11 +1,12 @@
-exit-options (23.5.03+nmu2) UNRELEASED; urgency=medium
+exit-options (23.5.03+nmu3) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
   * added configs_alt folder, restructured icons folder
   * added awesome and papirus themes
   * added kobaian icon set
+  * removed duplicate icon set
 
- -- Jerry <jb@mx>  Sun, 23 Apr 2023 11:19:04 -0400
+ -- Jerry <jb@mx>  Sun, 23 Apr 2023 16:25:22 -0400
 
 exit-options (23.5.03) mx; urgency=medium
 
