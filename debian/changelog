@@ -1,3 +1,10 @@
+exit-options (23.5.03+nmu1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * added configs_alt folder, restructured icons folder
+
+ -- Jerry <jb@mx>  Sun, 23 Apr 2023 09:35:27 -0400
+
 exit-options (23.5.03) mx; urgency=medium
 
   * Add a systemwide .conf file in /etc/exit-options.conf
