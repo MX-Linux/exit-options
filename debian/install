@@ -1,2 +1,4 @@
 exit-options	    usr/bin
 exit-options.conf   etc
+icons/* 			usr/share/exit-options
+configs_alt/*		usr/share/exit-options/conf
