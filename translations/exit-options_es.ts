@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
+        <source>Restart Fluxbox</source>
+        <translation>Reiniciar Fluxbox</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Lock Screen</source>
         <translation>Bloquear la pantalla</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Log Out</source>
         <translation>Cerrar sesión</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Suspend</source>
         <translation>Suspender</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Reboot</source>
         <translation>Reiniciar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Shutdown</source>
         <translation>Apagar</translation>
     </message>
@@ -106,7 +106,7 @@ use -h, --horizontal para mostrar los botones horizontalmente.</translation>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para establecer el tiempo de espera en exit-options.conf utilice &apos;timeout=X&apos; donde X es el tiempo de espera en segundos.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>

@@ -150,5 +150,4 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_zh_HK.ts \
                 translations/exit-options_zh_TW.ts
 
-RESOURCES += \
-    exit-options.qrc
+RESOURCES +=

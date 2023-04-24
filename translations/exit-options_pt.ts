@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
+        <source>Restart Fluxbox</source>
+        <translation>Reiniciar Fluxbox</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Lock Screen</source>
         <translation>Bloquear ecrã</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Log Out</source>
         <translation>Terminar sessão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Suspend</source>
         <translation>Suspender</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Reboot</source>
         <translation>Reiniciar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Shutdown</source>
         <translation>Encerrar</translation>
     </message>
@@ -106,7 +106,7 @@ usar ‘-h’ ou ‘--horizontal’ para mostrar botões na horizontal.</transla
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para configurar o tempo limite em exit-options.conf use &apos;timeout=X&apos; onde X é o tempo em segundos.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>

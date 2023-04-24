@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
+        <source>Restart Fluxbox</source>
+        <translation>Omstart av Fluxbox</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Lock Screen</source>
         <translation>Lås skjermen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Log Out</source>
         <translation>Logg ut</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Suspend</source>
         <translation>Hvilemodus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Reboot</source>
         <translation>Omstart</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Shutdown</source>
         <translation>Avslutter</translation>
     </message>
@@ -106,7 +106,7 @@ bruk -h eller --horizontal for å vise knapper vannrett.</translation>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriv «timeout=X» i exit-options.conf for å velge tidsavbrudd (X er tidsavbruddet i sekunder).</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>

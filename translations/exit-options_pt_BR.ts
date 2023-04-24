@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
+        <source>Restart Fluxbox</source>
+        <translation>Reiniciar o Fluxbox</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Lock Screen</source>
         <translation>Bloquear a Tela</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Log Out</source>
         <translation>Sair da Sessão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Suspend</source>
         <translation>Suspender</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Reboot</source>
         <translation>Reiniciar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Shutdown</source>
         <translation>Desligar</translation>
     </message>
@@ -61,8 +61,8 @@
         <location filename="../main.cpp" line="47"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation>Utilize ‘-v’ ou ‘--vertical’ para exibir os botões na posição vertical.
-Utilize ‘-h’ ou ‘--horizontal’ para exibir os botões na posição horizontal.</translation>
+        <translation>Utilize as opções ‘-v’ ou ‘--vertical’ para exibir os botões na posição vertical.
+Utilize as opções ‘-h’ ou ‘--horizontal’ para exibir os botões na posição horizontal.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
@@ -106,7 +106,7 @@ Utilize ‘-h’ ou ‘--horizontal’ para exibir os botões na posição horiz
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para definir o tempo limite, edite o arquivo de configurações ‘exit-options.conf’ na opção ‘timeout=X’, onde ‘X’ é o tempo limite medido em segundos.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>

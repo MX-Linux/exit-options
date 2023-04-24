@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Lock Screen</source>
-        <translation>Ekranı Kilitle</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Log Out</source>
-        <translation>Oturumu Kapat</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="26"/>
+        <source>Lock Screen</source>
+        <translation>Ekranı Kilitle</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="26"/>
+        <source>Log Out</source>
+        <translation>Oturumu Kapat</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Suspend</source>
         <translation>Askıya al</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Reboot</source>
         <translation>Yeniden Başlat</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Shutdown</source>
         <translation>Bilgisayarı Kapat</translation>
     </message>

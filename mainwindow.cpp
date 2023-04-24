@@ -19,9 +19,10 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     // Build ordered list iconsNames, toolTips, IconFile, btnList
     QList<QPushButton **> btnList {&pushRestartFluxbox, &pushLock, &pushExit, &pushSleep, &pushRestart, &pushShutdown};
     QStringList iconName {"RestartFluxbox", "LockIcon", "LogoutIcon", "SuspendIcon", "RebootIcon", "ShutdownIcon"};
-    QStringList iconLocation {":/icons/mxflux_red4_600.png", ":/icons/system-lock-mxfb.png",
-                              ":/icons/system-log-out.png",  ":/icons/system-sleep.png",
-                              ":/icons/system-restart.png",  ":/icons/system-shutdown.png"};
+    QStringList iconLocation {
+        "/usr/share/exit-options/awesome/refresh.png", "/usr/share/exit-options/awesome/lock.png",
+        "/usr/share/exit-options/awesome/logout.png",  "/usr/share/exit-options/awesome/suspend.png",
+        "/usr/share/exit-options/awesome/reboot.png",  "/usr/share/exit-options/awesome/shutdown.png"};
     QStringList toolTips {tr("Restart Fluxbox"), tr("Lock Screen"), tr("Log Out"),
                           tr("Suspend"),         tr("Reboot"),      tr("Shutdown")};
     QList<QFunctionPointer> action

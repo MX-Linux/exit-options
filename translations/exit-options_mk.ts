@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Lock Screen</source>
-        <translation>Заклучи го екранот</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Log Out</source>
-        <translation>Одјави се</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="26"/>
+        <source>Lock Screen</source>
+        <translation>Заклучи го екранот</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="26"/>
+        <source>Log Out</source>
+        <translation>Одјави се</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Suspend</source>
         <translation>Cуспендирај</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Reboot</source>
         <translation>Ρестартирај</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Shutdown</source>
         <translation>Исклучи</translation>
     </message>
