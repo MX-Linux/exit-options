@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Lock Screen</source>
-        <translation>Pantaila blokeatu</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="25"/>
-        <source>Log Out</source>
-        <translation>Saioa amaitu</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="25"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="26"/>
+        <source>Lock Screen</source>
+        <translation>Pantaila blokeatu</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="26"/>
+        <source>Log Out</source>
+        <translation>Saioa amaitu</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Suspend</source>
         <translation>Suspenditu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Reboot</source>
         <translation>Berrabiarazi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="27"/>
         <source>Shutdown</source>
         <translation>Itzali</translation>
     </message>
