@@ -151,4 +151,8 @@ void MainWindow::on_pushRestartFluxbox()
 
 void MainWindow::on_pushShutdown() { QProcess::startDetached("sudo", {"-n", "/sbin/halt", "-p"}); }
 
-bool MainWindow::isRaspberryPi() { return QProcess::execute("test", {"-f", "/etc/rpi-issue"}) == 0; }
+bool MainWindow::isRaspberryPi()
+{
+    QFile file("/etc/rpi-issue");
+    return file.exists();
+}
