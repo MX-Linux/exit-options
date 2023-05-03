@@ -5,6 +5,7 @@
 #include <QPushButton>
 
 #include "mainwindow.h"
+#include <array>
 
 MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     : QDialog(parent)
@@ -16,37 +17,46 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     QPushButton *pushShutdown {};
     QPushButton *pushSleep {};
 
-    // Build ordered list iconsNames, toolTips, IconFile, btnList
-    QList<QPushButton **> btnList {&pushRestartFluxbox, &pushLock, &pushExit, &pushSleep, &pushRestart, &pushShutdown};
-    QStringList iconName {"RestartFluxbox", "LockIcon", "LogoutIcon", "SuspendIcon", "RebootIcon", "ShutdownIcon"};
-    QStringList iconLocation {
-        "/usr/share/exit-options/awesome/refresh.png", "/usr/share/exit-options/awesome/lock.png",
-        "/usr/share/exit-options/awesome/logout.png",  "/usr/share/exit-options/awesome/suspend.png",
-        "/usr/share/exit-options/awesome/reboot.png",  "/usr/share/exit-options/awesome/shutdown.png"};
-    QStringList toolTips {tr("Restart Fluxbox"), tr("Lock Screen"), tr("Log Out"),
-                          tr("Suspend"),         tr("Reboot"),      tr("Shutdown")};
-    QList<QFunctionPointer> action
-        = {MainWindow::on_pushRestartFluxbox, MainWindow::on_pushLock,    MainWindow::on_pushExit,
-           MainWindow::on_pushSleep,          MainWindow::on_pushRestart, MainWindow::on_pushShutdown};
+    struct ButtonInfo {
+        QString iconName;
+        QString iconLocation;
+        QString toolTip;
+        QPushButton **btn;
+        std::function<void()> action;
+    };
+
+    const int NUM_BUTTONS = 6;
+    std::array<ButtonInfo, NUM_BUTTONS> buttons {
+        {{"RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png", tr("Restart Fluxbox"), &pushRestartFluxbox,
+          [] { MainWindow::on_pushRestartFluxbox(); }},
+         {"LockIcon", "/usr/share/exit-options/awesome/lock.png", tr("Lock Screen"), &pushLock,
+          [] { MainWindow::on_pushLock(); }},
+         {"LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"), &pushExit,
+          [] { MainWindow::on_pushExit(); }},
+         {"SuspendIcon", "/usr/share/exit-options/awesome/suspend.png", tr("Suspend"), &pushSleep,
+          [] { MainWindow::on_pushSleep(); }},
+         {"RebootIcon", "/usr/share/exit-options/awesome/reboot.png", tr("Reboot"), &pushRestart,
+          [] { MainWindow::on_pushRestart(); }},
+         {"ShutdownIcon", "/usr/share/exit-options/awesome/shutdown.png", tr("Shutdown"), &pushShutdown,
+          [] { MainWindow::on_pushShutdown(); }}}};
+
     // Load icons from settings
     QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
-    for (auto i = 0; i < iconName.size(); ++i) {
-        QString icon = userSettings.value(iconName.at(i), systemSettings.value(iconName.at(i)).toString()).toString();
-        if (QFileInfo::exists(icon))
-            iconLocation[i] = icon;
-    }
 
     // Set buttons
-    uint iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", 50).toUInt()).toUInt();
-
-    for (auto i = 0; i < btnList.size(); ++i) {
-        *btnList[i] = new QPushButton(QIcon(iconLocation.at(i)), QString());
-        (*btnList[i])->setToolTip(toolTips.at(i));
-        (*btnList[i])->setFlat(true);
-        (*btnList[i])->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        (*btnList[i])->setIconSize(QSize(iconSize, iconSize));
-        connect(*btnList.at(i), &QPushButton::clicked, this, action.at(i));
+    const uint defaultIconSize = 50;
+    uint iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toUInt();
+    for (auto &button : buttons) {
+        QString icon = userSettings.value(button.iconName, systemSettings.value(button.iconName).toString()).toString();
+        if (QFileInfo::exists(icon))
+            button.iconLocation = icon;
+        *button.btn = new QPushButton(QIcon(button.iconLocation), QString());
+        (*button.btn)->setToolTip(button.toolTip);
+        (*button.btn)->setFlat(true);
+        (*button.btn)->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        (*button.btn)->setIconSize(QSize(iconSize, iconSize));
+        connect(*button.btn, &QPushButton::clicked, this, button.action);
     }
 
     // Set layout
