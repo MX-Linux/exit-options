@@ -1,3 +1,9 @@
+exit-options (23.5.05) mx; urgency=medium
+
+  * Update icons
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 22 May 2023 20:12:28 -0400
+
 exit-options (23.5.04) mx; urgency=medium
 
   * added configs_alt folder 

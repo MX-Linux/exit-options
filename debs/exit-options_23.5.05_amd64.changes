@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 22 May 2023 20:12:28 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.5.05
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.5.05) mx; urgency=medium
+ .
+   * Update icons
+Checksums-Sha1:
+ ce08f19d3b1d9feb1b3a10d5d1575a6cf88a4c9a 1135 exit-options_23.5.05.dsc
+ 6dc0f8b72efeb084d2fafea5c67753cd8c06a128 226684 exit-options_23.5.05.tar.xz
+ 9ad118f2334fb14fce456d3021d7d719a5a74243 10764 exit-options_23.5.05_amd64.buildinfo
+ d56365ecd705d5223c27f4e9409cabb3a5948487 218404 exit-options_23.5.05_amd64.deb
+Checksums-Sha256:
+ 6ee6fe955558567d6636ccbde9587c4ee1eeaf59e81e9fb21ac06e316b07853f 1135 exit-options_23.5.05.dsc
+ 65aa7e73559ddcf404b189cc3032485b98058b2441fd5e5d4579c6b03b6bca68 226684 exit-options_23.5.05.tar.xz
+ 4dd6f74f89d31ee9db319a3a6bf51739e0e74576a2103a2db959b1ff9cfa5575 10764 exit-options_23.5.05_amd64.buildinfo
+ 0400a382c4ec21d81bd098b7d10070107453a2bdb3431cc652da4111cab0599d 218404 exit-options_23.5.05_amd64.deb
+Files:
+ 07ae98867ad7a291c5a3798215b215dd 1135 admin optional exit-options_23.5.05.dsc
+ 11811c54addac14c95daebf6f48697df 226684 admin optional exit-options_23.5.05.tar.xz
+ 992cce6087171c056280c51b36073766 10764 admin optional exit-options_23.5.05_amd64.buildinfo
+ 5aeb4f6568bf33faabcbc9a8b8c50042 218404 admin optional exit-options_23.5.05_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmRsBV0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumA0IB/9An15ZqORgVBwXBjvE28T9darP0Azc
+SvudP4H1tbejUopYDL+gJ2/q47/exj5rPHwdJVLywYyw/v4oV6hOkYxNu69xqETg
+B4dYG976ZrwD2MA4tNq7iBrIz+GuDUyPPnL0quxN+BAFvJ8QyWS0nnjPF/ptQwKE
+GzDrrTtR5m9Wuuxll+peZ95pHUL+5nNRqNSghnYrRCxuzrGeigMeDt6OqvI+O4II
+PFq2Y/V3FdtTY5/PC1W7MwhQKzgs0iqI8NdoLIJRbK1WEIeYubjHMGh813Rsf26k
+vHID2QTwPrdsBOTdk6PnETj1hEboRrQqJPQI7cIIKYK33kR9FNfNziTM
+=wLu3
+-----END PGP SIGNATURE-----
