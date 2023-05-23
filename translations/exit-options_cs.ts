@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Restartovat Fluxbox</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="32"/>
         <source>Lock Screen</source>
         <translation>Zamknout obrazovku</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Log Out</source>
         <translation>Odhlásit se</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="27"/>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Suspend</source>
         <translation>Uspát</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="27"/>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Reboot</source>
         <translation>Restartovat</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="27"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Shutdown</source>
         <translation>Vypnout</translation>
     </message>
@@ -106,7 +106,7 @@ použijte -h, --horizontal pro horizontální zobrazení tlačítek.</translatio
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chcete-li nastavit časový limit v exit-options.conf, použijte &apos;timeout=X&apos;, kde X je časový limit v sekundách.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>

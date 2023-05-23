@@ -4,32 +4,32 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>הפעלת Fluxbox</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="32"/>
         <source>Lock Screen</source>
         <translation>מסך נעילה</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Log Out</source>
         <translation>התנתקות</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="27"/>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Suspend</source>
         <translation>השהיה</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="27"/>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Reboot</source>
         <translation>אתחול</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="27"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Shutdown</source>
         <translation>כיבוי</translation>
     </message>
@@ -40,22 +40,22 @@
         <location filename="../main.cpp" line="43"/>
         <location filename="../main.cpp" line="51"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>חלון קופץ עם אפשרויות יציאה ל־MX Fluxbox</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
         <source>Display buttons in a vertical window</source>
-        <translation type="unfinished"></translation>
+        <translation>הצגת כפתורים בחלון אנכי</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="45"/>
         <source>Display buttons in a horizontal window</source>
-        <translation type="unfinished"></translation>
+        <translation>הצגת כפתורים בחלון אופקי</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="46"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>משך תום זמן המתנה בשניות</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="47"/>
