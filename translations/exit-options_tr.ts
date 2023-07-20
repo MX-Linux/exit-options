@@ -6,7 +6,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart Fluxbox</source>
-        <translation>Fluxbox&apos;ı Yeniden Başlat</translation>
+        <translation>Fluxbox’ı Yeniden Başlat</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="32"/>
@@ -61,8 +61,8 @@
         <location filename="../main.cpp" line="47"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation>düğmeleri dikey olarak kullanmak için -v veya --vertical&apos;ı kullanın
-düğmeleri yatay olarak kullanmak için -h veya --horizontal&apos;ı kullanın</translation>
+        <translation>düğmeleri dikey olarak kullanmak için -v veya --vertical’ı kullanın
+düğmeleri yatay olarak kullanmak için -h veya --horizontal’ı kullanın</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
@@ -101,12 +101,12 @@ düğmeleri yatay olarak kullanmak için -h veya --horizontal&apos;ı kullanın<
     <message>
         <location filename="../main.cpp" line="59"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
-        <translation>Alternatif olarak, ~/.config/MX-Linux/exit-options.conf dosyasında &apos;layout=horizontal&apos; veya &apos;layout=vertical&apos; seçeneğini ayarlayın.</translation>
+        <translation>Alternatif olarak, ~/.config/MX-Linux/exit-options.conf dosyasında ‘layout=horizontal’ veya ‘layout=vertical’ seçeneğini ayarlayın.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation>exit-options.conf&apos;ta zaman aşımını ayarlamak için &apos;timeout=X&apos; kullanın; burada X, saniye cinsinden zaman aşımıdır.</translation>
+        <translation>exit-options.conf’ta zaman aşımını ayarlamak için ‘timeout=X’ kullanın; burada X, saniye cinsinden zaman aşımıdır.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>

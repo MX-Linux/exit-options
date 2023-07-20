@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 20 Jul 2023 17:59:57 -0400
+Source: exit-options
+Architecture: source
+Version: 23.7.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ exit-options (23.7.01) mx; urgency=medium
+ .
+   * Fix FR translation
+Checksums-Sha1:
+ cd4257e345d78c68b3b15f103617345bb4a3a6e0 1135 exit-options_23.7.01.dsc
+ 4549fffe9f7f8e994491340ccd83c214bcaa5dd7 227608 exit-options_23.7.01.tar.xz
+ 5608d76a65bbbfb78423d2abd2d192c83629e1d8 10764 exit-options_23.7.01_amd64.buildinfo
+Checksums-Sha256:
+ 047c037c28b3ad688f443c0c76b4d6e08621c444586a11e43b8d60785728b037 1135 exit-options_23.7.01.dsc
+ 49d5adf4be6405997afd92eee655d1f030656fac8294df3fa5f8ef15f274869f 227608 exit-options_23.7.01.tar.xz
+ a67375669fdac62cf0bf8415add1025a11c6d17b9090d4b6f2303c605b426631 10764 exit-options_23.7.01_amd64.buildinfo
+Files:
+ 59dd48c7927e7c4cfdcc0625aeb334b5 1135 admin optional exit-options_23.7.01.dsc
+ 8dbdd85c468c3745977e3d408e925e48 227608 admin optional exit-options_23.7.01.tar.xz
+ 331d3fe8374e35ab3469f3e2c47faa0f 10764 admin optional exit-options_23.7.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmS5rsQTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumDpyB/4iQxImnRdeEndwadoyUN+4pwXRL6w+
+KsXMSFJ/CshL9W8Ut1uuQGpDSDy9jASVNjvWAFvSyw9+m3eEGZhuGvJeWQnn+b1n
+rDMQZpBUli8lgVd6NXi4L8DTFJ45Nan5a8Y8J58P4d2cnWPvZ+tRwYUGueCJlUjn
+l/BR0xgjo7/vjMK2JOrjhi/XDIrGgr1Ng6NPDbkHgZ5IaOHhAHwsd49ipIG8Iphv
+CbQ5W7iY2YkZj85VSd2Ir8MAG8UaTXWC159hRsEt1EGnuYqBs7lQKWYIGMwlt3oW
+lPwS4nnISt1rzGpwz+lZARoJYEo4cPWrxPgPZ3jrnTr2q9BMqbJbA31N
+=H6Bl
+-----END PGP SIGNATURE-----

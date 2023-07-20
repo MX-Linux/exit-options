@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 20 Jul 2023 17:59:57 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.7.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.7.01) mx; urgency=medium
+ .
+   * Fix FR translation
+Checksums-Sha1:
+ cd4257e345d78c68b3b15f103617345bb4a3a6e0 1135 exit-options_23.7.01.dsc
+ 4549fffe9f7f8e994491340ccd83c214bcaa5dd7 227608 exit-options_23.7.01.tar.xz
+ 5608d76a65bbbfb78423d2abd2d192c83629e1d8 10764 exit-options_23.7.01_amd64.buildinfo
+ 101fe41b4e1593d9098c754dadb10a2cd44f19ba 218456 exit-options_23.7.01_amd64.deb
+Checksums-Sha256:
+ 047c037c28b3ad688f443c0c76b4d6e08621c444586a11e43b8d60785728b037 1135 exit-options_23.7.01.dsc
+ 49d5adf4be6405997afd92eee655d1f030656fac8294df3fa5f8ef15f274869f 227608 exit-options_23.7.01.tar.xz
+ a67375669fdac62cf0bf8415add1025a11c6d17b9090d4b6f2303c605b426631 10764 exit-options_23.7.01_amd64.buildinfo
+ d3f52de5eda8891eee0494d23dd63658453facfaf77f3ccad2693f2c3da89f63 218456 exit-options_23.7.01_amd64.deb
+Files:
+ 59dd48c7927e7c4cfdcc0625aeb334b5 1135 admin optional exit-options_23.7.01.dsc
+ 8dbdd85c468c3745977e3d408e925e48 227608 admin optional exit-options_23.7.01.tar.xz
+ 331d3fe8374e35ab3469f3e2c47faa0f 10764 admin optional exit-options_23.7.01_amd64.buildinfo
+ 1be8eff0fd2c4d7976e27ead6d8bf735 218456 admin optional exit-options_23.7.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmS5rsMTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumCoGB/9Drw9NsgsSbJebilK7qG4+24rFULnC
+3socsFdS/0riTNqWi9iBHX5b17QlqE6cDQMvgBf2Aq41Gm5eZmVTEZ3lFPlJ1jO0
+LPZqaH+3GlvhZWrTtZG2q7Kp+R36asnofPhASJtLS+ar2eUoD0RS3/mH0Em8mAzF
+a9TKzHnQGRQx3P+59GhDpJ1XsJviQZgTzH/l48iTgY19AiUUjhZ0lGhelMZzw6SH
+sUf5nv5nWBHlxr7d2Q+yAZFlk0Y7+phIkSbdgakOfEttyFIgQsMzYHCByVe9+dmB
+3mINynN4J02jeTq+2gOcWZYZ6jEwAcRzGDp5egtD4TXPm9TtbFl8OHyU
+=SuaZ
+-----END PGP SIGNATURE-----

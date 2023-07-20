@@ -1,3 +1,9 @@
+exit-options (23.7.01) mx; urgency=medium
+
+  * Fix FR translation
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 20 Jul 2023 17:59:57 -0400
+
 exit-options (23.7) mx; urgency=medium
 
   * Update translations
