@@ -11,7 +11,7 @@ class MainWindow : public QDialog
 
 public:
     explicit MainWindow(const QCommandLineParser &parser, QWidget *parent = nullptr);
-    ~MainWindow() = default;
+    ~MainWindow() override = default;
 
 private slots:
     static void on_pushExit();

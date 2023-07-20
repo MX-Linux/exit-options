@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 20 Jul 2023 00:53:03 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: source amd64
+Version: 23.7
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.7) mx; urgency=medium
+ .
+   * Update translations
+Checksums-Sha1:
+ f00afa346e49da51d42531eadfe3e792bcf24df5 1123 exit-options_23.7.dsc
+ 71f4a5e8ccf93e2040d2136c2918876f10df70ce 227732 exit-options_23.7.tar.xz
+ d03438058f1fa54cc1f0d9141e6d5eec12415a50 10740 exit-options_23.7_amd64.buildinfo
+ 49f49dd04c429a8ac1d3a33f07989a4b1f5a4a86 218448 exit-options_23.7_amd64.deb
+Checksums-Sha256:
+ c403a81b44c0967add488f33cfa90e59035a52eb28748ab25277cdf5028a0fda 1123 exit-options_23.7.dsc
+ 8332f3ce072ac4bec9a61427e0ac27d004fa1bc0cc6ba39280ba2a1920ade1da 227732 exit-options_23.7.tar.xz
+ 24e489a888b5e974552202a752ab3bc5a0361729e82c1999a98bd6418344625c 10740 exit-options_23.7_amd64.buildinfo
+ c9ec792a2443c9e49ce1ba6b023ca6a7b79a06421f359ac6d3c75adff9476922 218448 exit-options_23.7_amd64.deb
+Files:
+ 2cf338c8a0124117c62a17027a5ea8b3 1123 admin optional exit-options_23.7.dsc
+ 2c6b59c5bf8146a2656bfc090529326f 227732 admin optional exit-options_23.7.tar.xz
+ fce5863225b958208a45bc7fa4e56b65 10740 admin optional exit-options_23.7_amd64.buildinfo
+ 62be5bc2369a2d24955c86c1bbbd31fd 218448 admin optional exit-options_23.7_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmS4vh0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumAHpB/wNZO4NFrHequHfYHRH/LD97hz4pqJW
+Y4mxagZD8jzJbSTkQFKDmCHxk+C0DY3HOyb0MIVuukRoXBtMZSjahkltEPGW47JR
+9dVWLTBhN/azdg3k8dMNrnEME+rhlXW9TRhwc4V39uXrqIR+lMPFeFKz8nwHEEFm
+2+pK76doTvQ8DcM7wtvBSFEn7RQbgPTJB8ITU+/jat04ahaRjKEFql5r1unLWvf5
+symcZK95sn7TSHxSMUuy5ZXRdXoT1D0Im8MXbCQDsKXJPasmTOE8U305uQZJfDVE
+vEzhlyDS3d60epK2JHpJInWb2oPwxOdwD5yJm3KJwZy59lpzzfsSTpEy
+=dPKW
+-----END PGP SIGNATURE-----

@@ -1,3 +1,9 @@
+exit-options (23.7) mx; urgency=medium
+
+  * Update translations
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 20 Jul 2023 00:53:03 -0400
+
 exit-options (23.5.05) mx; urgency=medium
 
   * Update icons

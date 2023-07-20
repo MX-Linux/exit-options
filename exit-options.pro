@@ -31,6 +31,7 @@ HEADERS += \
 TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_am.ts \
                 translations/exit-options_ar.ts \
+                translations/exit-options_ast.ts \
                 translations/exit-options_be.ts \
                 translations/exit-options_bg.ts \
                 translations/exit-options_bn.ts \
@@ -74,12 +75,16 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_hr.ts \
                 translations/exit-options_ht.ts \
                 translations/exit-options_hu.ts \
+                translations/exit-options_hy_AM.ts \
+                translations/exit-options_hye.ts \
                 translations/exit-options_hy.ts \
                 translations/exit-options_id.ts \
+                translations/exit-options_ie.ts \
                 translations/exit-options_is.ts \
                 translations/exit-options_it.ts \
                 translations/exit-options_ja.ts \
                 translations/exit-options_jv.ts \
+                translations/exit-options_kab.ts \
                 translations/exit-options_ka.ts \
                 translations/exit-options_kk.ts \
                 translations/exit-options_km.ts \
@@ -105,7 +110,9 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_ne.ts \
                 translations/exit-options_nl_BE.ts \
                 translations/exit-options_nl.ts \
+                translations/exit-options_nn.ts \
                 translations/exit-options_ny.ts \
+                translations/exit-options_oc.ts \
                 translations/exit-options_or.ts \
                 translations/exit-options_pa.ts \
                 translations/exit-options_pl.ts \

@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Thu, 20 Jul 2023 00:53:03 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.7
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.7) mx; urgency=medium
+ .
+   * Update translations
+Checksums-Sha1:
+ b201df8feca94ef93f31dde2c06457b9d2dcdf89 10071 exit-options_23.7_i386.buildinfo
+ 922597f3c910664fa56e519c124c7773e31ed9c7 220292 exit-options_23.7_i386.deb
+Checksums-Sha256:
+ 5039c6ea3838431d6174c5761a7d6cfd297e56eb100105a5d719b7cc1f8a56e7 10071 exit-options_23.7_i386.buildinfo
+ 0f5c4281cc817297599c731e64c18bad8d696e85ded2d1ceb9ef98881d62b902 220292 exit-options_23.7_i386.deb
+Files:
+ de1bef478a835f6d338ec03f31a7f761 10071 admin optional exit-options_23.7_i386.buildinfo
+ 1cb22a670ab3e14df0761e93bd1b08e5 220292 admin optional exit-options_23.7_i386.deb

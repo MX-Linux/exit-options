@@ -40,7 +40,7 @@
         <location filename="../main.cpp" line="43"/>
         <location filename="../main.cpp" line="51"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation>Janela que exibe as opções de saída do MX Fluxbox</translation>
+        <translation>Janela que exibe as opções de saída do gerenciador de janelas Fluxbox do MX</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
