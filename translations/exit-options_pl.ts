@@ -6,7 +6,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrestartuj Fluxbox</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="32"/>
@@ -106,7 +106,7 @@ użyj -h, --horizontal aby wyświetlić przyciski poziomo.</translation>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aby ustawić limit czasu w pliku exit-options.conf, użyj „timeout=X”, gdzie X to limit czasu w sekundach.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
