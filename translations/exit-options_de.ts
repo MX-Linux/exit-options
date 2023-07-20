@@ -6,7 +6,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Fluxbox neustarten</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="32"/>
@@ -40,7 +40,7 @@
         <location filename="../main.cpp" line="43"/>
         <location filename="../main.cpp" line="51"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Pop-up mit Abmelde-Einstellungen für MX Fluxbox</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="44"/>
@@ -55,19 +55,21 @@
     <message>
         <location filename="../main.cpp" line="46"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Timeout-Dauer in Sekunden</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="47"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwenden sie -v, --vertical, um Schaltflächen vertikal anzuzeigen
+Verwenden sie -h, --horizontal, um die Schaltflächen horizontal anzuzeigen.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
         <source>Usage: exit-options [options]
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Verwendung: Abmelde-Optionen [options]
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="53"/>
@@ -77,43 +79,44 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>  -h, --horizontal	 Option to display buttons horizontally</source>
-        <translation type="unfinished"></translation>
+        <translation>  -h, --horizontal	 Option zur horizontalen Anzeige von Schaltflächen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>  -v, --vertical	 Option to display buttons vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>  -v, --vertical	 Option zur vertikalen Anzeige von Schaltflächen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="56"/>
         <source>  -t, --timeout &lt;sec&gt;	 Timeout duration in seconds
 </source>
-        <translation type="unfinished"></translation>
+        <translation>  -t, --timeout &lt;sec&gt;	 Timeout-Dauer in Sekunden
+</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="57"/>
         <source>The display orientation option used will be remembered and used the next time you start the app</source>
-        <translation>Die Auswahlmoeglichkeiten zur Anzeigeausrichtung werden abespeichert und beim naechsten Start geladen</translation>
+        <translation>Die Auswahlmöglichkeiten zur Anzeigeausrichtung werden gespeichert und beim nächsten Start geladen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="59"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ können sie die Option &apos;layout=horizontal&apos; oder &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf setzen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Um das timeout in exit-options.conf einzustellen, verwenden sie &apos;timeout=X&apos;, wobei X das timeout in Sekunden bedeutet.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sie können benutzerdefinierte Symbole definieren, indem sie IconName=/path/iconame.ext in der Datei exit-options.conf hinzufügen. Die Namen der Symbole, die sie neu zuordnen: %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="70"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Weitere Optionen, die in der Datei exit-options.conf eingestellt werden können: %1</translation>
     </message>
 </context>
 </TS>
