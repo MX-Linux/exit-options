@@ -59,7 +59,6 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_fil.ts \
                 translations/exit-options_fi.ts \
                 translations/exit-options_fr_BE.ts \
-                translations/exit-options_fr_FR.ts \
                 translations/exit-options_fr.ts \
                 translations/exit-options_fy.ts \
                 translations/exit-options_ga.ts \
