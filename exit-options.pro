@@ -34,8 +34,7 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_ast.ts \
                 translations/exit-options_be.ts \
                 translations/exit-options_bg.ts \
-                translations/exit-options_bn.ts \
-                translations/exit-options_bs_BA.ts \
+                translations/exit-options_bn.ts \\
                 translations/exit-options_bs.ts \
                 translations/exit-options_ca.ts \
                 translations/exit-options_ceb.ts \
@@ -54,7 +53,6 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_et.ts \
                 translations/exit-options_eu.ts \
                 translations/exit-options_fa.ts \
-                translations/exit-options_fi_FI.ts \
                 translations/exit-options_fil_PH.ts \
                 translations/exit-options_fil.ts \
                 translations/exit-options_fi.ts \
@@ -74,7 +72,6 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_hr.ts \
                 translations/exit-options_ht.ts \
                 translations/exit-options_hu.ts \
-                translations/exit-options_hy_AM.ts \
                 translations/exit-options_hye.ts \
                 translations/exit-options_hy.ts \
                 translations/exit-options_id.ts \
@@ -120,7 +117,6 @@ TRANSLATIONS += translations/exit-options_af.ts \
                 translations/exit-options_pt.ts \
                 translations/exit-options_ro.ts \
                 translations/exit-options_rue.ts \
-                translations/exit-options_ru_RU.ts \
                 translations/exit-options_ru.ts \
                 translations/exit-options_rw.ts \
                 translations/exit-options_sd.ts \
