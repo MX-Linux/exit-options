@@ -6,7 +6,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Fluxbox újraindítása</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="32"/>
@@ -106,7 +106,7 @@ a -h, --horizontal használatával a gombok függőlegesen jelennek meg</transla
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Az időtúllépés megadásához használja a &apos;timeout=X&apos; opciót a exit-options.conf fájlban, ahol X az időtúllépés másodpercben.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
