@@ -45,8 +45,8 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
 
     // Set buttons
-    const uint defaultIconSize = 50;
-    uint iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toUInt();
+    const int defaultIconSize = 50;
+    int iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
     for (auto &button : buttons) {
         QString icon = userSettings.value(button.iconName, systemSettings.value(button.iconName).toString()).toString();
         if (QFileInfo::exists(icon))
@@ -85,9 +85,9 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     // Spacing
     const auto default_spacing = 3;
-    layout->setMargin(userSettings.value("Margin", systemSettings.value("Margin", default_spacing).toUInt()).toUInt());
+    layout->setMargin(userSettings.value("Margin", systemSettings.value("Margin", default_spacing).toInt()).toInt());
     layout->setSpacing(
-        userSettings.value("Spacing", systemSettings.value("Spacing", default_spacing).toUInt()).toUInt());
+        userSettings.value("Spacing", systemSettings.value("Spacing", default_spacing).toInt()).toInt());
 
     setLayout(layout);
 
@@ -96,7 +96,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
     // Save settings connection
-    connect(QApplication::instance(), &QApplication::aboutToQuit, [this] { saveSettings(); });
+    connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { saveSettings(); });
 
     // Restore or reset geometry
     this->show(); // can't save geometry if not shown
