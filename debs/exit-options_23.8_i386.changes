@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Tue, 29 Aug 2023 20:33:01 -0400
+Source: exit-options
+Binary: exit-options
+Architecture: i386
+Version: 23.8
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ exit-options - exit-options
+Changes:
+ exit-options (23.8) mx; urgency=medium
+ .
+   * add adwaita theme and icons
+Checksums-Sha1:
+ 8dfe5b361181037fee7aeba5bae6de262af2ffbd 10071 exit-options_23.8_i386.buildinfo
+ dadde66be3af2897c9475c3a3da54ee5e18a795d 228140 exit-options_23.8_i386.deb
+Checksums-Sha256:
+ 2cf408837600d35b271a60b4ffe36c236fa49579897dc2145e088d42e11665c7 10071 exit-options_23.8_i386.buildinfo
+ 11ed88f274760aee40757645c51bbcee7c437ff2d3c9b9d30e5014386b0ff9b7 228140 exit-options_23.8_i386.deb
+Files:
+ fbe60a0e59d180f5d225fcd1b43b74ac 10071 admin optional exit-options_23.8_i386.buildinfo
+ 5a612707812150f7926bb466a92d0481 228140 admin optional exit-options_23.8_i386.deb
