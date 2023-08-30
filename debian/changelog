@@ -1,3 +1,9 @@
+exit-options (23.8) mx; urgency=medium
+
+  * add adwaita theme and icons
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 29 Aug 2023 20:33:01 -0400
+
 exit-options (23.7.02) mx; urgency=medium
 
   * Update translations
