@@ -5,3 +5,6 @@ workflow:
         package: exit-options  
   filters:
     event: push
+    branches:
+      only:
+        - main
