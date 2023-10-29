@@ -1,4 +1,4 @@
-workflow:
+rebuild_master:
   steps:
     - rebuild_package:
         project: home:mx-packaging
