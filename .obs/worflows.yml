@@ -1,7 +1,8 @@
-rebuild_master:
+workflow:
   steps:
-    - rebuild_package:
-        project: home:mx-packaging
-        package: exit-options
+    - branch_package:
+        source_project: home:mx-packaging
+        source_package: exit-options
+        target_project: releases
   filters:
     event: push
