@@ -1,7 +1,7 @@
 workflow:
   steps:
     - rebuild_package:
-        source_project: home:mx-packaging
-        source_package: exit-options  
+        project: home:mx-packaging
+        package: exit-options  
   filters:
     event: push
