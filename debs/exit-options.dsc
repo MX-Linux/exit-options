@@ -1,6 +1,3 @@
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
 Format: 3.0 (native)
 Source: exit-options
 Binary: exit-options
@@ -13,4 +10,3 @@ Package-List:
  exit-options deb admin optional arch=any
 Files:
  00000000000000000000000000000000 1 exit-options.tar.xz
-
