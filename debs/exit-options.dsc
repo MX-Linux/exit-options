@@ -1,4 +1,4 @@
-Format: 3.0 (quilt)
+Format: 3.0 (native)
 Source: exit-options
 Binary: exit-options
 Architecture: any
