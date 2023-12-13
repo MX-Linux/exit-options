@@ -27,17 +27,20 @@ int main(int argc, char *argv[])
     }
 
     QTranslator qtTran;
-    if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
         QApplication::installTranslator(&qtTran);
+    }
 
     QTranslator qtBaseTran;
-    if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
         QApplication::installTranslator(&qtBaseTran);
+    }
 
     QTranslator appTran;
     if (appTran.load(QApplication::applicationName() + "_" + QLocale().name(),
-                     "/usr/share/" + QApplication::applicationName() + "/locale"))
+                     "/usr/share/" + QApplication::applicationName() + "/locale")) {
         QApplication::installTranslator(&appTran);
+    }
 
     QCommandLineParser parser;
     parser.setApplicationDescription(QObject::tr("Pop-up with exit options for MX Fluxbox"));
@@ -82,15 +85,17 @@ int main(int argc, char *argv[])
         timeout = parser.value("timeout");
     } else {
         timeout = userSettings.value("Timeout", userSettings.value("timeout").toString()).toString();
-        if (timeout.isEmpty())
+        if (timeout.isEmpty()) {
             timeout = systemSettings.value("Timeout", systemSettings.value("timeout").toString()).toString();
+        }
     }
 
     if (timeout != "off") {
         bool ok {false};
         std::chrono::seconds timeout_s(timeout.toUInt(&ok));
-        if (ok)
+        if (ok) {
             QTimer::singleShot(timeout_s, &a, &QApplication::quit);
+        }
     }
     return QApplication::exec();
 }
