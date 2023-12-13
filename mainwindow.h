@@ -1,9 +1,7 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QCommandLineParser>
 #include <QDialog>
-#include <QSettings>
 
 class MainWindow : public QDialog
 {
@@ -11,7 +9,6 @@ class MainWindow : public QDialog
 
 public:
     explicit MainWindow(const QCommandLineParser &parser, QWidget *parent = nullptr);
-    ~MainWindow() override = default;
 
 private slots:
     static void on_pushExit();
@@ -23,10 +20,13 @@ private slots:
     void saveSettings();
 
 private:
-    bool horizontal {};
+    bool horizontal;
+    const int defaultIconSize;
+    const int defaultSpacing;
+    int iconSize;
 
     static bool isRaspberryPi();
     void reject() override;
+    QPushButton *createButton(const QString &iconName, const QString &iconLocation, const QString &toolTip,
+                              const std::function<void()> &action);
 };
-
-#endif // MAINWINDOW_H

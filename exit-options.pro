@@ -28,5 +28,6 @@ SOURCES += \
 HEADERS += \
         mainwindow.h
 
-TRANSLATIONS += translations/exit-options_en.ts 
+TRANSLATIONS += \
+        translations/exit-options_en.ts
 
