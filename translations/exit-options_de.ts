@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="de">
 <context>
     <name>MainWindow</name>
     <message>
@@ -61,8 +59,8 @@
         <location filename="../main.cpp" line="47"/>
         <source>use -v, --vertical to display buttons vertically
 use -h, --horizontal to display buttons horizontally.</source>
-        <translation>Verwenden sie -v, --vertical, um Schaltflächen vertikal anzuzeigen
-Verwenden sie -h, --horizontal, um die Schaltflächen horizontal anzuzeigen.</translation>
+        <translation>Verwenden Sie -v, --vertical, um Schaltflächen vertikal anzuzeigen
+Verwenden Sie -h, --horizontal, um die Schaltflächen horizontal anzuzeigen.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>
@@ -101,17 +99,17 @@ Verwenden sie -h, --horizontal, um die Schaltflächen horizontal anzuzeigen.</tr
     <message>
         <location filename="../main.cpp" line="59"/>
         <source>Alternativelly, set the option &apos;layout=horizontal&apos; or &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf</source>
-        <translation>Alternativ können sie die Option &apos;layout=horizontal&apos; oder &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf setzen</translation>
+        <translation>Alternativ können Sie die Option &apos;layout=horizontal&apos; oder &apos;layout=vertical&apos; in ~/.config/MX-Linux/exit-options.conf setzen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation>Um das timeout in exit-options.conf einzustellen, verwenden sie &apos;timeout=X&apos;, wobei X das timeout in Sekunden bedeutet.</translation>
+        <translation>Um das timeout in exit-options.conf einzustellen, verwenden Sie &apos;timeout=X&apos;, wobei X das timeout in Sekunden bedeutet.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
-        <translation>Sie können benutzerdefinierte Symbole definieren, indem sie IconName=/path/iconame.ext in der Datei exit-options.conf hinzufügen. Die Namen der Symbole, die sie neu zuordnen: %1</translation>
+        <translation>Sie können benutzerdefinierte Symbole definieren, indem Sie IconName=/path/iconame.ext in der Datei exit-options.conf hinzufügen. Die Namen der Symbole, die Sie neu zuordnen: %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="70"/>

@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="el">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="el">
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart Fluxbox</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="32"/>
@@ -106,17 +104,17 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../main.cpp" line="70"/>
         <source>Other options that can be set in the exit-options.conf file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

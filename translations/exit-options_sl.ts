@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sl">
 <context>
     <name>MainWindow</name>
     <message>
@@ -104,7 +102,7 @@ uporabite -h, -horizontal za vodoravni prikaz gumbov</translation>
     <message>
         <location filename="../main.cpp" line="63"/>
         <source>To set the timeout in exit-options.conf use &apos;timeout=X&apos; where X is the timeout in seconds.</source>
-        <translation>Za določitev čakalne časa v  exit-options.conf , uporabite &apos;timeout=X&apos;, kjer je čas čakalni čas v sekundah.</translation>
+        <translation>Za določitev časovne omejitve v  exit-options.conf , uporabite &apos;timeout=X&apos;, kjer je X časovna omejitev v sekundah.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="66"/>
