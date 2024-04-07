@@ -9,7 +9,7 @@
 
 MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     : QDialog(parent),
-      horizontal {false},
+      horizontal {parser.isSet("horizontal")},
       defaultIconSize {50},
       defaultSpacing {3}
 {
@@ -19,27 +19,24 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
 
-    QPushButton *pushRestartFluxbox = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png",
-                                                   tr("Restart Fluxbox"), on_pushRestartFluxbox);
-    QPushButton *pushExit
+    auto *pushRestartFluxbox = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png",
+                                            tr("Restart Fluxbox"), on_pushRestartFluxbox);
+    auto *pushExit
         = createButton("LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"), on_pushExit);
-    QPushButton *pushLock
+    auto *pushLock
         = createButton("LockIcon", "/usr/share/exit-options/awesome/lock.png", tr("Lock Screen"), on_pushLock);
-    QPushButton *pushRestart
+    auto *pushRestart
         = createButton("RebootIcon", "/usr/share/exit-options/awesome/reboot.png", tr("Reboot"), on_pushRestart);
-    QPushButton *pushShutdown
+    auto *pushShutdown
         = createButton("ShutdownIcon", "/usr/share/exit-options/awesome/shutdown.png", tr("Shutdown"), on_pushShutdown);
-    QPushButton *pushSleep
+    auto *pushSleep
         = createButton("SuspendIcon", "/usr/share/exit-options/awesome/suspend.png", tr("Suspend"), on_pushSleep);
 
-    // Set layout
-    QBoxLayout *layout {nullptr};
-    horizontal = parser.isSet("horizontal");
     if (!horizontal && !parser.isSet("vertical")) {
         horizontal = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
     }
-    layout = horizontal ? static_cast<QBoxLayout *>(new QHBoxLayout(this))
-                        : static_cast<QBoxLayout *>(new QVBoxLayout(this));
+    auto *layout = horizontal ? static_cast<QBoxLayout *>(new QHBoxLayout(this))
+                              : static_cast<QBoxLayout *>(new QVBoxLayout(this));
 
     // Add pushRestartFluxbox?
     QString xdg_session_desktop = qgetenv("XDG_SESSION_DESKTOP");
@@ -70,8 +67,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     setSizeGripEnabled(true);
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
-    // Save settings connection
-    connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { saveSettings(); });
+    connect(QApplication::instance(), &QApplication::aboutToQuit, this, &MainWindow::saveSettings);
 
     // Restore or reset geometry
     show(); // can't save geometry if not shown
