@@ -35,8 +35,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     if (!horizontal && !parser.isSet("vertical")) {
         horizontal = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
     }
-    auto *layout = horizontal ? static_cast<QBoxLayout *>(new QHBoxLayout(this))
-                              : static_cast<QBoxLayout *>(new QVBoxLayout(this));
+    auto *layout = horizontal ? new QHBoxLayout(this) : new QVBoxLayout(this);
 
     // Add pushRestartFluxbox?
     QString xdg_session_desktop = qgetenv("XDG_SESSION_DESKTOP");
@@ -57,7 +56,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     layout->addWidget(pushRestart);
     layout->addWidget(pushShutdown);
 
-    // Spacing
+    // Set layout margins and spacing
     layout->setMargin(userSettings.value("Margin", systemSettings.value("Margin", defaultSpacing).toInt()).toInt());
     layout->setSpacing(userSettings.value("Spacing", systemSettings.value("Spacing", defaultSpacing).toInt()).toInt());
 
@@ -90,14 +89,15 @@ void MainWindow::on_pushLock()
 
 void MainWindow::on_pushExit()
 {
+    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP");
     if (QProcess::execute("pidof", {"-q", "fluxbox"}) == 0) {
         QProcess::execute("fluxbox-remote", {"exit"});
-        QProcess::startDetached("killall", {"fluxbox"}); // make sure it exits even if remote actions are not enabled
-    } else if (qgetenv("XDG_SESSION_DESKTOP") == "xfce") {
+        QProcess::startDetached("killall", {"fluxbox"});
+    } else if (sessionDesktop == "xfce") {
         QProcess::startDetached("xfce4-session-logout", {"--logout"});
-    } else if (qgetenv("XDG_SESSION_DESKTOP") == "KDE") {
+    } else if (sessionDesktop == "KDE") {
         QProcess::startDetached("qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"});
-    } else if (qgetenv("XDG_SESSION_DESKTOP") == "i3") {
+    } else if (sessionDesktop == "i3") {
         QProcess::startDetached("i3-msg", {"exit"});
     } else {
         QProcess::startDetached("loginctl", {"terminate-user", qgetenv("USER")});
@@ -157,6 +157,5 @@ void MainWindow::on_pushShutdown()
 
 bool MainWindow::isRaspberryPi()
 {
-    QFile file("/etc/rpi-issue");
-    return file.exists();
+    return QFile::exists("/etc/rpi-issue");
 }
