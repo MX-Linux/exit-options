@@ -35,7 +35,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     if (!horizontal && !parser.isSet("vertical")) {
         horizontal = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
     }
-    auto *layout = horizontal ? new QHBoxLayout(this) : new QVBoxLayout(this);
+    auto *layout = horizontal ? static_cast<QLayout *>(new QHBoxLayout(this)) : static_cast<QLayout *>(new QVBoxLayout(this));
 
     // Add pushRestartFluxbox?
     QString xdg_session_desktop = qgetenv("XDG_SESSION_DESKTOP");
