@@ -15,9 +15,10 @@ using namespace std::chrono_literals;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
     QApplication::setOrganizationName("MX-Linux");
 
+    // Check for existing instances of the application
     QProcess proc;
     proc.start("pgrep", {"--count", "--exact", QApplication::applicationName()});
     proc.waitForFinished();
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
         QApplication::installTranslator(&appTran);
     }
 
+    // Command line parser setup
     QCommandLineParser parser;
     parser.setApplicationDescription(QObject::tr("Pop-up with exit options for MX Fluxbox"));
     parser.addOption({{"v", "vertical"}, QObject::tr("Display buttons in a vertical window")});
@@ -49,7 +51,7 @@ int main(int argc, char *argv[])
     parser.addOption({{"t", "timeout"}, QObject::tr("Timeout duration in seconds"), "seconds", "5"});
     parser.addOption({"help", QObject::tr("use -v, --vertical to display buttons vertically\nuse "
                                           "-h, --horizontal to display buttons horizontally.")});
-    parser.process(a);
+    parser.process(app);
     if (parser.isSet("help")) {
         qDebug().noquote() << QObject::tr("Pop-up with exit options for MX Fluxbox");
         qDebug().noquote() << QObject::tr("Usage: exit-options [options]\n");
@@ -75,27 +77,27 @@ int main(int argc, char *argv[])
         exit(EXIT_SUCCESS);
     }
 
-    MainWindow w(parser);
-    w.show();
+    MainWindow mainWindow(parser);
+    mainWindow.show();
 
+    // Load timeout settings
     QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
-    QString timeout;
-    if (parser.isSet("timeout")) {
-        timeout = parser.value("timeout");
-    } else {
-        timeout = userSettings.value("Timeout", userSettings.value("timeout").toString()).toString();
-        if (timeout.isEmpty()) {
-            timeout = systemSettings.value("Timeout", systemSettings.value("timeout").toString()).toString();
-        }
-    }
+    QString timeout
+        = parser.isSet("timeout")
+              ? parser.value("timeout")
+              : userSettings
+                    .value("Timeout", userSettings.value(
+                                          "timeout", systemSettings.value("Timeout", systemSettings.value("timeout"))))
+                    .toString();
 
+    // Set up timeout for quitting the application
     if (timeout != "off") {
         bool ok {false};
-        std::chrono::seconds timeout_s(timeout.toUInt(&ok));
+        std::chrono::seconds timeoutDuration(timeout.toUInt(&ok));
         if (ok) {
-            QTimer::singleShot(timeout_s, &a, &QApplication::quit);
+            QTimer::singleShot(timeoutDuration, &app, &QApplication::quit);
         }
     }
-    return QApplication::exec();
+    return app.exec();
 }
