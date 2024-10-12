@@ -4,6 +4,7 @@
 #include <QProcess>
 #include <QPushButton>
 #include <QSettings>
+#include <QStandardPaths>
 
 #include "mainwindow.h"
 
@@ -35,24 +36,23 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     if (!horizontal && !parser.isSet("vertical")) {
         horizontal = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
     }
-    auto *layout = horizontal ? static_cast<QLayout *>(new QHBoxLayout(this)) : static_cast<QLayout *>(new QVBoxLayout(this));
+    auto *layout
+        = horizontal ? static_cast<QLayout *>(new QHBoxLayout(this)) : static_cast<QLayout *>(new QVBoxLayout(this));
 
     // Add pushRestartFluxbox?
     QString xdg_session_desktop = qgetenv("XDG_SESSION_DESKTOP");
     if (xdg_session_desktop == "fluxbox") {
         layout->addWidget(pushRestartFluxbox);
     }
+
     layout->addWidget(pushLock);
-    // Add pushExit?
-    if (QStringList {"xfce", "KDE", "i3", "fluxbox"}.contains(xdg_session_desktop)
-        || QProcess::execute("pidof", {"-q", "fluxbox"}) == 0
-        || QProcess::execute("systemctl", {"is-active", "--quiet", "service"}) == 0) {
-        layout->addWidget(pushExit);
-    }
+    layout->addWidget(pushExit);
+
     // Add pushSleep?
     if (!isRaspberryPi()) {
         layout->addWidget(pushSleep);
     }
+
     layout->addWidget(pushRestart);
     layout->addWidget(pushShutdown);
 
@@ -69,11 +69,11 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     connect(QApplication::instance(), &QApplication::aboutToQuit, this, &MainWindow::saveSettings);
 
     // Restore or reset geometry
-    show(); // can't save geometry if not shown
+    show(); // Can't save geometry if not shown
     if (userSettings.contains("Geometry") || userSettings.contains("geometry")) {
         const QByteArray geometry = saveGeometry();
         restoreGeometry(userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray());
-        // if too wide/tall reset geometry
+        // If too wide/tall reset geometry
         const auto factor = 0.6;
         if ((horizontal && size().height() >= size().width() * factor)
             || (!horizontal && size().width() >= size().height() * factor)) {
@@ -89,18 +89,43 @@ void MainWindow::on_pushLock()
 
 void MainWindow::on_pushExit()
 {
-    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP");
-    if (QProcess::execute("pidof", {"-q", "fluxbox"}) == 0) {
-        QProcess::execute("fluxbox-remote", {"exit"});
-        QProcess::startDetached("killall", {"fluxbox"});
-    } else if (sessionDesktop == "xfce") {
-        QProcess::startDetached("xfce4-session-logout", {"--logout"});
-    } else if (sessionDesktop == "KDE") {
-        QProcess::startDetached("qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"});
-    } else if (sessionDesktop == "i3") {
-        QProcess::startDetached("i3-msg", {"exit"});
-    } else {
-        QProcess::startDetached("loginctl", {"terminate-user", qgetenv("USER")});
+    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
+    bool commandExecuted = false;
+
+    auto executeCommand = [&](const QString &program, const QStringList &arguments) -> bool {
+        if (QStandardPaths::findExecutable(program).isEmpty()) {
+            return false;
+        }
+        return QProcess::execute(program, arguments);
+    };
+
+    // Map format: {desktop, {program, {arguments}}
+    static const QMap<QString, QPair<QString, QStringList>> desktopCommands
+        = {{"fluxbox", {"fluxbox-remote", {"exit"}}},
+           {"xfce", {"xfce4-session-logout", {"--logout"}}},
+           {"kde", {"qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"}}},
+           {"i3", {"i3-msg", {"exit"}}}};
+
+    if (desktopCommands.contains(sessionDesktop)) {
+        const QPair<QString, QStringList> &commandPair = desktopCommands.value(sessionDesktop);
+        const QString &program = commandPair.first;
+        const QStringList arguments = commandPair.second;
+
+        if (sessionDesktop == "fluxbox") {
+            if (executeCommand(program, arguments)) {
+                executeCommand("killall", {"fluxbox"});
+                commandExecuted = true;
+            }
+        } else {
+            commandExecuted = executeCommand(program, arguments);
+        }
+    }
+
+    if (!commandExecuted) {
+        const QString user = qgetenv("USER");
+        if (!executeCommand("loginctl", {"terminate-user", user})) {
+            executeCommand("pkill", {"-KILL", "-u", user});
+        }
     }
 }
 

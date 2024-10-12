@@ -64,9 +64,9 @@ int main(int argc, char *argv[])
         qDebug().noquote() << QObject::tr("Alternativelly, set the option 'layout=horizontal' or 'layout=vertical' in "
                                           "~/.config/MX-Linux/exit-options.conf")
                                   + "\n";
-        qDebug().noquote()
-            << QObject::tr("To set the timeout in exit-options.conf use 'timeout=X' where X is the timeout in seconds.")
-                   + "\n";
+        qDebug().noquote() << QObject::tr(
+            "To set the timeout in exit-options.conf use 'timeout=X' where X is the timeout in seconds.");
+        qDebug().noquote() << QObject::tr("You can also use 'timeout=off' to turn the timeout off.") + "\n";
         qDebug().noquote()
             << QObject::tr("You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf "
                            "file. The names of the icons that you remap: %1")
@@ -83,13 +83,17 @@ int main(int argc, char *argv[])
     // Load timeout settings
     QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
-    QString timeout
-        = parser.isSet("timeout")
-              ? parser.value("timeout")
-              : userSettings
-                    .value("Timeout", userSettings.value(
-                                          "timeout", systemSettings.value("Timeout", systemSettings.value("timeout"))))
-                    .toString();
+
+    QString timeout;
+    if (parser.isSet("timeout")) {
+        timeout = parser.value("timeout");
+    } else if (userSettings.contains("timeout")) {
+        timeout = userSettings.value("timeout").toString();
+    } else if (systemSettings.contains("timeout")) {
+        timeout = systemSettings.value("timeout").toString();
+    } else {
+        timeout = "off";
+    }
 
     // Set up timeout for quitting the application
     if (timeout != "off") {
