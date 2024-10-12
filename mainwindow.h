@@ -14,7 +14,7 @@ private slots:
     static void on_pushExit();
     static void on_pushLock();
     static void on_pushRestart();
-    static void on_pushRestartFluxbox();
+    static void on_pushRestartDE();
     static void on_pushShutdown();
     static void on_pushSleep();
     void saveSettings();

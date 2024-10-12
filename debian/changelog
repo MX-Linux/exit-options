@@ -1,3 +1,9 @@
+exit-options (24.10.01) mx; urgency=medium
+
+  * Add restart DE option for IceWM
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 12 Oct 2024 15:16:00 -0400
+
 exit-options (24.10) mx; urgency=medium
 
   * Generalize 'Exit' to be used in other desktop environments

@@ -20,8 +20,16 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
 
-    auto *pushRestartFluxbox = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png",
-                                            tr("Restart Fluxbox"), on_pushRestartFluxbox);
+    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
+    QString labelRestartDE;
+    if (sessionDesktop == "fluxbox") {
+        labelRestartDE = tr("Restart Fluxbox");
+    } else if (sessionDesktop == "icewm-session") {
+        labelRestartDE = tr("Restart IceWM");
+    }
+
+    auto *pushRestartDE = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png", labelRestartDE,
+                                       on_pushRestartDE);
     auto *pushExit
         = createButton("LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"), on_pushExit);
     auto *pushLock
@@ -39,10 +47,9 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     auto *layout
         = horizontal ? static_cast<QLayout *>(new QHBoxLayout(this)) : static_cast<QLayout *>(new QVBoxLayout(this));
 
-    // Add pushRestartFluxbox?
-    QString xdg_session_desktop = qgetenv("XDG_SESSION_DESKTOP");
-    if (xdg_session_desktop == "fluxbox") {
-        layout->addWidget(pushRestartFluxbox);
+    // Add pushRestartDE?
+    if (sessionDesktop == "fluxbox" || sessionDesktop == "icewm-session") {
+        layout->addWidget(pushRestartDE);
     }
 
     layout->addWidget(pushLock);
@@ -169,10 +176,15 @@ void MainWindow::on_pushRestart()
     QProcess::startDetached("sudo", {"-n", "reboot"});
 }
 
-void MainWindow::on_pushRestartFluxbox()
+void MainWindow::on_pushRestartDE()
 {
-    QProcess::startDetached("fluxbox-remote", {"restart"});
-    QProcess::startDetached("idesktoggle", {"idesk", "refresh"});
+    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
+    if (sessionDesktop == "fluxbox") {
+        QProcess::startDetached("fluxbox-remote", {"restart"});
+        QProcess::startDetached("idesktoggle", {"idesk", "refresh"});
+    } else if (sessionDesktop == "icewm-session") {
+        QProcess::execute("icewm", {"-r"});
+    }
 }
 
 void MainWindow::on_pushShutdown()
