@@ -1,3 +1,9 @@
+exit-options (24.10) mx; urgency=medium
+
+  * Generalize 'Exit' to be used in other desktop environments
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 11 Oct 2024 21:11:22 -0400
+
 exit-options (24.3) mx; urgency=medium
 
   * Update translations
