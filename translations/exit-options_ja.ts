@@ -2,32 +2,37 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="24"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
         <translation>Fluxbox を再起動</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="28"/>
+        <source>Restart IceWM</source>
+        <translation>Restart を再起動</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Lock Screen</source>
         <translation>画面をロック</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Log Out</source>
         <translation>ログアウト</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Suspend</source>
         <translation>サスペンド</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Reboot</source>
         <translation>再起動</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="32"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Shutdown</source>
         <translation>シャットダウン</translation>
     </message>
@@ -109,7 +114,7 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>You can also use &apos;timeout=off&apos; to turn the timeout off.</source>
-        <translation type="unfinished"/>
+        <translation>&apos;timeout=off&apos; を使ってもタイムアウトをオフにできます。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>

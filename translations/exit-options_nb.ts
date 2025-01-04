@@ -2,32 +2,37 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="24"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
         <translation>Omstart av Fluxbox</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="28"/>
+        <source>Restart IceWM</source>
+        <translation>Start IceWM på nytt</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Lock Screen</source>
         <translation>Lås skjermen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Log Out</source>
         <translation>Logg ut</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Suspend</source>
         <translation>Hvilemodus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Reboot</source>
         <translation>Omstart</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="32"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Shutdown</source>
         <translation>Avslutter</translation>
     </message>
@@ -109,7 +114,7 @@ bruk -h eller --horizontal for å vise knapper vannrett.</translation>
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>You can also use &apos;timeout=off&apos; to turn the timeout off.</source>
-        <translation type="unfinished"/>
+        <translation>Du kan også velge «timeout=off» for å slå av tidsavbrudd.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>

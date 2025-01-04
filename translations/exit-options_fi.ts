@@ -2,32 +2,37 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="24"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
         <translation>Käynnistä Fluxbox</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="28"/>
+        <source>Restart IceWM</source>
+        <translation>Käynnistä IceWM</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Lock Screen</source>
         <translation>Lukitse näyttö</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Log Out</source>
         <translation>Kirjaudu ulos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Suspend</source>
         <translation>Keskeytä</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Reboot</source>
         <translation>Käynnistä uudelleen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="32"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Shutdown</source>
         <translation>Sammuta</translation>
     </message>
@@ -109,7 +114,7 @@ käytä -h, --horizontal näyttää painikkeet vaakasuunnassa.</translation>
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>You can also use &apos;timeout=off&apos; to turn the timeout off.</source>
-        <translation type="unfinished"/>
+        <translation>Voit ottaa aikakatkaisun pois käytöstä komennolla &quot;timeout=off&quot;.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>

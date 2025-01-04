@@ -1,3 +1,9 @@
+exit-options (25.1) mx; urgency=medium
+
+  * Add JWM support
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 04 Jan 2025 16:49:48 -0500
+
 exit-options (24.10.01) mx; urgency=medium
 
   * Add restart DE option for IceWM
@@ -8,7 +14,7 @@ exit-options (24.10) mx; urgency=medium
 
   * Generalize 'Exit' to be used in other desktop environments
 
- -- Adrian <adrian@mxlinux.org>  Fri, 11 Oct 2024 21:11:22 -0400
+ -- Adrian <adrianmxlinux.org>  Fri, 11 Oct 2024 21:11:22 -0400
 
 exit-options (24.3) mx; urgency=medium
 

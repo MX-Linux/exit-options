@@ -2,32 +2,37 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="24"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
-        <translation>Fluxbox neustarten</translation>
+        <translation>Fluxbox neu starten</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="28"/>
+        <source>Restart IceWM</source>
+        <translation>IceWM neu starten</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Lock Screen</source>
         <translation>Bildschirm sperren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Log Out</source>
         <translation>Abmelden</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Suspend</source>
         <translation>Bereitschaft</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Reboot</source>
         <translation>Neustart</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="32"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Shutdown</source>
         <translation>Herunterfahren</translation>
     </message>
@@ -109,7 +114,7 @@ Verwenden Sie -h, --horizontal, um die Schaltflächen horizontal anzuzeigen.</tr
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>You can also use &apos;timeout=off&apos; to turn the timeout off.</source>
-        <translation type="unfinished"/>
+        <translation>Sie können auch den Befehl &quot;timeout=off&quot; verwenden, um das Time-out zu deaktivieren.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>

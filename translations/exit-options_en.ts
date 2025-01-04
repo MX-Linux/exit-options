@@ -14,27 +14,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="36"/>
-        <source>Lock Screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="34"/>
-        <source>Log Out</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="42"/>
-        <source>Suspend</source>
+        <location filename="../mainwindow.cpp" line="30"/>
+        <source>Restart JWM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="38"/>
-        <source>Reboot</source>
+        <source>Lock Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="36"/>
+        <source>Log Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="44"/>
+        <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="40"/>
+        <source>Reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>

@@ -2,32 +2,37 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="24"/>
+        <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
         <translation>Reiniciar Fluxbox</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="28"/>
+        <source>Restart IceWM</source>
+        <translation>Reiniciar IceWM</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Lock Screen</source>
         <translation>Bloquear Pantalla</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="34"/>
         <source>Log Out</source>
         <translation>Cerrar sesión</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Suspend</source>
         <translation>Suspender</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Reboot</source>
         <translation>Reiniciar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="32"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Shutdown</source>
         <translation>Apagar</translation>
     </message>

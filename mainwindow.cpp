@@ -26,6 +26,8 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
         labelRestartDE = tr("Restart Fluxbox");
     } else if (sessionDesktop == "icewm-session") {
         labelRestartDE = tr("Restart IceWM");
+    } else if (sessionDesktop == "jwm") {
+        labelRestartDE = tr("Restart JWM");
     }
 
     auto *pushRestartDE = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png", labelRestartDE,
@@ -48,7 +50,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
         = horizontal ? static_cast<QLayout *>(new QHBoxLayout(this)) : static_cast<QLayout *>(new QVBoxLayout(this));
 
     // Add pushRestartDE?
-    if (sessionDesktop == "fluxbox" || sessionDesktop == "icewm-session") {
+    if (sessionDesktop == "fluxbox" || sessionDesktop == "icewm-session" || sessionDesktop == "jwm") {
         layout->addWidget(pushRestartDE);
     }
 
@@ -106,11 +108,12 @@ void MainWindow::on_pushExit()
         return QProcess::execute(program, arguments);
     };
 
-    // Map format: {desktop, {program, {arguments}}
+    // Map format: {desktop, {program, {arguments}}}
     static const QMap<QString, QPair<QString, QStringList>> desktopCommands
         = {{"fluxbox", {"fluxbox-remote", {"exit"}}},
            {"xfce", {"xfce4-session-logout", {"--logout"}}},
            {"kde", {"qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"}}},
+           {"jwm", {"jwm", {"-exit"}}},
            {"i3", {"i3-msg", {"exit"}}}};
 
     if (desktopCommands.contains(sessionDesktop)) {
@@ -184,6 +187,8 @@ void MainWindow::on_pushRestartDE()
         QProcess::startDetached("idesktoggle", {"idesk", "refresh"});
     } else if (sessionDesktop == "icewm-session") {
         QProcess::execute("icewm", {"-r"});
+    } else if (sessionDesktop == "jwm") {
+        QProcess::execute("jwm", {"-restart"});
     }
 }
 
