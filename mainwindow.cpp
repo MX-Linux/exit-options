@@ -122,7 +122,7 @@ void MainWindow::on_pushExit()
         const QStringList arguments = commandPair.second;
 
         if (sessionDesktop == "fluxbox") {
-            if (executeCommand(program, arguments)) {
+            if (!executeCommand(program, arguments)) {
                 executeCommand("killall", {"fluxbox"});
                 commandExecuted = true;
             }

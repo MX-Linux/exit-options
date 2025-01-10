@@ -1,3 +1,9 @@
+exit-options (25.1.01) mx; urgency=medium
+
+  * Fix logout in Fluxbox
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 09 Jan 2025 20:30:07 -0500
+
 exit-options (25.1) mx; urgency=medium
 
   * Add JWM support
