@@ -12,27 +12,32 @@
         <translation>Paleisti IceWM iš naujo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="36"/>
+        <location filename="../mainwindow.cpp" line="30"/>
+        <source>Restart JWM</source>
+        <translation>Iš naujo paleisti JWM</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Lock Screen</source>
         <translation>Užrakinti ekraną</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Log Out</source>
         <translation>Atsijungti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="42"/>
+        <location filename="../mainwindow.cpp" line="44"/>
         <source>Suspend</source>
         <translation>Pristabdyti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="38"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Reboot</source>
         <translation>Paleisti iš naujo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="40"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Shutdown</source>
         <translation>Išjungti</translation>
     </message>

@@ -12,27 +12,32 @@
         <translation>Reiniciar o IceWM</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="36"/>
+        <location filename="../mainwindow.cpp" line="30"/>
+        <source>Restart JWM</source>
+        <translation>Reiniciar o JWM</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Lock Screen</source>
         <translation>Bloquear a Tela</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Log Out</source>
         <translation>Sair da Sessão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="42"/>
+        <location filename="../mainwindow.cpp" line="44"/>
         <source>Suspend</source>
         <translation>Suspender</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="38"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Reboot</source>
         <translation>Reiniciar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="40"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Shutdown</source>
         <translation>Desligar</translation>
     </message>
@@ -43,7 +48,7 @@
         <location filename="../main.cpp" line="48"/>
         <location filename="../main.cpp" line="56"/>
         <source>Pop-up with exit options for MX Fluxbox</source>
-        <translation>O ‘Exit Options’ é um programa que exibe uma janela com várias opções de saída do gerenciador de janelas Fluxbox do MX, como por exemplo, bloquear a tela, sair da sessão, reiniciar o computador e desligar o computador</translation>
+        <translation>O ‘Exit Options’ é um programa que exibe uma janela com várias opções de saída do gerenciador de janelas Fluxbox do MX. Por exemplo, bloquear a tela, sair da sessão, reiniciar o computador e desligar o computador</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="49"/>
@@ -119,7 +124,7 @@ Utilize as opções ‘-h’ ou ‘--horizontal’ para exibir os botões na pos
     <message>
         <location filename="../main.cpp" line="71"/>
         <source>You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf file. The names of the icons that you remap: %1</source>
-        <translation>Você pode definir os ícones personalizados adicionando o parâmetro ‘IconName=/caminho ou local onde está a imagem/iconame.ext’ no arquivo de configurações ‘options.conf’. Os nomes dos ícones que você pode remapear são: %1</translation>
+        <translation>Você pode definir os ícones personalizados adicionando o parâmetro ‘IconName=/caminho/nome_da_imagem/.ext’ no arquivo de configurações ‘exit-options.conf’. Os nomes dos ícones que você remapeou são: %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="75"/>

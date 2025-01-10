@@ -12,27 +12,32 @@
         <translation>IceWM újraindítása</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="36"/>
+        <location filename="../mainwindow.cpp" line="30"/>
+        <source>Restart JWM</source>
+        <translation>JWM újraindítása</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Lock Screen</source>
         <translation>Képernyő zárolása</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Log Out</source>
         <translation>Kijelentkezés</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="42"/>
+        <location filename="../mainwindow.cpp" line="44"/>
         <source>Suspend</source>
         <translation>Felfüggesztés</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="38"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Reboot</source>
         <translation>Újraindítás</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="40"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Shutdown</source>
         <translation>Leállítás</translation>
     </message>

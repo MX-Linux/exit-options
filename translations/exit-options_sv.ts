@@ -12,27 +12,32 @@
         <translation>Starta om IceWM</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="36"/>
+        <location filename="../mainwindow.cpp" line="30"/>
+        <source>Restart JWM</source>
+        <translation>Starta om JWM</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Lock Screen</source>
         <translation>Lås skärm</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Log Out</source>
         <translation>Logga ut</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="42"/>
+        <location filename="../mainwindow.cpp" line="44"/>
         <source>Suspend</source>
         <translation>Vänteläge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="38"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Reboot</source>
         <translation>Starta om</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="40"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Shutdown</source>
         <translation>Stäng av</translation>
     </message>

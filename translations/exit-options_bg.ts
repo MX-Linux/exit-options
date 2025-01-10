@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="nl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="bg">
 <context>
     <name>MainWindow</name>
     <message>
@@ -14,32 +14,32 @@
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart JWM</source>
-        <translation>Herstarten JWM</translation>
+        <translation>Рестартирайте JWM</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="38"/>
         <source>Lock Screen</source>
-        <translation>Scherm Vergrendelen</translation>
+        <translation>Заключване на екрана</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="36"/>
         <source>Log Out</source>
-        <translation>Afmelden</translation>
+        <translation>Излизане</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="44"/>
         <source>Suspend</source>
-        <translation>Opschorten</translation>
+        <translation>Приспиване</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="40"/>
         <source>Reboot</source>
-        <translation>Herstarten</translation>
+        <translation>Рестартиране</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="42"/>
         <source>Shutdown</source>
-        <translation>Afsluiten</translation>
+        <translation>Изключване</translation>
     </message>
 </context>
 <context>
@@ -80,7 +80,7 @@ use -h, --horizontal to display buttons horizontally.</source>
     <message>
         <location filename="../main.cpp" line="58"/>
         <source>Options:</source>
-        <translation>Opties:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../main.cpp" line="59"/>

@@ -12,27 +12,32 @@
         <translation>Ponovno zaženi IceWM</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="36"/>
+        <location filename="../mainwindow.cpp" line="30"/>
+        <source>Restart JWM</source>
+        <translation>Ponovno zaženi JWM</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="38"/>
         <source>Lock Screen</source>
         <translation>Zakleni zaslon</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="34"/>
+        <location filename="../mainwindow.cpp" line="36"/>
         <source>Log Out</source>
         <translation>Odjava</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="42"/>
+        <location filename="../mainwindow.cpp" line="44"/>
         <source>Suspend</source>
         <translation>Zaustavitev</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="38"/>
+        <location filename="../mainwindow.cpp" line="40"/>
         <source>Reboot</source>
         <translation>Ponovni zagon</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="40"/>
+        <location filename="../mainwindow.cpp" line="42"/>
         <source>Shutdown</source>
         <translation>Izklop</translation>
     </message>
