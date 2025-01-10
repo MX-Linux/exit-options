@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 09 Jan 2025 20:30:07 -0500
+Source: exit-options
+Architecture: source
+Version: 25.1.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ exit-options (25.1.01) mx; urgency=medium
+ .
+   * Fix logout in Fluxbox
+Checksums-Sha1:
+ 815395938d263ad0d6525e3e6bff3f8464d4b7fa 1135 exit-options_25.1.01.dsc
+ aef1808ec45835393f3cf37ace45b76181e1546b 237412 exit-options_25.1.01.tar.xz
+ 92b0b9708b18ddf5bdede6108946db2d18419188 11093 exit-options_25.1.01_amd64.buildinfo
+Checksums-Sha256:
+ 950bd8e19772b9ec003375ef63f540ad1f0e39ddc60da7e854582dce1434d8ba 1135 exit-options_25.1.01.dsc
+ 466f7a203eb14342b742e2c7082bdf4426ee9ea50ba659e9fcf7a0f801a29319 237412 exit-options_25.1.01.tar.xz
+ 1a272705ade615433eab6caf195b227b71a48fea8d3ad012aea6d2d2eb655b4b 11093 exit-options_25.1.01_amd64.buildinfo
+Files:
+ efa3741a70cc7c023fe16bc48bdd0425 1135 admin optional exit-options_25.1.01.dsc
+ f0632ad8ceb8311f2520320b41d7cc8f 237412 admin optional exit-options_25.1.01.tar.xz
+ 57dc9aa4847b3b7f0e3a3579a5805b38 11093 admin optional exit-options_25.1.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmeAevcTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKFwCADXEw7iICOEp7JjJjtLmgso5l6LLyIE
+Xg6cC/F2FdqL8O74AIsLvbQs3ZxyAYZ6RbF6r4ZEOoUSVZ/nruJ4A/qKqBfeRRBR
+Xu2PjcZYghbugMxG3dENf1n4OGPHi3VSZkrSyJemXzdDvgV/2dopfl7Pr/i+DiP3
+RPcqhiiLRYhrZzmfbC+l86uxiFE+TKxbxvarSiNtGBvOmlDFro9uKJDhRNUMdbdS
+VQFwlIQ1Ydjlac+lErTilidpI873U6b88VBS4/6vIz9qM/ybRi95OXo2EBpTXHhK
+TWJbEsb7+7CPPMSoe2CDiuiM6/PfKKT1PM9LyRprTql5ZkDaO2ZiVIXO
+=DIvQ
+-----END PGP SIGNATURE-----
