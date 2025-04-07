@@ -63,7 +63,7 @@
     <message>
         <location filename="../main.cpp" line="51"/>
         <source>Timeout duration in seconds</source>
-        <translation type="unfinished"/>
+        <translation>Laiko limito trukmė, sekundėmis</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="52"/>

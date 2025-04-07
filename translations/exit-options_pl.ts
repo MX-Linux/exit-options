@@ -9,7 +9,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="28"/>
         <source>Restart IceWM</source>
-        <translation type="unfinished"/>
+        <translation>Uruchom ponownie IceWM</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
@@ -119,7 +119,7 @@ użyj -h, --horizontal aby wyświetlić przyciski poziomo.</translation>
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>You can also use &apos;timeout=off&apos; to turn the timeout off.</source>
-        <translation type="unfinished"/>
+        <translation>Można również użyć &apos;timeout=off&apos;, aby wyłączyć limit czasu.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="71"/>

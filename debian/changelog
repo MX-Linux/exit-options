@@ -1,3 +1,10 @@
+exit-options (25.4) mx; urgency=medium
+
+  * Update translations
+  * Added shutdown for mate, lxde, lxqt
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 07 Apr 2025 19:53:20 -0400
+
 exit-options (25.1.01) mx; urgency=medium
 
   * Fix logout in Fluxbox

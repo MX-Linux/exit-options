@@ -4,7 +4,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="26"/>
         <source>Restart Fluxbox</source>
-        <translation>Rinis Fluxbox-in</translation>
+        <translation>Rinise Fluxbox-in</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="28"/>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="30"/>
         <source>Restart JWM</source>
-        <translation>Rinis JWM-në</translation>
+        <translation>Rinise JWM-në</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="38"/>
