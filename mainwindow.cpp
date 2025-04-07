@@ -1,6 +1,8 @@
 #include <QApplication>
+#include <QFile>
 #include <QFileInfo>
 #include <QLayout>
+#include <QMap>
 #include <QProcess>
 #include <QPushButton>
 #include <QSettings>
@@ -14,53 +16,52 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
       defaultIconSize {50},
       defaultSpacing {3}
 {
-    // Load icons from settings
+    // Load settings
     QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
 
     iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
 
+    // Detect desktop environment
     QString sessionDesktop = QString::fromUtf8(qgetenv("XDG_SESSION_DESKTOP")).toLower();
     if (sessionDesktop.isEmpty()) {
         sessionDesktop = "unknown";
     }
-    QString labelRestartDE;
-    if (sessionDesktop == "fluxbox") {
-        labelRestartDE = tr("Restart Fluxbox");
-    } else if (sessionDesktop == "icewm-session") {
-        labelRestartDE = tr("Restart IceWM");
-    } else if (sessionDesktop == "jwm") {
-        labelRestartDE = tr("Restart JWM");
-    }
 
+    // Set up desktop-specific restart label
+    static const QMap<QString, QString> desktopLabels
+        = {{"fluxbox", tr("Restart Fluxbox")}, {"icewm-session", tr("Restart IceWM")}, {"jwm", tr("Restart JWM")}};
+    QString labelRestartDE = desktopLabels.value(sessionDesktop, QString());
+
+    // Create buttons
     auto *pushRestartDE = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png", labelRestartDE,
-                                       on_pushRestartDE);
-    auto *pushExit
-        = createButton("LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"), on_pushExit);
-    auto *pushLock
-        = createButton("LockIcon", "/usr/share/exit-options/awesome/lock.png", tr("Lock Screen"), on_pushLock);
-    auto *pushRestart
-        = createButton("RebootIcon", "/usr/share/exit-options/awesome/reboot.png", tr("Reboot"), on_pushRestart);
-    auto *pushShutdown
-        = createButton("ShutdownIcon", "/usr/share/exit-options/awesome/shutdown.png", tr("Shutdown"), on_pushShutdown);
-    auto *pushSleep
-        = createButton("SuspendIcon", "/usr/share/exit-options/awesome/suspend.png", tr("Suspend"), on_pushSleep);
+                                       [this] { on_pushRestartDE(); });
+    auto *pushExit = createButton("LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"),
+                                  [this] { on_pushExit(); });
+    auto *pushLock = createButton("LockIcon", "/usr/share/exit-options/awesome/lock.png", tr("Lock Screen"),
+                                  [this] { on_pushLock(); });
+    auto *pushRestart = createButton("RebootIcon", "/usr/share/exit-options/awesome/reboot.png", tr("Reboot"),
+                                     [this] { on_pushRestart(); });
+    auto *pushShutdown = createButton("ShutdownIcon", "/usr/share/exit-options/awesome/shutdown.png", tr("Shutdown"),
+                                      [this] { on_pushShutdown(); });
+    auto *pushSleep = createButton("SuspendIcon", "/usr/share/exit-options/awesome/suspend.png", tr("Suspend"),
+                                   [this] { on_pushSleep(); });
 
+    // Determine layout orientation
     if (!horizontal && !parser.isSet("vertical")) {
         horizontal = userSettings.value("layout", systemSettings.value("layout").toString()).toString() == "horizontal";
     }
     auto *layout
         = horizontal ? static_cast<QLayout *>(new QHBoxLayout(this)) : static_cast<QLayout *>(new QVBoxLayout(this));
 
-    // Add pushRestartDE?
-    if (sessionDesktop == "fluxbox" || sessionDesktop == "icewm-session" || sessionDesktop == "jwm") {
+    // Add buttons to layout
+    if (desktopLabels.contains(sessionDesktop)) {
         layout->addWidget(pushRestartDE);
     }
 
     layout->addWidget(pushLock);
     layout->addWidget(pushExit);
 
-    // Add pushSleep?
     if (!isRaspberryPi()) {
         layout->addWidget(pushSleep);
     }
@@ -68,24 +69,26 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     layout->addWidget(pushRestart);
     layout->addWidget(pushShutdown);
 
-    // Set layout margins and spacing
-    layout->setMargin(userSettings.value("Margin", systemSettings.value("Margin", defaultSpacing).toInt()).toInt());
+    // Configure layout
+    int margin = userSettings.value("Margin", systemSettings.value("Margin", defaultSpacing).toInt()).toInt();
+    layout->setContentsMargins(margin, margin, margin, margin);
     layout->setSpacing(userSettings.value("Spacing", systemSettings.value("Spacing", defaultSpacing).toInt()).toInt());
-
     setLayout(layout);
 
-    // Set window features
+    // Configure window
     setSizeGripEnabled(true);
     setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
+    // Connect signals
     connect(QApplication::instance(), &QApplication::aboutToQuit, this, &MainWindow::saveSettings);
 
-    // Restore or reset geometry
-    show(); // Can't save geometry if not shown
+    // Restore window geometry
+    show(); // Must show before saving/restoring geometry
     if (userSettings.contains("Geometry") || userSettings.contains("geometry")) {
         const QByteArray geometry = saveGeometry();
         restoreGeometry(userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray());
-        // If too wide/tall reset geometry
+
+        // Reset geometry if window proportions are inappropriate
         const auto factor = 0.6;
         if ((horizontal && size().height() >= size().width() * factor)
             || (!horizontal && size().width() >= size().height() * factor)) {
@@ -108,7 +111,7 @@ void MainWindow::on_pushExit()
         if (QStandardPaths::findExecutable(program).isEmpty()) {
             return false;
         }
-        return QProcess::execute(program, arguments);
+        return QProcess::execute(program, arguments) == 0;
     };
 
     // Map format: {desktop, {program, {arguments}}}
@@ -117,7 +120,10 @@ void MainWindow::on_pushExit()
            {"xfce", {"xfce4-session-logout", {"--logout"}}},
            {"kde", {"qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"}}},
            {"jwm", {"jwm", {"-exit"}}},
-           {"i3", {"i3-msg", {"exit"}}}};
+           {"i3", {"i3-msg", {"exit"}}},
+           {"mate", {"mate-session-save", {"--logout"}}},
+           {"lxde", {"lxsession-logout", {}}},
+           {"lxqt", {"lxqt-leave", {"--logout"}}}};
 
     if (desktopCommands.contains(sessionDesktop)) {
         const QPair<QString, QStringList> &commandPair = desktopCommands.value(sessionDesktop);
@@ -144,7 +150,10 @@ void MainWindow::on_pushExit()
 
 void MainWindow::on_pushSleep()
 {
-    QProcess::startDetached("sudo", {"-n", "pm-suspend"});
+    // Try systemd first, then pm-utils
+    if (QProcess::execute("systemctl", {"suspend"}) != 0) {
+        QProcess::startDetached("sudo", {"-n", "pm-suspend"});
+    }
 }
 
 void MainWindow::saveSettings()
@@ -164,40 +173,62 @@ QPushButton *MainWindow::createButton(const QString &iconName, const QString &ic
 {
     QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
+
+    // Get icon path from settings or use default
     QString icon = userSettings.value(iconName, systemSettings.value(iconName).toString()).toString();
-    if (!QFileInfo::exists(icon)) {
+    if (icon.isEmpty() || !QFileInfo::exists(icon)) {
         icon = iconLocation;
     }
+
+    // Create and configure button
     auto *btn = new QPushButton(QIcon(icon), QString());
     btn->setToolTip(toolTip);
     btn->setFlat(true);
     btn->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     btn->setIconSize(QSize(iconSize, iconSize));
-    connect(btn, &QPushButton::clicked, this, action);
+
+    // Only connect if we have a valid action and tooltip
+    if (action && !toolTip.isEmpty()) {
+        connect(btn, &QPushButton::clicked, this, action);
+    }
+
     return btn;
 }
 
 void MainWindow::on_pushRestart()
 {
-    QProcess::startDetached("sudo", {"-n", "reboot"});
+    // Try systemd first, then direct reboot
+    if (QProcess::execute("systemctl", {"reboot"}) != 0) {
+        QProcess::startDetached("sudo", {"-n", "reboot"});
+    }
 }
 
 void MainWindow::on_pushRestartDE()
 {
     QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
-    if (sessionDesktop == "fluxbox") {
-        QProcess::startDetached("fluxbox-remote", {"restart"});
-        QProcess::startDetached("idesktoggle", {"idesk", "refresh"});
-    } else if (sessionDesktop == "icewm-session") {
-        QProcess::execute("icewm", {"-r"});
-    } else if (sessionDesktop == "jwm") {
-        QProcess::execute("jwm", {"-restart"});
+
+    static const QMap<QString, QPair<QString, QStringList>> restartCommands
+        = {{"fluxbox", {"fluxbox-remote", {"restart"}}},
+           {"icewm-session", {"icewm", {"-r"}}},
+           {"jwm", {"jwm", {"-restart"}}}};
+
+    if (restartCommands.contains(sessionDesktop)) {
+        const auto &command = restartCommands.value(sessionDesktop);
+        QProcess::startDetached(command.first, command.second);
+
+        // Special case for Fluxbox - also refresh idesk if available
+        if (sessionDesktop == "fluxbox" && !QStandardPaths::findExecutable("idesktoggle").isEmpty()) {
+            QProcess::startDetached("idesktoggle", {"idesk", "refresh"});
+        }
     }
 }
 
 void MainWindow::on_pushShutdown()
 {
-    QProcess::startDetached("sudo", {"-n", "/sbin/halt", "-p"});
+    // Try systemd first, then direct shutdown
+    if (QProcess::execute("systemctl", {"poweroff"}) != 0) {
+        QProcess::startDetached("sudo", {"-n", "/sbin/halt", "-p"});
+    }
 }
 
 bool MainWindow::isRaspberryPi()
