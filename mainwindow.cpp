@@ -20,7 +20,10 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
 
-    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
+    QString sessionDesktop = QString::fromUtf8(qgetenv("XDG_SESSION_DESKTOP")).toLower();
+    if (sessionDesktop.isEmpty()) {
+        sessionDesktop = "unknown";
+    }
     QString labelRestartDE;
     if (sessionDesktop == "fluxbox") {
         labelRestartDE = tr("Restart Fluxbox");
@@ -199,5 +202,6 @@ void MainWindow::on_pushShutdown()
 
 bool MainWindow::isRaspberryPi()
 {
-    return QFile::exists("/etc/rpi-issue");
+    static const bool isRaspberryPi = QFile::exists("/etc/rpi-issue");
+    return isRaspberryPi;
 }
