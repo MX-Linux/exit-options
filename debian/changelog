@@ -1,3 +1,10 @@
+exit-options (25.4.01) mx; urgency=medium
+
+  * Update to Qt6
+  ^ Update translations
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 23 Apr 2025 21:39:39 -0400
+
 exit-options (25.4) mx; urgency=medium
 
   * Update translations

@@ -2,42 +2,42 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="26"/>
+        <location filename="../mainwindow.cpp" line="33"/>
         <source>Restart Fluxbox</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="28"/>
+        <location filename="../mainwindow.cpp" line="33"/>
         <source>Restart IceWM</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="30"/>
+        <location filename="../mainwindow.cpp" line="33"/>
         <source>Restart JWM</source>
         <translation>JWM पुनः आरंभ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="38"/>
+        <location filename="../mainwindow.cpp" line="41"/>
         <source>Lock Screen</source>
         <translation>लॉक स्क्रीन</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="36"/>
+        <location filename="../mainwindow.cpp" line="39"/>
         <source>Log Out</source>
         <translation>लॉगआउट</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="44"/>
+        <location filename="../mainwindow.cpp" line="47"/>
         <source>Suspend</source>
         <translation>स्थगित करें</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="40"/>
+        <location filename="../mainwindow.cpp" line="43"/>
         <source>Reboot</source>
         <translation>पुनः आरंभ करें</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="42"/>
+        <location filename="../mainwindow.cpp" line="45"/>
         <source>Shutdown</source>
         <translation>बंद करें</translation>
     </message>
