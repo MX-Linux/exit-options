@@ -2,13 +2,23 @@ Source: exit-options
 Section: admin
 Priority: optional
 Maintainer: Adrian <adrian@mxlinux.org>
-Build-Depends: debhelper (>=10), qt6-base-dev, qt6-base-dev-tools, qt6-tools-dev, qt6-tools-dev-tools
+Build-Depends: debhelper-compat (= 13),
+    qt6-base-dev,
+    qt6-base-dev-tools,
+    qt6-tools-dev,
+    qt6-tools-dev-tools
 Standards-Version: 3.9.8
+Rules-Requires-Root: no
+Homepage: https://mxlinux.org
+Vcs-Git: https://github.com/MX-Linux/exit-options.git
+Vcs-Browser: https://github.com/MX-Linux/exit-options
 
 Package: exit-options
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Conflicts: mx-fluxbox-data (<< 20.12.01), mx-fluxbox (<< 20.12.01)
 Replaces: mx-fluxbox-data (<< 20.12.01), mx-fluxbox (<< 20.12.01)
-Description: exit-options
- Pop-up with exit options for MX Fluxbox
+Description: Exit Options dialog for MX Fluxbox
+ A lightweight Qt6-based pop-up dialog providing shutdown, reboot, suspend,
+ and logout options for MX Linux Fluxbox users. Designed for ease of use
+ and seamless integration with the MX Fluxbox environment.
