@@ -84,22 +84,28 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     // Restore window geometry
     show(); // Must show before saving/restoring geometry
+
+    // Ensure window is fully initialized before geometry operations
+    QApplication::processEvents();
+
     if (userSettings.contains("Geometry") || userSettings.contains("geometry")) {
         const QByteArray geometry = saveGeometry();
-        restoreGeometry(userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray());
+        const QByteArray savedGeometry = userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray();
 
-        // Reset geometry if window proportions don't match the current layout orientation
-        const double currentAspectRatio = static_cast<double>(size().width()) / size().height();
+        if (!savedGeometry.isEmpty() && restoreGeometry(savedGeometry)) {
+            // Reset geometry if window proportions don't match the current layout orientation
+            const double currentAspectRatio = static_cast<double>(size().width()) / size().height();
 
-        // For horizontal layout, expect width > height (aspect ratio > 1)
-        // For vertical layout, expect height > width (aspect ratio < 1)
-        // Use reasonable thresholds to avoid resetting valid geometries
-        const bool geometryMismatch = horizontal
-            ? (currentAspectRatio < 1.1)  // Horizontal but too tall/square
-            : (currentAspectRatio > 0.9); // Vertical but too wide/square
+            // For horizontal layout, expect width > height (aspect ratio > 1)
+            // For vertical layout, expect height > width (aspect ratio < 1)
+            // Use reasonable thresholds to avoid resetting valid geometries
+            const bool geometryMismatch = horizontal
+                ? (currentAspectRatio < 1.1)  // Horizontal but too tall/square
+                : (currentAspectRatio > 0.9); // Vertical but too wide/square
 
-        if (geometryMismatch) {
-            restoreGeometry(geometry);
+            if (geometryMismatch) {
+                restoreGeometry(geometry);
+            }
         }
     }
 }
