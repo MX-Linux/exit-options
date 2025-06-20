@@ -9,6 +9,7 @@
 #include <QTranslator>
 
 #include "mainwindow.h"
+#include "common.h"
 #include <chrono>
 
 using namespace std::chrono_literals;
@@ -82,7 +83,7 @@ int main(int argc, char *argv[])
 
     // Load timeout settings
     QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
-    QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
+    QSettings systemSettings(SYSTEM_CONFIG_PATH, QSettings::IniFormat);
 
     QString timeout;
     if (parser.isSet("timeout")) {

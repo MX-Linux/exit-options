@@ -9,16 +9,16 @@
 #include <QStandardPaths>
 
 #include "mainwindow.h"
+#include "common.h"
 
 MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     : QDialog(parent),
       horizontal {parser.isSet("horizontal")},
       defaultIconSize {50},
-      defaultSpacing {3}
+      defaultSpacing {3},
+      userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName()),
+      systemSettings(SYSTEM_CONFIG_PATH, QSettings::IniFormat)
 {
-    // Load settings
-    QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
-    QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
 
     iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
 
