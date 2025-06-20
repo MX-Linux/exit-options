@@ -171,9 +171,6 @@ void MainWindow::reject()
 QPushButton *MainWindow::createButton(const QString &iconName, const QString &iconLocation, const QString &toolTip,
                                       const std::function<void()> &action)
 {
-    QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
-    QSettings systemSettings("/etc/exit-options.conf", QSettings::IniFormat);
-
     // Get icon path from settings or use default
     QString icon = userSettings.value(iconName, systemSettings.value(iconName).toString()).toString();
     if (icon.isEmpty() || !QFileInfo::exists(icon)) {

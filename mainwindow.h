@@ -2,6 +2,7 @@
 
 #include <QCommandLineParser>
 #include <QDialog>
+#include <QSettings>
 
 class MainWindow : public QDialog
 {
@@ -24,6 +25,8 @@ private:
     const int defaultIconSize;
     const int defaultSpacing;
     int iconSize;
+    QSettings userSettings;
+    QSettings systemSettings;
 
     static bool isRaspberryPi();
     void reject() override;
