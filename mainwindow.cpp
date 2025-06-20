@@ -23,7 +23,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
 
     // Detect desktop environment
-    QString sessionDesktop = QString::fromUtf8(qgetenv("XDG_SESSION_DESKTOP")).toLower();
+    QString sessionDesktop = getDesktopEnvironment();
     if (sessionDesktop.isEmpty()) {
         sessionDesktop = "unknown";
     }
@@ -104,7 +104,7 @@ void MainWindow::on_pushLock()
 
 void MainWindow::on_pushExit()
 {
-    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
+    QString sessionDesktop = getDesktopEnvironment();
     bool commandExecuted = false;
 
     auto executeCommand = [&](const QString &program, const QStringList &arguments) -> bool {
@@ -202,7 +202,7 @@ void MainWindow::on_pushRestart()
 
 void MainWindow::on_pushRestartDE()
 {
-    QString sessionDesktop = qgetenv("XDG_SESSION_DESKTOP").toLower();
+    QString sessionDesktop = getDesktopEnvironment();
 
     static const QMap<QString, QPair<QString, QStringList>> restartCommands
         = {{"fluxbox", {"fluxbox-remote", {"restart"}}},
