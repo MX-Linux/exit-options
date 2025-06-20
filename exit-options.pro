@@ -14,7 +14,7 @@ CONFIG(release, debug|release) {
     QMAKE_CXXFLAGS_RELEASE = -O3
 }
 
-QMAKE_CXXFLAGS += -Wpedantic -pedantic -Werror=return-type -Werror=switch
+QMAKE_CXXFLAGS += -pedantic -Werror=return-type -Werror=switch
 QMAKE_CXXFLAGS += -Werror=uninitialized -Werror=return-local-addr -Werror
 
 TARGET = exit-options
@@ -36,7 +36,8 @@ SOURCES += \
         mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        common.h
 
 TRANSLATIONS += \
         translations/exit-options_en.ts
