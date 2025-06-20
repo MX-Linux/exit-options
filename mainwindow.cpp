@@ -11,6 +11,24 @@
 #include "mainwindow.h"
 #include "common.h"
 
+namespace {
+    bool isExecutableAvailable(const QString &program) {
+        return !QStandardPaths::findExecutable(program).isEmpty();
+    }
+
+    bool executeWithFallback(const QString &primary, const QStringList &primaryArgs,
+                            const QString &fallback, const QStringList &fallbackArgs) {
+        if (isExecutableAvailable(primary) && QProcess::execute(primary, primaryArgs) == 0) {
+            return true;
+        }
+        if (isExecutableAvailable(fallback)) {
+            QProcess::startDetached(fallback, fallbackArgs);
+            return true;
+        }
+        return false;
+    }
+}
+
 MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     : QDialog(parent),
       horizontal {parser.isSet("horizontal")},
@@ -112,7 +130,10 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
 void MainWindow::on_pushLock()
 {
-    QProcess::startDetached("dm-tool", {"switch-to-greeter"});
+    // Try common screen lockers in order of preference
+    if (!executeWithFallback("dm-tool", {"switch-to-greeter"}, "loginctl", {"lock-session"})) {
+        executeWithFallback("xscreensaver-command", {"-lock"}, "gnome-screensaver-command", {"-l"});
+    }
 }
 
 void MainWindow::on_pushExit()
@@ -163,9 +184,9 @@ void MainWindow::on_pushExit()
 
 void MainWindow::on_pushSleep()
 {
-    // Try systemd first, then pm-utils
-    if (QProcess::execute("systemctl", {"suspend"}) != 0) {
-        QProcess::startDetached("sudo", {"-n", "pm-suspend"});
+    // Try systemd first, then loginctl, then pm-utils with sudo
+    if (!executeWithFallback("systemctl", {"suspend"}, "loginctl", {"suspend"})) {
+        executeWithFallback("sudo", {"-n", "pm-suspend"}, "pm-suspend", {});
     }
 }
 
@@ -207,9 +228,9 @@ QPushButton *MainWindow::createButton(const QString &iconName, const QString &ic
 
 void MainWindow::on_pushRestart()
 {
-    // Try systemd first, then direct reboot
-    if (QProcess::execute("systemctl", {"reboot"}) != 0) {
-        QProcess::startDetached("sudo", {"-n", "reboot"});
+    // Try systemd first, then loginctl, then direct reboot with sudo
+    if (!executeWithFallback("systemctl", {"reboot"}, "loginctl", {"reboot"})) {
+        executeWithFallback("sudo", {"-n", "reboot"}, "reboot", {});
     }
 }
 
@@ -235,9 +256,9 @@ void MainWindow::on_pushRestartDE()
 
 void MainWindow::on_pushShutdown()
 {
-    // Try systemd first, then direct shutdown
-    if (QProcess::execute("systemctl", {"poweroff"}) != 0) {
-        QProcess::startDetached("sudo", {"-n", "/sbin/halt", "-p"});
+    // Try systemd first, then loginctl, then direct shutdown with sudo
+    if (!executeWithFallback("systemctl", {"poweroff"}, "loginctl", {"poweroff"})) {
+        executeWithFallback("sudo", {"-n", "/sbin/halt", "-p"}, "/sbin/halt", {"-p"});
     }
 }
 
