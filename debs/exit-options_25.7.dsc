@@ -15,20 +15,20 @@ Build-Depends: debhelper-compat (= 13), qt6-base-dev, qt6-base-dev-tools, qt6-to
 Package-List:
  exit-options deb admin optional arch=any
 Checksums-Sha1:
- c0223c0ec9b2d0496f153ac0ad8f0e2ccb5e9925 205272 exit-options_25.7.tar.xz
+ 76772896e78962a51403ea3cae56dbe884e2b094 205276 exit-options_25.7.tar.xz
 Checksums-Sha256:
- fef4ab9313e845194a30c5513e4b90b604b1a141df85bd28a449cea80116aaf9 205272 exit-options_25.7.tar.xz
+ 4eae49ef89c9459e2e2148186070a4ba0ef75117622096858311af1e7a33f412 205276 exit-options_25.7.tar.xz
 Files:
- e3c762ad66b49a597d5bb8897720f00d 205272 exit-options_25.7.tar.xz
+ 738a4e818c47f0c3a9da71ff034199a1 205276 exit-options_25.7.tar.xz
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmhm7eYTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumMfbB/0THSU4i6ggpbIF3X51D3sFXjijQ8gZ
-iUSy6HkUd8vbN2L9uCHog7UrucvMxAphTHBWFX4gL9QI3l5CM+Xmsz9H1YDw2Gec
-NUeYEhgntc3kTKRYMHdr5rEr7hLVGMD/b6U2vtSJIh9LcJ5lbXPViXoIWnHxw1lK
-X18gO5Z8q0ID1BLKu6u3f8KGVL0JODYO74DjtrFI05TN5krpL1+da0mmql7GptUc
-B6iMih+mQOeP/YdP8kydMEoStIC0oqxKr5TguvkgDcR4W7pM7Z78/C7lWzobHpUu
-6rGcfH+0qHk1eArTD22nwWClbbNZy+EP/4KeLlb3jPylNWzPqQHkrVdZ
-=qBlP
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmhm7oATHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumIqeCACvJimDr0JDkAk/D0uo8xB3sv4nGKqH
+4QQFRWVjLdnqx9ca2D30CCJS32J/eFNkrZlDYbreb25fltfgieOcDhq+30lrnirw
+iFqjOo7941lmZeW7z4QDP/lpCy7WbHQHZJlL8wQsBvVaW9h0Vg6HM4itGfI2dLpi
+0ChizoqO/TLc2pxS+x3Pmf/BhNqgr8oH0K2RF6OFJIWfrCBj6u0r7b9G/QYZK14P
++zkWj1u7m73as9EEgTdpiuz7oHeZthXXcX8B0zjv1VADbIE4nDM6lKbMfXuYrGcq
+TPhoAXzXDrE/lOhQGgl8vmeSJpeS/sPRwkiVNf80tBUquE5OaFbAJRMG
+=tdOy
 -----END PGP SIGNATURE-----

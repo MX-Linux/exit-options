@@ -2,12 +2,12 @@ exit-options (25.7) mx; urgency=medium
 
   * Icon modifications
 
- -- Adrian adrian@mxlinux.org>  Thu, 03 Jul 2025 16:09:16 -0400
+ -- Adrian <adrian@mxlinux.org>  Thu, 03 Jul 2025 16:09:16 -0400
 
 exit-options (25.4.01) mx; urgency=medium
 
   * Update to Qt6
-  ^ Update translations
+  * Update translations
 
  -- Adrian <adrian@mxlinux.org>  Wed, 23 Apr 2025 21:39:39 -0400
 
