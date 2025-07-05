@@ -1,3 +1,9 @@
+exit-options (25.7.01) mx; urgency=medium
+
+  * Fix issue with the fallback function
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 05 Jul 2025 14:51:02 -0400
+
 exit-options (25.7) mx; urgency=medium
 
   * Icon modifications
