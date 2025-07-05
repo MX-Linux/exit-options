@@ -8,25 +8,27 @@
 #include <QSettings>
 #include <QStandardPaths>
 
-#include "mainwindow.h"
 #include "common.h"
+#include "mainwindow.h"
 
-namespace {
-    bool isExecutableAvailable(const QString &program) {
-        return !QStandardPaths::findExecutable(program).isEmpty();
-    }
+namespace
+{
+bool isExecutableAvailable(const QString &program)
+{
+    return !QStandardPaths::findExecutable(program).isEmpty();
+}
 
-    bool executeWithFallback(const QString &primary, const QStringList &primaryArgs,
-                            const QString &fallback, const QStringList &fallbackArgs) {
-        if (isExecutableAvailable(primary) && QProcess::execute(primary, primaryArgs) == 0) {
-            return true;
-        }
-        if (isExecutableAvailable(fallback)) {
-            QProcess::startDetached(fallback, fallbackArgs);
-            return true;
-        }
-        return false;
+bool executeWithFallback(const QString &primary, const QStringList &primaryArgs, const QString &fallback,
+                         const QStringList &fallbackArgs)
+{
+    if (isExecutableAvailable(primary) && QProcess::execute(primary, primaryArgs) == 0) {
+        return true;
     }
+    if (isExecutableAvailable(fallback) && QProcess::execute(fallback, fallbackArgs) == 0) {
+        return true;
+    }
+    return false;
+}
 }
 
 MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
@@ -108,7 +110,8 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     if (userSettings.contains("Geometry") || userSettings.contains("geometry")) {
         const QByteArray geometry = saveGeometry();
-        const QByteArray savedGeometry = userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray();
+        const QByteArray savedGeometry
+            = userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray();
 
         if (!savedGeometry.isEmpty() && restoreGeometry(savedGeometry)) {
             // Reset geometry if window proportions don't match the current layout orientation
@@ -117,9 +120,8 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
             // For horizontal layout, expect width > height (aspect ratio > 1)
             // For vertical layout, expect height > width (aspect ratio < 1)
             // Use reasonable thresholds to avoid resetting valid geometries
-            const bool geometryMismatch = horizontal
-                ? (currentAspectRatio < 1.1)  // Horizontal but too tall/square
-                : (currentAspectRatio > 0.9); // Vertical but too wide/square
+            const bool geometryMismatch = horizontal ? (currentAspectRatio < 1.1)  // Horizontal but too tall/square
+                                                     : (currentAspectRatio > 0.9); // Vertical but too wide/square
 
             if (geometryMismatch) {
                 restoreGeometry(geometry);
