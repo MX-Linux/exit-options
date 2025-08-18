@@ -1,4 +1,5 @@
-exit-options	    usr/bin
-exit-options.conf   etc
-icons/* 			usr/share/exit-options
 configs_alt/*		usr/share/exit-options/conf
+exit-options.conf	etc
+icons/*			usr/share/exit-options
+obj-*/*.qm		usr/share/exit-options/locale
+obj-*/exit-options	usr/bin
