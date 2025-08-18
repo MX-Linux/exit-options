@@ -78,12 +78,15 @@ if [ "$DEBIAN_BUILD" = true ]; then
     mv ../*.changes debs/ 2>/dev/null || true  
     mv ../*.dsc debs/ 2>/dev/null || true
     mv ../*.tar.* debs/ 2>/dev/null || true
+    mv ../*.buildinfo debs/ 2>/dev/null || true
+    mv ../*build* debs/ 2>/dev/null || true
 
     echo "Cleaning build directory and debian artifacts..."
     rm -rf "$BUILD_DIR"
     rm -f debian/*.debhelper.log debian/*.substvars debian/files
     rm -rf debian/.debhelper/ debian/deb-installer/ obj-*/
     rm -f translations/*.qm version.h
+    rm -f ../*build* ../*.buildinfo 2>/dev/null || true
 
     echo "Debian package build completed!"
     echo "Debian artifacts moved to debs/ directory"
@@ -97,6 +100,7 @@ if [ "$CLEAN" = true ]; then
     rm -f debian/*.debhelper.log debian/*.substvars debian/files
     rm -rf debian/.debhelper/ debian/deb-installer/ obj-*/
     rm -f translations/*.qm version.h
+    rm -f ../*build* ../*.buildinfo 2>/dev/null || true
 fi
 
 # Create build directory
