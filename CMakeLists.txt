@@ -161,17 +161,7 @@ qt6_add_translations(exit-options
     QM_FILES_OUTPUT_VARIABLE qm_files
 )
 
-# Generate version.h from debian changelog during build
-add_custom_command(
-    OUTPUT ${CMAKE_BINARY_DIR}/version.h
-    COMMAND ${CMAKE_COMMAND} -DSOURCE_DIR=${CMAKE_SOURCE_DIR} -DBINARY_DIR=${CMAKE_BINARY_DIR} -P ${CMAKE_SOURCE_DIR}/generate_version.cmake
-    DEPENDS ${CMAKE_SOURCE_DIR}/debian/changelog ${CMAKE_SOURCE_DIR}/generate_version.cmake
-    COMMENT "Generating version.h from debian/changelog"
-)
 
-# Add version.h as a dependency
-add_custom_target(generate_version_h DEPENDS ${CMAKE_BINARY_DIR}/version.h)
-add_dependencies(exit-options generate_version_h)
 
 # Set target properties
 set_target_properties(exit-options PROPERTIES
@@ -179,8 +169,7 @@ set_target_properties(exit-options PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
-# Add build directory to include path for generated version.h
-target_include_directories(exit-options PRIVATE ${CMAKE_BINARY_DIR})
+
 
 # Install target (required by Debian build system)
 # Other files are handled by debian/install
