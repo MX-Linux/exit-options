@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         qDebug().noquote() << QObject::tr("  -t, --timeout <sec>\t Timeout duration in seconds\n");
         qDebug().noquote() << QObject::tr(
             "The display orientation option used will be remembered and used the next time you start the app");
-        qDebug().noquote() << QObject::tr("Alternativelly, set the option 'layout=horizontal' or 'layout=vertical' in "
+        qDebug().noquote() << QObject::tr("Alternatively, set the option 'layout=horizontal' or 'layout=vertical' in "
                                           "~/.config/MX-Linux/exit-options.conf")
                                   + "\n";
         qDebug().noquote() << QObject::tr(
@@ -89,8 +89,8 @@ int main(int argc, char *argv[])
     mainWindow.show();
 
     // Load timeout settings
-    QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
-    QSettings systemSettings(SYSTEM_CONFIG_PATH, QSettings::IniFormat);
+    const QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
+    const QSettings systemSettings(SYSTEM_CONFIG_PATH, QSettings::IniFormat);
 
     QString timeout;
     if (parser.isSet("timeout")) {
@@ -100,13 +100,13 @@ int main(int argc, char *argv[])
     } else if (systemSettings.contains("timeout")) {
         timeout = systemSettings.value("timeout").toString();
     } else {
-        timeout = "off";
+        timeout = QStringLiteral("off");
     }
 
     // Set up timeout for quitting the application
-    if (timeout != "off") {
+    if (timeout != QStringLiteral("off")) {
         bool ok {false};
-        std::chrono::seconds timeoutDuration(timeout.toUInt(&ok));
+        const auto timeoutDuration = std::chrono::seconds(timeout.toUInt(&ok));
         if (ok) {
             QTimer::singleShot(timeoutDuration, &app, &QApplication::quit);
         }

@@ -45,27 +45,27 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     // Detect desktop environment
     QString sessionDesktop = getDesktopEnvironment();
     if (sessionDesktop.isEmpty()) {
-        sessionDesktop = "unknown";
+        sessionDesktop = QStringLiteral("unknown");
     }
 
     // Set up desktop-specific restart label
     static const QMap<QString, QString> desktopLabels
         = {{"fluxbox", tr("Restart Fluxbox")}, {"icewm-session", tr("Restart IceWM")}, {"jwm", tr("Restart JWM")}};
-    QString labelRestartDE = desktopLabels.value(sessionDesktop, QString());
+    const QString restartDeLabel = desktopLabels.value(sessionDesktop, QString());
 
     // Create buttons
-    auto *pushRestartDE = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png", labelRestartDE,
-                                       [this] { on_pushRestartDE(); });
-    auto *pushExit = createButton("LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"),
-                                  [this] { on_pushExit(); });
-    auto *pushLock = createButton("LockIcon", "/usr/share/exit-options/awesome/lock.png", tr("Lock Screen"),
-                                  [this] { on_pushLock(); });
-    auto *pushRestart = createButton("RebootIcon", "/usr/share/exit-options/awesome/reboot.png", tr("Reboot"),
-                                     [this] { on_pushRestart(); });
-    auto *pushShutdown = createButton("ShutdownIcon", "/usr/share/exit-options/awesome/shutdown.png", tr("Shutdown"),
-                                      [this] { on_pushShutdown(); });
-    auto *pushSleep = createButton("SuspendIcon", "/usr/share/exit-options/awesome/suspend.png", tr("Suspend"),
-                                   [this] { on_pushSleep(); });
+    auto *restartDeButton = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png",
+                                         restartDeLabel, [this] { onPushRestartDe(); });
+    auto *exitButton = createButton("LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"),
+                                    [this] { onPushExit(); });
+    auto *lockButton = createButton("LockIcon", "/usr/share/exit-options/awesome/lock.png", tr("Lock Screen"),
+                                    [this] { onPushLock(); });
+    auto *rebootButton = createButton("RebootIcon", "/usr/share/exit-options/awesome/reboot.png", tr("Reboot"),
+                                      [this] { onPushRestart(); });
+    auto *shutdownButton = createButton("ShutdownIcon", "/usr/share/exit-options/awesome/shutdown.png", tr("Shutdown"),
+                                        [this] { onPushShutdown(); });
+    auto *suspendButton = createButton("SuspendIcon", "/usr/share/exit-options/awesome/suspend.png", tr("Suspend"),
+                                       [this] { onPushSleep(); });
 
     // Determine layout orientation
     if (!horizontal && !parser.isSet("vertical")) {
@@ -76,18 +76,18 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     // Add buttons to layout
     if (desktopLabels.contains(sessionDesktop)) {
-        layout->addWidget(pushRestartDE);
+        layout->addWidget(restartDeButton);
     }
 
-    layout->addWidget(pushLock);
-    layout->addWidget(pushExit);
+    layout->addWidget(lockButton);
+    layout->addWidget(exitButton);
 
     if (!isRaspberryPi()) {
-        layout->addWidget(pushSleep);
+        layout->addWidget(suspendButton);
     }
 
-    layout->addWidget(pushRestart);
-    layout->addWidget(pushShutdown);
+    layout->addWidget(rebootButton);
+    layout->addWidget(shutdownButton);
 
     // Configure layout
     int margin = userSettings.value("Margin", systemSettings.value("Margin", defaultSpacing).toInt()).toInt();
@@ -109,8 +109,8 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     QApplication::processEvents();
 
     if (userSettings.contains("Geometry") || userSettings.contains("geometry")) {
-        const QByteArray geometry = saveGeometry();
-        const QByteArray savedGeometry
+        const auto currentGeometry = saveGeometry();
+        const auto savedGeometry
             = userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray();
 
         if (!savedGeometry.isEmpty() && restoreGeometry(savedGeometry)) {
@@ -124,13 +124,13 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
                                                      : (currentAspectRatio > 0.9); // Vertical but too wide/square
 
             if (geometryMismatch) {
-                restoreGeometry(geometry);
+                restoreGeometry(currentGeometry);
             }
         }
     }
 }
 
-void MainWindow::on_pushLock()
+void MainWindow::onPushLock()
 {
     // Try common screen lockers in order of preference
     if (!executeWithFallback("dm-tool", {"switch-to-greeter"}, "loginctl", {"lock-session"})) {
@@ -138,7 +138,7 @@ void MainWindow::on_pushLock()
     }
 }
 
-void MainWindow::on_pushExit()
+void MainWindow::onPushExit()
 {
     QString sessionDesktop = getDesktopEnvironment();
     bool commandExecuted = false;
@@ -162,9 +162,9 @@ void MainWindow::on_pushExit()
            {"lxqt", {"lxqt-leave", {"--logout"}}}};
 
     if (desktopCommands.contains(sessionDesktop)) {
-        const QPair<QString, QStringList> &commandPair = desktopCommands.value(sessionDesktop);
-        const QString &program = commandPair.first;
-        const QStringList arguments = commandPair.second;
+        const auto commandPair = desktopCommands.value(sessionDesktop);
+        const auto &program = commandPair.first;
+        const auto &arguments = commandPair.second;
 
         if (sessionDesktop == "fluxbox") {
             if (!executeCommand(program, arguments)) {
@@ -184,7 +184,7 @@ void MainWindow::on_pushExit()
     }
 }
 
-void MainWindow::on_pushSleep()
+void MainWindow::onPushSleep()
 {
     // Try systemd first, then loginctl, then pm-utils with sudo
     if (!executeWithFallback("systemctl", {"suspend"}, "loginctl", {"suspend"})) {
@@ -228,7 +228,7 @@ QPushButton *MainWindow::createButton(const QString &iconName, const QString &ic
     return btn;
 }
 
-void MainWindow::on_pushRestart()
+void MainWindow::onPushRestart()
 {
     // Try systemd first, then loginctl, then direct reboot with sudo
     if (!executeWithFallback("systemctl", {"reboot"}, "loginctl", {"reboot"})) {
@@ -236,7 +236,7 @@ void MainWindow::on_pushRestart()
     }
 }
 
-void MainWindow::on_pushRestartDE()
+void MainWindow::onPushRestartDe()
 {
     QString sessionDesktop = getDesktopEnvironment();
 
@@ -256,7 +256,7 @@ void MainWindow::on_pushRestartDE()
     }
 }
 
-void MainWindow::on_pushShutdown()
+void MainWindow::onPushShutdown()
 {
     // Try systemd first, then loginctl, then direct shutdown with sudo
     if (!executeWithFallback("systemctl", {"poweroff"}, "loginctl", {"poweroff"})) {
@@ -266,6 +266,6 @@ void MainWindow::on_pushShutdown()
 
 bool MainWindow::isRaspberryPi()
 {
-    static const bool isRaspberryPi = QFile::exists("/etc/rpi-issue");
-    return isRaspberryPi;
+    static const bool isRunningOnRaspberryPi = QFile::exists("/etc/rpi-issue");
+    return isRunningOnRaspberryPi;
 }

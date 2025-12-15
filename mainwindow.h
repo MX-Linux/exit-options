@@ -12,12 +12,12 @@ public:
     explicit MainWindow(const QCommandLineParser &parser, QWidget *parent = nullptr);
 
 private slots:
-    static void on_pushExit();
-    static void on_pushLock();
-    static void on_pushRestart();
-    static void on_pushRestartDE();
-    static void on_pushShutdown();
-    static void on_pushSleep();
+    static void onPushExit();
+    static void onPushLock();
+    static void onPushRestart();
+    static void onPushRestartDe();
+    static void onPushShutdown();
+    static void onPushSleep();
     void saveSettings();
 
 private:
