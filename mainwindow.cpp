@@ -194,7 +194,6 @@ void MainWindow::onPushSleep()
 
 void MainWindow::saveSettings()
 {
-    QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
     userSettings.setValue("geometry", saveGeometry());
     userSettings.setValue("layout", horizontal ? "horizontal" : "vertical");
 }
