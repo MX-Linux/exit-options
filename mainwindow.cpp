@@ -54,17 +54,17 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     const QString restartDeLabel = desktopLabels.value(sessionDesktop, QString());
 
     // Create buttons
-    auto *restartDeButton = createButton("RestartFluxbox", "/usr/share/exit-options/awesome/refresh.png",
+    auto *restartDeButton = createButton("RestartFluxbox", DATA_DIR + "/awesome/refresh.png",
                                          restartDeLabel, [this] { onPushRestartDe(); });
-    auto *exitButton = createButton("LogoutIcon", "/usr/share/exit-options/awesome/logout.png", tr("Log Out"),
+    auto *exitButton = createButton("LogoutIcon", DATA_DIR + "/awesome/logout.png", tr("Log Out"),
                                     [this] { onPushExit(); });
-    auto *lockButton = createButton("LockIcon", "/usr/share/exit-options/awesome/lock.png", tr("Lock Screen"),
+    auto *lockButton = createButton("LockIcon", DATA_DIR + "/awesome/lock.png", tr("Lock Screen"),
                                     [this] { onPushLock(); });
-    auto *rebootButton = createButton("RebootIcon", "/usr/share/exit-options/awesome/reboot.png", tr("Reboot"),
+    auto *rebootButton = createButton("RebootIcon", DATA_DIR + "/awesome/reboot.png", tr("Reboot"),
                                       [this] { onPushRestart(); });
-    auto *shutdownButton = createButton("ShutdownIcon", "/usr/share/exit-options/awesome/shutdown.png", tr("Shutdown"),
+    auto *shutdownButton = createButton("ShutdownIcon", DATA_DIR + "/awesome/shutdown.png", tr("Shutdown"),
                                         [this] { onPushShutdown(); });
-    auto *suspendButton = createButton("SuspendIcon", "/usr/share/exit-options/awesome/suspend.png", tr("Suspend"),
+    auto *suspendButton = createButton("SuspendIcon", DATA_DIR + "/awesome/suspend.png", tr("Suspend"),
                                        [this] { onPushSleep(); });
 
     // Determine layout orientation

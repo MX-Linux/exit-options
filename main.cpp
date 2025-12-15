@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
     QTranslator appTran;
     if (appTran.load(QApplication::applicationName() + "_" + QLocale().name(),
-                     "/usr/share/" + QApplication::applicationName() + "/locale")) {
+                     DATA_DIR + "/locale")) {
         QApplication::installTranslator(&appTran);
     }
 
