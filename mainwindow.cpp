@@ -40,7 +40,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
       systemSettings(SYSTEM_CONFIG_PATH, QSettings::IniFormat)
 {
 
-    iconSize = userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt();
+    iconSize = qBound(16, userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt(), 256);
 
     // Detect desktop environment
     QString sessionDesktop = getDesktopEnvironment();
