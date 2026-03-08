@@ -167,9 +167,9 @@ void MainWindow::onPushExit()
         const auto &arguments = commandPair.second;
 
         if (sessionDesktop == "fluxbox") {
-            if (!executeCommand(program, arguments)) {
-                executeCommand("killall", {"fluxbox"});
-                commandExecuted = true;
+            commandExecuted = executeCommand(program, arguments);
+            if (!commandExecuted) {
+                commandExecuted = executeCommand("killall", {"fluxbox"});
             }
         } else {
             commandExecuted = executeCommand(program, arguments);
