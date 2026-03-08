@@ -30,6 +30,8 @@ BUILD_TYPE="Release"
 USE_CLANG=false
 CLEAN=false
 DEBIAN_BUILD=false
+PACKAGE_NAME="exit-options"
+PARENT_DIR=".."
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -74,19 +76,19 @@ if [ "$DEBIAN_BUILD" = true ]; then
 
     echo "Creating debs directory and moving debian artifacts..."
     mkdir -p debs
-    mv ../*.deb debs/ 2>/dev/null || true
-    mv ../*.changes debs/ 2>/dev/null || true  
-    mv ../*.dsc debs/ 2>/dev/null || true
-    mv ../*.tar.* debs/ 2>/dev/null || true
-    mv ../*.buildinfo debs/ 2>/dev/null || true
-    mv ../*build* debs/ 2>/dev/null || true
+    mv "$PARENT_DIR"/"$PACKAGE_NAME"_*.deb debs/ 2>/dev/null || true
+    mv "$PARENT_DIR"/"$PACKAGE_NAME"_*.changes debs/ 2>/dev/null || true
+    mv "$PARENT_DIR"/"$PACKAGE_NAME"_*.dsc debs/ 2>/dev/null || true
+    mv "$PARENT_DIR"/"$PACKAGE_NAME"_*.tar.* debs/ 2>/dev/null || true
+    mv "$PARENT_DIR"/"$PACKAGE_NAME"_*.buildinfo debs/ 2>/dev/null || true
+    mv "$PARENT_DIR"/"$PACKAGE_NAME"_*.build debs/ 2>/dev/null || true
 
     echo "Cleaning build directory and debian artifacts..."
     rm -rf "$BUILD_DIR"
     rm -f debian/*.debhelper.log debian/*.substvars debian/files
     rm -rf debian/.debhelper/ debian/deb-installer/ obj-*/
     rm -f translations/*.qm
-    rm -f ../*build* ../*.buildinfo 2>/dev/null || true
+    rm -f "$PARENT_DIR"/"$PACKAGE_NAME"_*.build "$PARENT_DIR"/"$PACKAGE_NAME"_*.buildinfo 2>/dev/null || true
 
     echo "Debian package build completed!"
     echo "Debian artifacts moved to debs/ directory"
@@ -100,7 +102,7 @@ if [ "$CLEAN" = true ]; then
     rm -f debian/*.debhelper.log debian/*.substvars debian/files
     rm -rf debian/.debhelper/ debian/deb-installer/ obj-*/
     rm -f translations/*.qm
-    rm -f ../*build* ../*.buildinfo 2>/dev/null || true
+    rm -f "$PARENT_DIR"/"$PACKAGE_NAME"_*.build "$PARENT_DIR"/"$PACKAGE_NAME"_*.buildinfo 2>/dev/null || true
 fi
 
 # Create build directory
@@ -116,11 +118,13 @@ CMAKE_ARGS=(
 )
 
 if [ "$USE_CLANG" = true ]; then
-    CMAKE_ARGS+=(-DUSE_CLANG=ON)
+    CMAKE_ARGS+=(
+        -DCMAKE_CXX_COMPILER=clang++
+    )
     echo "Using clang compiler"
 fi
 
-cmake "${CMAKE_ARGS[@]}"
+cmake -S . "${CMAKE_ARGS[@]}"
 
 # Build the project
 echo "Building project with Ninja..."

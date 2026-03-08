@@ -58,15 +58,6 @@ if(CMAKE_GENERATOR STREQUAL "Ninja")
     endif()
 endif()
 
-# Option to use clang for testing builds
-option(USE_CLANG "Use clang compiler" OFF)
-if(USE_CLANG)
-    set(CMAKE_C_COMPILER clang)
-    set(CMAKE_CXX_COMPILER clang++)
-    set(CMAKE_CXX_COMPILER_ID "Clang")
-    message(STATUS "Using clang compiler")
-endif()
-
 # Find Qt6 components
 find_package(Qt6 REQUIRED COMPONENTS
     Core
@@ -123,7 +114,7 @@ target_compile_options(exit-options PRIVATE
 )
 
 # Add compiler-specific flags
-if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR USE_CLANG)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(exit-options PRIVATE -Werror=return-stack-address)
 else()
     target_compile_options(exit-options PRIVATE -Werror=return-local-addr)
@@ -146,7 +137,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
     target_compile_options(exit-options PRIVATE -O3)
 
     # Add LTO - different flags for different compilers
-    if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR USE_CLANG)
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         target_compile_options(exit-options PRIVATE -flto=thin)
         target_link_options(exit-options PRIVATE -flto=thin)
     else()
