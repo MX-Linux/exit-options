@@ -26,15 +26,6 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     QApplication::setOrganizationName("MX-Linux");
 
-    // Check for existing instances of the application
-    QProcess proc;
-    proc.start("pgrep", {"--count", "--exact", QApplication::applicationName()});
-    proc.waitForFinished();
-    if (proc.exitCode() == 0 && proc.readAllStandardOutput().trimmed().toInt() > 1) {
-        QProcess::startDetached("pkill", {"--oldest", QApplication::applicationName()});
-        return EXIT_SUCCESS;
-    }
-
     QTranslator qtTran;
     if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
         QApplication::installTranslator(&qtTran);
@@ -83,6 +74,15 @@ int main(int argc, char *argv[])
         qDebug().noquote() << QObject::tr("Other options that can be set in the exit-options.conf file: %1")
                                   .arg("IconSize=, Margin=, Spacing=");
         exit(EXIT_SUCCESS);
+    }
+
+    // Allow informational invocations like --help to bypass single-instance toggle behavior.
+    QProcess proc;
+    proc.start("pgrep", {"--count", "--exact", QApplication::applicationName()});
+    proc.waitForFinished();
+    if (proc.exitCode() == 0 && proc.readAllStandardOutput().trimmed().toInt() > 1) {
+        QProcess::startDetached("pkill", {"--oldest", QApplication::applicationName()});
+        return EXIT_SUCCESS;
     }
 
     MainWindow mainWindow(parser);
