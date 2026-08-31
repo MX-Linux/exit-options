@@ -1,0 +1,55 @@
+.TH EXIT-OPTIONS 1 "August 2026" "exit-options" "User Commands"
+.SH NAME
+exit-options \- pop-up dialog with system exit options for MX Linux
+.SH SYNOPSIS
+.B exit-options
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+.B exit-options
+displays a pop-up dialog offering system exit options such as lock,
+logout, suspend, reboot and shutdown. It is designed for use with MX
+Linux desktop environments, in particular Fluxbox, IceWM and JWM.
+.SH OPTIONS
+.TP
+\fB\-v\fR, \fB\-\-vertical\fR
+Display the buttons in a vertical window.
+.TP
+\fB\-h\fR, \fB\-\-horizontal\fR
+Display the buttons in a horizontal window.
+.TP
+\fB\-t\fR, \fB\-\-timeout\fR \fIseconds\fR
+Timeout duration in seconds. Use \fIoff\fR to disable the timeout.
+.TP
+\fB\-\-help\fR
+Display help about the available options and exit.
+.PP
+The display orientation option used will be remembered and used the
+next time the application is started.
+.SH CONFIGURATION
+Settings may also be set in
+.I ~/.config/MX-Linux/exit-options.conf
+(user configuration) or
+.I /etc/exit-options.conf
+(system\-wide configuration), which is read if no user configuration
+exists. Command line options take precedence over configuration file
+settings.
+.PP
+Recognized configuration keys include:
+.TP
+.B layout
+Set to \fIhorizontal\fR or \fIvertical\fR.
+.TP
+.B timeout
+Timeout in seconds, or \fIoff\fR to disable it.
+.TP
+.B LockIcon, LogoutIcon, SuspendIcon, RebootIcon, ShutdownIcon
+Path to a custom icon file to use for the given action.
+.TP
+.B IconSize, Margin, Spacing
+Layout tuning options for the button icons.
+.SH FILES
+.I ~/.config/MX-Linux/exit-options.conf
+.br
+.I /etc/exit-options.conf
+.SH SEE ALSO
+.BR fluxbox (1)
