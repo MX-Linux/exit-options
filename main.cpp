@@ -8,6 +8,8 @@
 #include <QTimer>
 #include <QTranslator>
 
+#include <memory>
+
 #include "mainwindow.h"
 #include "common.h"
 #include <chrono>
@@ -16,21 +18,28 @@ using namespace std::chrono_literals;
 
 int main(int argc, char *argv[])
 {
-    if (qEnvironmentVariableIsEmpty("DISPLAY") && qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")
-        && qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM")) {
-        qWarning("exit-options: no display available (DISPLAY and WAYLAND_DISPLAY are both unset); "
-                "a graphical session is required to run this program.");
-        return EXIT_FAILURE;
-    }
+    const QByteArray option = argc == 2 ? QByteArray(argv[1]) : QByteArray();
+    const bool informational = option == "--help";
+    std::unique_ptr<QCoreApplication> app;
+    if (informational) {
+        app = std::make_unique<QCoreApplication>(argc, argv);
+    } else {
+        if (qEnvironmentVariableIsEmpty("DISPLAY") && qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")
+            && qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM")) {
+            qWarning("exit-options: no display available (DISPLAY and WAYLAND_DISPLAY are both unset); "
+                    "a graphical session is required to run this program.");
+            return EXIT_FAILURE;
+        }
 
-    // Set Qt platform to XCB (X11) if not already set and we're in X11 environment
-    if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM")) {
-        if (!qEnvironmentVariableIsEmpty("DISPLAY") && qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
+        // Set Qt platform to XCB (X11) if not already set and we're in X11 environment
+        if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM") && !qEnvironmentVariableIsEmpty("DISPLAY")
+            && qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
             qputenv("QT_QPA_PLATFORM", "xcb");
         }
+
+        app = std::make_unique<QApplication>(argc, argv);
     }
 
-    QApplication app(argc, argv);
     QApplication::setOrganizationName("MX-Linux");
 
     QTranslator qtTran;
@@ -57,7 +66,7 @@ int main(int argc, char *argv[])
     parser.addOption({{"t", "timeout"}, QObject::tr("Timeout duration in seconds"), "seconds", "5"});
     parser.addOption({"help", QObject::tr("use -v, --vertical to display buttons vertically\nuse "
                                           "-h, --horizontal to display buttons horizontally.")});
-    parser.process(app);
+    parser.process(*app);
     if (parser.isSet("help")) {
         qDebug().noquote() << QObject::tr("Pop-up with exit options for MX Fluxbox");
         qDebug().noquote() << QObject::tr("Usage: exit-options [options]\n");
@@ -115,8 +124,8 @@ int main(int argc, char *argv[])
         bool ok {false};
         const auto timeoutDuration = std::chrono::seconds(timeout.toUInt(&ok));
         if (ok) {
-            QTimer::singleShot(timeoutDuration, &app, &QApplication::quit);
+            QTimer::singleShot(timeoutDuration, app.get(), &QCoreApplication::quit);
         }
     }
-    return app.exec();
+    return QApplication::exec();
 }
