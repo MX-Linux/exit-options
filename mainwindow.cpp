@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QDBusConnectionInterface>
+#include <QDBusMessage>
 #include <QFile>
 #include <QFileInfo>
 #include <QLayout>
@@ -222,6 +223,19 @@ void MainWindow::onPushExit()
 {
     QString sessionDesktop = getDesktopEnvironment();
     QString error;
+
+    if (sessionDesktop == "kde") {
+        const auto logout = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Shutdown"),
+                                                          QStringLiteral("/Shutdown"),
+                                                          QStringLiteral("org.kde.Shutdown"),
+                                                          QStringLiteral("logout"));
+        const auto reply = QDBusConnection::sessionBus().call(logout);
+        if (reply.type() == QDBusMessage::ReplyMessage) {
+            return;
+        }
+        error = reply.errorMessage();
+        // Older Plasma sessions use the KSMServer command below.
+    }
 
     if (desktopCommands.contains(sessionDesktop)) {
         const auto commandPair = desktopCommands.value(sessionDesktop);
