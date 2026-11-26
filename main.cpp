@@ -174,7 +174,7 @@ int main(int argc, char *argv[])
         bool ok {false};
         const auto timeoutDuration = std::chrono::seconds(timeout.toUInt(&ok));
         if (ok) {
-            QTimer::singleShot(timeoutDuration, app.get(), &QCoreApplication::quit);
+            QTimer::singleShot(timeoutDuration, &mainWindow, &MainWindow::quitOnTimeout);
         }
     }
     return QApplication::exec();

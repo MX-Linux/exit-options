@@ -10,6 +10,7 @@ class MainWindow : public QDialog
 
 public:
     explicit MainWindow(const QCommandLineParser &parser, QWidget *parent = nullptr);
+    void quitOnTimeout();
 
 private slots:
     void onPushExit();
@@ -27,8 +28,11 @@ private:
     int iconSize;
     QSettings userSettings;
     QSettings systemSettings;
+    bool fluxboxLogoutPending = false;
+    bool timeoutExpired = false;
 
     static bool isRaspberryPi();
+    void checkFluxboxLogoutAfterDelay(const QString &window);
     void reject() override;
     QPushButton *createButton(const QString &iconName, const QString &iconLocation, const QString &toolTip,
                               const std::function<void()> &action);

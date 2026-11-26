@@ -10,6 +10,9 @@
 #include <QPushButton>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QTimer>
+
+#include <chrono>
 
 #include "common.h"
 #include "mainwindow.h"
@@ -44,7 +47,7 @@ QString getDesktopEnvironment()
     return {};
 }
 
-bool executeCommand(const QString &program, const QStringList &arguments, QString &error)
+bool executeCommand(const QString &program, const QStringList &arguments, QString &error, QByteArray *output = nullptr)
 {
     const QString executable = QStandardPaths::findExecutable(program);
     if (executable.isEmpty()) {
@@ -52,10 +55,15 @@ bool executeCommand(const QString &program, const QStringList &arguments, QStrin
     }
 
     QProcess process;
-    process.setProcessChannelMode(QProcess::ForwardedOutputChannel);
+    if (!output) {
+        process.setProcessChannelMode(QProcess::ForwardedOutputChannel);
+    }
     process.start(executable, arguments);
     const bool finished = process.waitForFinished(-1);
     if (finished && process.exitStatus() == QProcess::NormalExit && process.exitCode() == 0) {
+        if (output) {
+            *output = process.readAllStandardOutput();
+        }
         return true;
     }
 
@@ -66,6 +74,61 @@ bool executeCommand(const QString &program, const QStringList &arguments, QStrin
     }
     error = program + QStringLiteral(": ") + detail;
     return false;
+}
+
+// Check the live EWMH window as well as the root property, which can outlive the WM.
+QString fluxboxWindow()
+{
+    const QString check = QStringLiteral("_NET_SUPPORTING_WM_CHECK");
+    const QStringList format {"-notype", "-f", check, "32x", " = $0\\n"};
+    QString error;
+    QByteArray root;
+    if (!executeCommand("xprop", format + QStringList {"-root", check}, error, &root)) {
+        return {};
+    }
+    const QByteArray prefix = "_NET_SUPPORTING_WM_CHECK = ";
+    if (!root.startsWith(prefix)) {
+        return {};
+    }
+    const QByteArray id = root.mid(prefix.size()).trimmed();
+    bool ok = false;
+    if (id.toUInt(&ok, 16) == 0 || !ok) {
+        return {};
+    }
+    const QString window = QString::fromLatin1(id);
+    QByteArray properties;
+    if (!executeCommand("xprop", format + QStringList {"-id", window, check, "_NET_WM_NAME"}, error, &properties)) {
+        return {};
+    }
+    const auto lines = properties.split('\n');
+    if (!lines.contains(prefix + id) || !lines.contains("_NET_WM_NAME = \"Fluxbox\"")) {
+        return {};
+    }
+    return window;
+}
+
+QString terminateActiveGraphicalSession(const QString &session)
+{
+    if (session.isEmpty()) {
+        return QObject::tr("The current session has no session ID.");
+    }
+
+    // "self" verifies the caller belongs to the graphical session we intend to end.
+    const QStringList query {"show-session", "--property=Id", "--property=Type", "--property=State", "self"};
+    QString error;
+    QByteArray output;
+    if (!executeCommand("loginctl", query, error, &output)) {
+        return error.isEmpty() ? QObject::tr("Couldn't check the current session with loginctl.") : error;
+    }
+    const auto properties = output.split('\n');
+    if (!properties.contains("Id=" + session.toUtf8()) || !properties.contains("Type=x11")) {
+        return QObject::tr("Couldn't verify the current graphical session.");
+    }
+    if (properties.contains("State=active")
+        && !executeCommand("loginctl", {"terminate-session", "--", session}, error)) {
+        return error.isEmpty() ? QObject::tr("Couldn't terminate the current session.") : error;
+    }
+    return {};
 }
 
 void showActionError(QWidget *parent, const QString &title, const QString &message, const QString &detail)
@@ -224,6 +287,10 @@ void MainWindow::onPushExit()
     QString sessionDesktop = getDesktopEnvironment();
     QString error;
 
+    if (fluxboxLogoutPending) {
+        return;
+    }
+
     if (sessionDesktop == "kde") {
         const auto logout = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Shutdown"),
                                                           QStringLiteral("/Shutdown"),
@@ -242,8 +309,15 @@ void MainWindow::onPushExit()
         const auto &program = commandPair.first;
         const auto &arguments = commandPair.second;
 
-        if (executeCommand(program, arguments, error)
-            || (sessionDesktop == "fluxbox" && executeCommand("killall", {"fluxbox"}, error))) {
+        const bool fluxbox = sessionDesktop == "fluxbox";
+        const QString originalWindow = fluxbox ? fluxboxWindow() : QString();
+        if (executeCommand(program, arguments, error)) {
+            if (fluxbox) {
+                checkFluxboxLogoutAfterDelay(originalWindow);
+            }
+            return;
+        }
+        if (fluxbox && executeCommand("killall", {"fluxbox"}, error)) {
             return;
         }
     }
@@ -256,6 +330,37 @@ void MainWindow::onPushExit()
         error = tr("The current session has no session ID.");
     }
     showActionError(this, tr("Log Out"), tr("Couldn't log out of the current session."), error);
+}
+
+void MainWindow::checkFluxboxLogoutAfterDelay(const QString &window)
+{
+    fluxboxLogoutPending = true;
+    const QString session = qEnvironmentVariable("XDG_SESSION_ID");
+
+    // A successful send doesn't tell us whether Fluxbox honored the request.
+    QTimer::singleShot(std::chrono::seconds(3), Qt::PreciseTimer, this, [this, window, session] {
+        QString detail;
+        if (window.isEmpty()) {
+            detail = tr("Couldn't identify the original Fluxbox window manager.");
+        } else if (window == fluxboxWindow()) {
+            detail = terminateActiveGraphicalSession(session);
+        }
+        if (!detail.isEmpty()) {
+            showActionError(this, tr("Log Out"), tr("Couldn't log out of the current session."), detail);
+        }
+        fluxboxLogoutPending = false;
+        if (timeoutExpired) {
+            QApplication::quit();
+        }
+    });
+}
+
+void MainWindow::quitOnTimeout()
+{
+    timeoutExpired = true;
+    if (!fluxboxLogoutPending) {
+        QApplication::quit();
+    }
 }
 
 void MainWindow::onPushSleep()

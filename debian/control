@@ -17,7 +17,7 @@ Vcs-Browser: https://github.com/MX-Linux/exit-options
 
 Package: exit-options
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, x11-utils
 Conflicts: mx-fluxbox-data (<< 20.12.01), mx-fluxbox (<< 20.12.01)
 Replaces: mx-fluxbox-data (<< 20.12.01), mx-fluxbox (<< 20.12.01)
 Description: Exit Options dialog for MX Fluxbox
