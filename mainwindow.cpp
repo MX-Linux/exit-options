@@ -156,7 +156,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     if (userSettings.contains("Geometry") || userSettings.contains("geometry")) {
         const auto currentGeometry = saveGeometry();
         const auto savedGeometry
-            = userSettings.value("Geometry", userSettings.value("geometry").toByteArray()).toByteArray();
+            = userSettings.value("geometry", userSettings.value("Geometry")).toByteArray();
 
         if (!savedGeometry.isEmpty() && restoreGeometry(savedGeometry)) {
             // Reset geometry if window proportions don't match the current layout orientation
@@ -222,6 +222,7 @@ void MainWindow::onPushSleep()
 void MainWindow::saveSettings()
 {
     userSettings.setValue("geometry", saveGeometry());
+    userSettings.remove("Geometry");
     userSettings.setValue("layout", horizontal ? "horizontal" : "vertical");
 }
 
