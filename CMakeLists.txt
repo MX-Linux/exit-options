@@ -61,6 +61,7 @@ endif()
 # Find Qt6 components
 find_package(Qt6 REQUIRED COMPONENTS
     Core
+    DBus
     Gui
     Widgets
     LinguistTools
@@ -100,6 +101,7 @@ add_executable(exit-options
 # Link Qt6 libraries
 target_link_libraries(exit-options
     Qt6::Core
+    Qt6::DBus
     Qt6::Gui
     Qt6::Widgets
 )

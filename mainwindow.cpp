@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QDBusConnectionInterface>
 #include <QFile>
 #include <QFileInfo>
 #include <QLayout>
@@ -19,10 +20,34 @@ bool executeCommand(const QString &program, const QStringList &arguments)
     return !QStandardPaths::findExecutable(program).isEmpty() && QProcess::execute(program, arguments) == 0;
 }
 
-bool executeWithFallback(const QString &primary, const QStringList &primaryArgs, const QString &fallback,
-                         const QStringList &fallbackArgs)
+bool requestPowerAction(const QString &action, const QString &legacyProgram, const QStringList &legacyArgs = {})
 {
-    return executeCommand(primary, primaryArgs) || executeCommand(fallback, fallbackArgs);
+    if (QFileInfo::exists(QStringLiteral("/run/systemd/system"))) {
+        return executeCommand("systemctl", {action});
+    }
+
+    auto *bus = QDBusConnection::systemBus().interface();
+    if (!bus) {
+        return false;
+    }
+    const QString loginService = QStringLiteral("org.freedesktop.login1");
+    const auto registered = bus->isServiceRegistered(loginService);
+    if (!registered.isValid()) {
+        return false;
+    }
+    if (registered.value()) {
+        return executeCommand("loginctl", {action});
+    }
+    const auto activatable = bus->activatableServiceNames();
+    if (!activatable.isValid()) {
+        return false;
+    }
+    if (activatable.value().contains(loginService)) {
+        return executeCommand("loginctl", {action});
+    }
+    // Only use legacy tools when the bus confirms there is no login manager.
+    return executeCommand("sudo", QStringList {"-n", legacyProgram} + legacyArgs)
+        || executeCommand(legacyProgram, legacyArgs);
 }
 }
 
@@ -178,10 +203,7 @@ void MainWindow::onPushExit()
 
 void MainWindow::onPushSleep()
 {
-    // Try systemd first, then loginctl, then pm-utils with sudo
-    if (!executeWithFallback("systemctl", {"suspend"}, "loginctl", {"suspend"})) {
-        executeWithFallback("sudo", {"-n", "pm-suspend"}, "pm-suspend", {});
-    }
+    requestPowerAction("suspend", "pm-suspend");
 }
 
 void MainWindow::saveSettings()
@@ -221,10 +243,7 @@ QPushButton *MainWindow::createButton(const QString &iconName, const QString &ic
 
 void MainWindow::onPushRestart()
 {
-    // Try systemd first, then loginctl, then direct reboot with sudo
-    if (!executeWithFallback("systemctl", {"reboot"}, "loginctl", {"reboot"})) {
-        executeWithFallback("sudo", {"-n", "reboot"}, "reboot", {});
-    }
+    requestPowerAction("reboot", "reboot");
 }
 
 void MainWindow::onPushRestartDe()
@@ -249,10 +268,7 @@ void MainWindow::onPushRestartDe()
 
 void MainWindow::onPushShutdown()
 {
-    // Try systemd first, then loginctl, then direct shutdown with sudo
-    if (!executeWithFallback("systemctl", {"poweroff"}, "loginctl", {"poweroff"})) {
-        executeWithFallback("sudo", {"-n", "/sbin/halt", "-p"}, "/sbin/halt", {"-p"});
-    }
+    requestPowerAction("poweroff", "/sbin/halt", {"-p"});
 }
 
 bool MainWindow::isRaspberryPi()
