@@ -43,39 +43,68 @@ QString getDesktopEnvironment()
     return {};
 }
 
-bool executeCommand(const QString &program, const QStringList &arguments)
+bool executeCommand(const QString &program, const QStringList &arguments, QString &error)
 {
-    return !QStandardPaths::findExecutable(program).isEmpty() && QProcess::execute(program, arguments) == 0;
+    const QString executable = QStandardPaths::findExecutable(program);
+    if (executable.isEmpty()) {
+        return false;
+    }
+
+    QProcess process;
+    process.setProcessChannelMode(QProcess::ForwardedOutputChannel);
+    process.start(executable, arguments);
+    const bool finished = process.waitForFinished(-1);
+    if (finished && process.exitStatus() == QProcess::NormalExit && process.exitCode() == 0) {
+        return true;
+    }
+
+    QString detail = QString::fromLocal8Bit(process.readAllStandardError()).trimmed();
+    if (detail.isEmpty()) {
+        detail = finished && process.exitStatus() == QProcess::NormalExit
+            ? QObject::tr("Exit status %1").arg(process.exitCode()) : process.errorString();
+    }
+    error = program + QStringLiteral(": ") + detail;
+    return false;
 }
 
-bool requestPowerAction(const QString &action, const QString &legacyProgram, const QStringList &legacyArgs = {})
+void showActionError(QWidget *parent, const QString &title, const QString &message, const QString &detail)
+{
+    QMessageBox box(QMessageBox::Warning, title, message, QMessageBox::Ok, parent);
+    box.setDetailedText(detail.isEmpty() ? QObject::tr("No helper is available for this action.") : detail);
+    box.exec();
+}
+
+bool requestPowerAction(const QString &action, const QString &legacyProgram, const QStringList &legacyArgs, QString &error)
 {
     if (QFileInfo::exists(QStringLiteral("/run/systemd/system"))) {
-        return executeCommand("systemctl", {action});
+        return executeCommand("systemctl", {action}, error);
     }
 
     auto *bus = QDBusConnection::systemBus().interface();
     if (!bus) {
+        error = QObject::tr("Couldn't connect to the system bus.");
         return false;
     }
     const QString loginService = QStringLiteral("org.freedesktop.login1");
     const auto registered = bus->isServiceRegistered(loginService);
     if (!registered.isValid()) {
+        error = registered.error().message();
         return false;
     }
     if (registered.value()) {
-        return executeCommand("loginctl", {action});
+        return executeCommand("loginctl", {action}, error);
     }
     const auto activatable = bus->activatableServiceNames();
     if (!activatable.isValid()) {
+        error = activatable.error().message();
         return false;
     }
     if (activatable.value().contains(loginService)) {
-        return executeCommand("loginctl", {action});
+        return executeCommand("loginctl", {action}, error);
     }
     // Only use legacy tools when the bus confirms there is no login manager.
-    return executeCommand("sudo", QStringList {"-n", legacyProgram} + legacyArgs)
-        || executeCommand(legacyProgram, legacyArgs);
+    return executeCommand("sudo", QStringList {"-n", legacyProgram} + legacyArgs, error)
+        || executeCommand(legacyProgram, legacyArgs, error);
 }
 }
 
@@ -174,46 +203,48 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
 void MainWindow::onPushLock()
 {
-    if (!executeCommand("light-locker-command", {"-l"})
-        && !executeCommand("xscreensaver-command", {"-lock"})
-        && !executeCommand("gnome-screensaver-command", {"-l"})
-        && !executeCommand("xdg-screensaver", {"lock"})
-        && !executeCommand("loginctl", {"lock-session"})) {
-        QMessageBox::warning(this, tr("Lock Screen"), tr("Couldn't request a screen lock."));
+    QString error;
+    if (!executeCommand("light-locker-command", {"-l"}, error)
+        && !executeCommand("xscreensaver-command", {"-lock"}, error)
+        && !executeCommand("gnome-screensaver-command", {"-l"}, error)
+        && !executeCommand("xdg-screensaver", {"lock"}, error)
+        && !executeCommand("loginctl", {"lock-session"}, error)) {
+        showActionError(this, tr("Lock Screen"), tr("Couldn't request a screen lock."), error);
     }
 }
 
 void MainWindow::onPushExit()
 {
     QString sessionDesktop = getDesktopEnvironment();
-    bool commandExecuted = false;
+    QString error;
 
     if (desktopCommands.contains(sessionDesktop)) {
         const auto commandPair = desktopCommands.value(sessionDesktop);
         const auto &program = commandPair.first;
         const auto &arguments = commandPair.second;
 
-        if (sessionDesktop == "fluxbox") {
-            commandExecuted = executeCommand(program, arguments);
-            if (!commandExecuted) {
-                commandExecuted = executeCommand("killall", {"fluxbox"});
-            }
-        } else {
-            commandExecuted = executeCommand(program, arguments);
+        if (executeCommand(program, arguments, error)
+            || (sessionDesktop == "fluxbox" && executeCommand("killall", {"fluxbox"}, error))) {
+            return;
         }
     }
 
-    if (!commandExecuted) {
-        const QString sessionId = qEnvironmentVariable("XDG_SESSION_ID");
-        if (sessionId.isEmpty() || !executeCommand("loginctl", {"terminate-session", "--", sessionId})) {
-            QMessageBox::warning(this, tr("Log Out"), tr("Couldn't log out of the current session."));
-        }
+    const QString sessionId = qEnvironmentVariable("XDG_SESSION_ID");
+    if (!sessionId.isEmpty() && executeCommand("loginctl", {"terminate-session", "--", sessionId}, error)) {
+        return;
     }
+    if (sessionId.isEmpty() && error.isEmpty()) {
+        error = tr("The current session has no session ID.");
+    }
+    showActionError(this, tr("Log Out"), tr("Couldn't log out of the current session."), error);
 }
 
 void MainWindow::onPushSleep()
 {
-    requestPowerAction("suspend", "pm-suspend");
+    QString error;
+    if (!requestPowerAction("suspend", "pm-suspend", {}, error)) {
+        showActionError(this, tr("Suspend"), tr("Couldn't suspend the computer."), error);
+    }
 }
 
 void MainWindow::saveSettings()
@@ -254,7 +285,10 @@ QPushButton *MainWindow::createButton(const QString &iconName, const QString &ic
 
 void MainWindow::onPushRestart()
 {
-    requestPowerAction("reboot", "reboot");
+    QString error;
+    if (!requestPowerAction("reboot", "reboot", {}, error)) {
+        showActionError(this, tr("Reboot"), tr("Couldn't reboot the computer."), error);
+    }
 }
 
 void MainWindow::onPushRestartDe()
@@ -263,12 +297,16 @@ void MainWindow::onPushRestartDe()
 
     static const QMap<QString, QPair<QString, QStringList>> restartCommands
         = {{"fluxbox", {"fluxbox-remote", {"restart"}}},
-           {"icewm-session", {"icewm", {"-r"}}},
+           {"icewm-session", {"icesh", {"restart"}}},
            {"jwm", {"jwm", {"-restart"}}}};
 
     if (restartCommands.contains(sessionDesktop)) {
         const auto &command = restartCommands.value(sessionDesktop);
-        QProcess::startDetached(command.first, command.second);
+        QString error;
+        if (!executeCommand(command.first, command.second, error)) {
+            showActionError(this, tr("Restart"), tr("Couldn't restart the window manager."), error);
+            return;
+        }
 
         // Special case for Fluxbox - also refresh idesk if available
         if (sessionDesktop == "fluxbox" && !QStandardPaths::findExecutable("idesktoggle").isEmpty()) {
@@ -279,7 +317,10 @@ void MainWindow::onPushRestartDe()
 
 void MainWindow::onPushShutdown()
 {
-    requestPowerAction("poweroff", "/sbin/halt", {"-p"});
+    QString error;
+    if (!requestPowerAction("poweroff", "/sbin/halt", {"-p"}, error)) {
+        showActionError(this, tr("Shutdown"), tr("Couldn't shut down the computer."), error);
+    }
 }
 
 bool MainWindow::isRaspberryPi()

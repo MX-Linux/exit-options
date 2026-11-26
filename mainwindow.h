@@ -14,10 +14,10 @@ public:
 private slots:
     void onPushExit();
     void onPushLock();
-    static void onPushRestart();
-    static void onPushRestartDe();
-    static void onPushShutdown();
-    static void onPushSleep();
+    void onPushRestart();
+    void onPushRestartDe();
+    void onPushShutdown();
+    void onPushSleep();
     void saveSettings();
 
 private:
