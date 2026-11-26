@@ -96,11 +96,8 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     // Set up desktop-specific restart label
     static const QMap<QString, QString> desktopLabels
         = {{"fluxbox", tr("Restart Fluxbox")}, {"icewm-session", tr("Restart IceWM")}, {"jwm", tr("Restart JWM")}};
-    const QString restartDeLabel = desktopLabels.value(sessionDesktop, QString());
 
     // Create buttons
-    auto *restartDeButton = createButton("RestartFluxbox", DATA_DIR + "/awesome/refresh.png",
-                                         restartDeLabel, [this] { onPushRestartDe(); });
     auto *exitButton = createButton("LogoutIcon", DATA_DIR + "/awesome/logout.png", tr("Log Out"),
                                     [this] { onPushExit(); });
     auto *lockButton = createButton("LockIcon", DATA_DIR + "/awesome/lock.png", tr("Lock Screen"),
@@ -109,8 +106,6 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
                                       [this] { onPushRestart(); });
     auto *shutdownButton = createButton("ShutdownIcon", DATA_DIR + "/awesome/shutdown.png", tr("Shutdown"),
                                         [this] { onPushShutdown(); });
-    auto *suspendButton = createButton("SuspendIcon", DATA_DIR + "/awesome/suspend.png", tr("Suspend"),
-                                       [this] { onPushSleep(); });
 
     // Determine layout orientation
     if (!horizontal && !parser.isSet("vertical")) {
@@ -121,14 +116,16 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
     // Add buttons to layout
     if (desktopLabels.contains(sessionDesktop)) {
-        layout->addWidget(restartDeButton);
+        layout->addWidget(createButton("RestartFluxbox", DATA_DIR + "/awesome/refresh.png",
+                                       desktopLabels.value(sessionDesktop), [this] { onPushRestartDe(); }));
     }
 
     layout->addWidget(lockButton);
     layout->addWidget(exitButton);
 
     if (!isRaspberryPi()) {
-        layout->addWidget(suspendButton);
+        layout->addWidget(createButton("SuspendIcon", DATA_DIR + "/awesome/suspend.png", tr("Suspend"),
+                                       [this] { onPushSleep(); }));
     }
 
     layout->addWidget(rebootButton);
