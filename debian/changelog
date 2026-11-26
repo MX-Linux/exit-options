@@ -1,3 +1,21 @@
+exit-options (26.11) mx; urgency=medium
+
+  * Keep SSH sessions and background jobs running when logging out of the
+    desktop, including on IceWM.
+  * Use the desktop's screen locker when Lock Screen is selected.
+  * Stop when the system refuses a suspend, reboot, or shutdown request.
+  * Show the reason when a session or power action fails.
+  * Recognize Fluxbox and IceWM in more sessions so their restart and logout
+    controls work when the desktop is started manually.
+  * Close only your own popup when you press its shortcut again, and remember
+    its latest position, size, and layout.
+  * Keep custom icon sizes between 16 and 256 pixels.
+  * Let you read or redirect --help from a text console without closing an
+    open popup.
+  * Add a manual page covering layout, timeout, and icon settings.
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 26 Nov 2026 09:28:00 -0500
+
 exit-options (25.7.01) mx; urgency=medium
 
   * Fix issue with the fallback function
