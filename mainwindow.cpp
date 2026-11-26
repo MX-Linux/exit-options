@@ -3,6 +3,7 @@
 #include <QFileInfo>
 #include <QLayout>
 #include <QMap>
+#include <QMessageBox>
 #include <QProcess>
 #include <QPushButton>
 #include <QSettings>
@@ -156,6 +157,7 @@ void MainWindow::onPushExit()
            {"xfce", {"xfce4-session-logout", {"--logout"}}},
            {"kde", {"qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"}}},
            {"jwm", {"jwm", {"-exit"}}},
+           {"icewm-session", {"icesh", {"logout"}}},
            {"i3", {"i3-msg", {"exit"}}},
            {"mate", {"mate-session-save", {"--logout"}}},
            {"lxde", {"lxsession-logout", {}}},
@@ -177,9 +179,9 @@ void MainWindow::onPushExit()
     }
 
     if (!commandExecuted) {
-        const QString user = qgetenv("USER");
-        if (!executeCommand("loginctl", {"terminate-user", user})) {
-            executeCommand("pkill", {"-KILL", "-u", user});
+        const QString sessionId = qEnvironmentVariable("XDG_SESSION_ID");
+        if (sessionId.isEmpty() || !executeCommand("loginctl", {"terminate-session", "--", sessionId})) {
+            QMessageBox::warning(this, tr("Log Out"), tr("Couldn't log out of the current session."));
         }
     }
 }
