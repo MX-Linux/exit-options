@@ -5,10 +5,15 @@
 #include <QLocale>
 #include <QProcess>
 #include <QSettings>
+#include <QSocketNotifier>
 #include <QTimer>
 #include <QTranslator>
 
 #include <memory>
+#include <cerrno>
+#include <csignal>
+#include <fcntl.h>
+#include <unistd.h>
 
 #include "mainwindow.h"
 #include "common.h"
@@ -16,11 +21,47 @@
 
 using namespace std::chrono_literals;
 
+namespace
+{
+volatile std::sig_atomic_t quitWriteFd = -1;
+
+void handleSigterm(int)
+{
+    const int savedErrno = errno;
+    const char byte = 1;
+    [[maybe_unused]] const auto written = write(quitWriteFd, &byte, sizeof(byte));
+    errno = savedErrno;
+}
+
+// Keep the pipe available to the signal handler until the process exits.
+int installQuitHandler()
+{
+    int fds[2];
+    if (pipe2(fds, O_NONBLOCK | O_CLOEXEC) != 0) {
+        qErrnoWarning("Cannot create the SIGTERM notification pipe");
+        return -1;
+    }
+    quitWriteFd = fds[1];
+    struct sigaction action {};
+    action.sa_handler = handleSigterm;
+    action.sa_flags = SA_RESTART;
+    sigemptyset(&action.sa_mask);
+    if (sigaction(SIGTERM, &action, nullptr) != 0) {
+        qErrnoWarning("Cannot install the SIGTERM handler");
+        close(fds[0]);
+        close(fds[1]);
+        return -1;
+    }
+    return fds[0];
+}
+}
+
 int main(int argc, char *argv[])
 {
     const QByteArray option = argc == 2 ? QByteArray(argv[1]) : QByteArray();
     const bool informational = option == "--help";
     std::unique_ptr<QCoreApplication> app;
+    int quitReadFd = -1;
     if (informational) {
         app = std::make_unique<QCoreApplication>(argc, argv);
     } else {
@@ -37,6 +78,10 @@ int main(int argc, char *argv[])
             qputenv("QT_QPA_PLATFORM", "xcb");
         }
 
+        quitReadFd = installQuitHandler();
+        if (quitReadFd < 0) {
+            return EXIT_FAILURE;
+        }
         app = std::make_unique<QApplication>(argc, argv);
     }
 
@@ -94,15 +139,21 @@ int main(int argc, char *argv[])
 
     // Allow informational invocations like --help to bypass single-instance toggle behavior.
     QProcess proc;
-    proc.start("pgrep", {"--count", "--exact", QApplication::applicationName()});
+    const QStringList instanceMatch {"--euid", QString::number(geteuid()), "--exact", QApplication::applicationName()};
+    proc.start("pgrep", QStringList {"--count"} + instanceMatch);
     proc.waitForFinished();
     if (proc.exitCode() == 0 && proc.readAllStandardOutput().trimmed().toInt() > 1) {
-        QProcess::startDetached("pkill", {"--oldest", QApplication::applicationName()});
+        QProcess::execute("pkill", QStringList {"--oldest"} + instanceMatch);
         return EXIT_SUCCESS;
     }
 
     MainWindow mainWindow(parser);
     mainWindow.show();
+    QSocketNotifier quitNotifier(quitReadFd, QSocketNotifier::Read);
+    QObject::connect(&quitNotifier, &QSocketNotifier::activated, app.get(), [&quitNotifier] {
+        quitNotifier.setEnabled(false);
+        QCoreApplication::quit();
+    });
 
     // Load timeout settings
     const QSettings userSettings(QSettings::UserScope, QApplication::organizationName(), QApplication::applicationName());
