@@ -14,21 +14,15 @@
 
 namespace
 {
-bool isExecutableAvailable(const QString &program)
+bool executeCommand(const QString &program, const QStringList &arguments)
 {
-    return !QStandardPaths::findExecutable(program).isEmpty();
+    return !QStandardPaths::findExecutable(program).isEmpty() && QProcess::execute(program, arguments) == 0;
 }
 
 bool executeWithFallback(const QString &primary, const QStringList &primaryArgs, const QString &fallback,
                          const QStringList &fallbackArgs)
 {
-    if (isExecutableAvailable(primary) && QProcess::execute(primary, primaryArgs) == 0) {
-        return true;
-    }
-    if (isExecutableAvailable(fallback) && QProcess::execute(fallback, fallbackArgs) == 0) {
-        return true;
-    }
-    return false;
+    return executeCommand(primary, primaryArgs) || executeCommand(fallback, fallbackArgs);
 }
 }
 
@@ -133,9 +127,12 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 
 void MainWindow::onPushLock()
 {
-    // Try common screen lockers in order of preference
-    if (!executeWithFallback("dm-tool", {"switch-to-greeter"}, "loginctl", {"lock-session"})) {
-        executeWithFallback("xscreensaver-command", {"-lock"}, "gnome-screensaver-command", {"-l"});
+    if (!executeCommand("light-locker-command", {"-l"})
+        && !executeCommand("xscreensaver-command", {"-lock"})
+        && !executeCommand("gnome-screensaver-command", {"-l"})
+        && !executeCommand("xdg-screensaver", {"lock"})
+        && !executeCommand("loginctl", {"lock-session"})) {
+        QMessageBox::warning(this, tr("Lock Screen"), tr("Couldn't request a screen lock."));
     }
 }
 
@@ -143,13 +140,6 @@ void MainWindow::onPushExit()
 {
     QString sessionDesktop = getDesktopEnvironment();
     bool commandExecuted = false;
-
-    auto executeCommand = [&](const QString &program, const QStringList &arguments) -> bool {
-        if (QStandardPaths::findExecutable(program).isEmpty()) {
-            return false;
-        }
-        return QProcess::execute(program, arguments) == 0;
-    };
 
     // Map format: {desktop, {program, {arguments}}}
     static const QMap<QString, QPair<QString, QStringList>> desktopCommands

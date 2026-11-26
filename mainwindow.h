@@ -13,7 +13,7 @@ public:
 
 private slots:
     void onPushExit();
-    static void onPushLock();
+    void onPushLock();
     static void onPushRestart();
     static void onPushRestartDe();
     static void onPushShutdown();
