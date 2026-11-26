@@ -15,6 +15,34 @@
 
 namespace
 {
+// Map format: {desktop, {program, {arguments}}}
+const QMap<QString, QPair<QString, QStringList>> desktopCommands
+    = {{"fluxbox", {"fluxbox-remote", {"exit"}}},
+       {"xfce", {"xfce4-session-logout", {"--logout"}}},
+       {"kde", {"qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"}}},
+       {"jwm", {"jwm", {"-exit"}}},
+       {"icewm-session", {"icesh", {"logout"}}},
+       {"i3", {"i3-msg", {"exit"}}},
+       {"mate", {"mate-session-save", {"--logout"}}},
+       {"lxde", {"lxsession-logout", {}}},
+       {"lxqt", {"lxqt-leave", {"--logout"}}}};
+
+QString getDesktopEnvironment()
+{
+    QStringList candidates = qEnvironmentVariable("XDG_CURRENT_DESKTOP").split(':', Qt::SkipEmptyParts);
+    candidates.prepend(qEnvironmentVariable("XDG_SESSION_DESKTOP"));
+    for (const QString &candidate : candidates) {
+        QString desktop = candidate.trimmed().toLower();
+        if (desktop == "icewm") {
+            desktop = QStringLiteral("icewm-session");
+        }
+        if (desktopCommands.contains(desktop)) {
+            return desktop;
+        }
+    }
+    return {};
+}
+
 bool executeCommand(const QString &program, const QStringList &arguments)
 {
     return !QStandardPaths::findExecutable(program).isEmpty() && QProcess::execute(program, arguments) == 0;
@@ -63,10 +91,7 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
     iconSize = qBound(16, userSettings.value("IconSize", systemSettings.value("IconSize", defaultIconSize).toUInt()).toInt(), 256);
 
     // Detect desktop environment
-    QString sessionDesktop = getDesktopEnvironment();
-    if (sessionDesktop.isEmpty()) {
-        sessionDesktop = QStringLiteral("unknown");
-    }
+    const QString sessionDesktop = getDesktopEnvironment();
 
     // Set up desktop-specific restart label
     static const QMap<QString, QString> desktopLabels
@@ -165,18 +190,6 @@ void MainWindow::onPushExit()
 {
     QString sessionDesktop = getDesktopEnvironment();
     bool commandExecuted = false;
-
-    // Map format: {desktop, {program, {arguments}}}
-    static const QMap<QString, QPair<QString, QStringList>> desktopCommands
-        = {{"fluxbox", {"fluxbox-remote", {"exit"}}},
-           {"xfce", {"xfce4-session-logout", {"--logout"}}},
-           {"kde", {"qdbus", {"org.kde.ksmserver", "/KSMServer", "logout", "0", "0", "0"}}},
-           {"jwm", {"jwm", {"-exit"}}},
-           {"icewm-session", {"icesh", {"logout"}}},
-           {"i3", {"i3-msg", {"exit"}}},
-           {"mate", {"mate-session-save", {"--logout"}}},
-           {"lxde", {"lxsession-logout", {}}},
-           {"lxqt", {"lxqt-leave", {"--logout"}}}};
 
     if (desktopCommands.contains(sessionDesktop)) {
         const auto commandPair = desktopCommands.value(sessionDesktop);
