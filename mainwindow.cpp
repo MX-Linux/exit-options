@@ -204,6 +204,11 @@ MainWindow::MainWindow(const QCommandLineParser &parser, QWidget *parent)
 void MainWindow::onPushLock()
 {
     QString error;
+    if (getDesktopEnvironment() == "xfce"
+        && (executeCommand("xflock4", {}, error)
+            || executeCommand("xfce4-screensaver-command", {"--lock"}, error))) {
+        return;
+    }
     if (!executeCommand("light-locker-command", {"-l"}, error)
         && !executeCommand("xscreensaver-command", {"-lock"}, error)
         && !executeCommand("gnome-screensaver-command", {"-l"}, error)
