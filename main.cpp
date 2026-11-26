@@ -6,6 +6,7 @@
 #include <QProcess>
 #include <QSettings>
 #include <QSocketNotifier>
+#include <QTextStream>
 #include <QTimer>
 #include <QTranslator>
 
@@ -113,28 +114,26 @@ int main(int argc, char *argv[])
                                           "-h, --horizontal to display buttons horizontally.")});
     parser.process(*app);
     if (parser.isSet("help")) {
-        qDebug().noquote() << QObject::tr("Pop-up with exit options for MX Fluxbox");
-        qDebug().noquote() << QObject::tr("Usage: exit-options [options]\n");
-        qDebug().noquote() << QObject::tr("Options:");
-        qDebug().noquote() << QObject::tr("  -h, --horizontal\t Option to display buttons horizontally");
-        qDebug().noquote() << QObject::tr("  -v, --vertical\t Option to display buttons vertically");
-        qDebug().noquote() << QObject::tr("  -t, --timeout <sec>\t Timeout duration in seconds\n");
-        qDebug().noquote() << QObject::tr(
-            "The display orientation option used will be remembered and used the next time you start the app");
-        qDebug().noquote() << QObject::tr("Alternatively, set the option 'layout=horizontal' or 'layout=vertical' in "
-                                          "~/.config/MX-Linux/exit-options.conf")
-                                  + "\n";
-        qDebug().noquote() << QObject::tr(
-            "To set the timeout in exit-options.conf use 'timeout=X' where X is the timeout in seconds.");
-        qDebug().noquote() << QObject::tr("You can also use 'timeout=off' to turn the timeout off.") + "\n";
-        qDebug().noquote()
-            << QObject::tr("You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf "
+        QTextStream out(stdout);
+        out << QObject::tr("Pop-up with exit options for MX Fluxbox") << '\n';
+        out << QObject::tr("Usage: exit-options [options]\n") << '\n';
+        out << QObject::tr("Options:") << '\n';
+        out << QObject::tr("  -h, --horizontal\t Option to display buttons horizontally") << '\n';
+        out << QObject::tr("  -v, --vertical\t Option to display buttons vertically") << '\n';
+        out << QObject::tr("  -t, --timeout <sec>\t Timeout duration in seconds\n") << '\n';
+        out << QObject::tr("The display orientation option used will be remembered and used the next time you start the app")
+            << '\n';
+        out << QObject::tr("Alternatively, set the option 'layout=horizontal' or 'layout=vertical' in "
+                           "~/.config/MX-Linux/exit-options.conf") << "\n\n";
+        out << QObject::tr("To set the timeout in exit-options.conf use 'timeout=X' where X is the timeout in seconds.")
+            << '\n';
+        out << QObject::tr("You can also use 'timeout=off' to turn the timeout off.") << "\n\n";
+        out << QObject::tr("You can define custom icons by adding IconName=/path/iconame.ext in the exit-options.conf "
                            "file. The names of the icons that you remap: %1")
-                       .arg("LockIcon, LogoutIcon, SuspendIcon, RebootIcon, ShutdownIcon.")
-                   + "\n";
-        qDebug().noquote() << QObject::tr("Other options that can be set in the exit-options.conf file: %1")
-                                  .arg("IconSize=, Margin=, Spacing=");
-        exit(EXIT_SUCCESS);
+                   .arg("LockIcon, LogoutIcon, SuspendIcon, RebootIcon, ShutdownIcon.") << "\n\n";
+        out << QObject::tr("Other options that can be set in the exit-options.conf file: %1")
+                   .arg("IconSize=, Margin=, Spacing=") << '\n';
+        return EXIT_SUCCESS;
     }
 
     // Allow informational invocations like --help to bypass single-instance toggle behavior.
