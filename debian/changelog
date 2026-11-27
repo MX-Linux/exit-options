@@ -1,3 +1,9 @@
+exit-options (26.11.01) mx; urgency=medium
+
+  * Restore the Reboot, Shutdown, and Suspend buttons on SysVinit systems.
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 27 Nov 2026 09:17:33 -0500
+
 exit-options (26.11) mx; urgency=medium
 
   * Keep SSH sessions and background jobs running when logging out of the
