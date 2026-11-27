@@ -1,5 +1,6 @@
 #include <QApplication>
-#include <QDBusConnectionInterface>
+#include <QDBusConnection>
+#include <QDBusError>
 #include <QDBusMessage>
 #include <QFile>
 #include <QFileInfo>
@@ -138,37 +139,45 @@ void showActionError(QWidget *parent, const QString &title, const QString &messa
     box.exec();
 }
 
-bool requestPowerAction(const QString &action, const QString &legacyProgram, const QStringList &legacyArgs, QString &error)
+bool requestPowerAction(const QString &method, const QString &sysvProgram, const QStringList &args, QString &error)
 {
     if (QFileInfo::exists(QStringLiteral("/run/systemd/system"))) {
-        return executeCommand("systemctl", {action}, error);
+        return executeCommand("systemctl", {method.toLower()}, error);
     }
 
-    auto *bus = QDBusConnection::systemBus().interface();
-    if (!bus) {
-        error = QObject::tr("Couldn't connect to the system bus.");
+    const auto bus = QDBusConnection::systemBus();
+    if (bus.isConnected()) {
+        auto request = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.login1"),
+                                                      QStringLiteral("/org/freedesktop/login1"),
+                                                      QStringLiteral("org.freedesktop.login1.Manager"), method);
+        request << true; // Allow the graphical authentication agent to prompt.
+        request.setInteractiveAuthorizationAllowed(true);
+        const auto reply = bus.call(request);
+        if (reply.type() == QDBusMessage::ReplyMessage) {
+            return true;
+        }
+        // Only retry when the service or method was unavailable. A timeout may
+        // mean the request was already accepted, and a refusal must be respected.
+        const QDBusError failure(reply);
+        const bool activationFailed = failure.name().startsWith(QStringLiteral("org.freedesktop.DBus.Error.Spawn."));
+        if (failure.type() != QDBusError::ServiceUnknown && failure.type() != QDBusError::UnknownObject
+            && failure.type() != QDBusError::UnknownInterface && failure.type() != QDBusError::UnknownMethod
+            && !activationFailed) {
+            error = failure.message();
+            return false;
+        }
+    } else if (bus.lastError().type() == QDBusError::AccessDenied
+               || bus.lastError().name() == QStringLiteral("org.freedesktop.DBus.Error.AuthFailed")) {
+        error = bus.lastError().message();
         return false;
     }
-    const QString loginService = QStringLiteral("org.freedesktop.login1");
-    const auto registered = bus->isServiceRegistered(loginService);
-    if (!registered.isValid()) {
-        error = registered.error().message();
-        return false;
-    }
-    if (registered.value()) {
-        return executeCommand("loginctl", {action}, error);
-    }
-    const auto activatable = bus->activatableServiceNames();
-    if (!activatable.isValid()) {
-        error = activatable.error().message();
-        return false;
-    }
-    if (activatable.value().contains(loginService)) {
-        return executeCommand("loginctl", {action}, error);
-    }
-    // Only use legacy tools when the bus confirms there is no login manager.
-    return executeCommand("sudo", QStringList {"-n", legacyProgram} + legacyArgs, error)
-        || executeCommand(legacyProgram, legacyArgs, error);
+
+    // SysVinit installations may grant access through sudoers, the tool itself,
+    // or an administrator authenticating through the desktop's polkit agent.
+    const QStringList command = QStringList {sysvProgram} + args;
+    return executeCommand("sudo", QStringList {"-n"} + command, error)
+        || executeCommand(sysvProgram, args, error)
+        || (QFileInfo(sysvProgram).isExecutable() && executeCommand("pkexec", command, error));
 }
 }
 
@@ -366,7 +375,7 @@ void MainWindow::quitOnTimeout()
 void MainWindow::onPushSleep()
 {
     QString error;
-    if (!requestPowerAction("suspend", "pm-suspend", {}, error)) {
+    if (!requestPowerAction("Suspend", "/usr/sbin/pm-suspend", {}, error)) {
         showActionError(this, tr("Suspend"), tr("Couldn't suspend the computer."), error);
     }
 }
@@ -410,7 +419,7 @@ QPushButton *MainWindow::createButton(const QString &iconName, const QString &ic
 void MainWindow::onPushRestart()
 {
     QString error;
-    if (!requestPowerAction("reboot", "reboot", {}, error)) {
+    if (!requestPowerAction("Reboot", "/sbin/reboot", {}, error)) {
         showActionError(this, tr("Reboot"), tr("Couldn't reboot the computer."), error);
     }
 }
@@ -442,7 +451,7 @@ void MainWindow::onPushRestartDe()
 void MainWindow::onPushShutdown()
 {
     QString error;
-    if (!requestPowerAction("poweroff", "/sbin/halt", {"-p"}, error)) {
+    if (!requestPowerAction("PowerOff", "/sbin/halt", {"-p"}, error)) {
         showActionError(this, tr("Shutdown"), tr("Couldn't shut down the computer."), error);
     }
 }
